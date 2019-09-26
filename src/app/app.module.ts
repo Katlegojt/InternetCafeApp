@@ -26,7 +26,7 @@ const firebaseConfig = {
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),  AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig), AppRoutingModule,AgmCoreModule.forRoot({
-    apiKey: 'AIzaSyBy1jG31ICdmSvQDePrjpYVD4TC4fEjKZQ'
+    apiKey: ''
   })],
   providers: [
     StatusBar,
