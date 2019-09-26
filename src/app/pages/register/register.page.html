@@ -4,6 +4,52 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
 
+    <!-- <ion-card class="welcome-card">
+        <ion-img src="/assets/shapes.svg"></ion-img>
+        <ion-card-header>
+          <ion-card-subtitle>Get Started</ion-card-subtitle>
+          <ion-card-title>Welcome to Ionic 4 Auth</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Starting point for Ionic 4 Application with Authentication.</p>
+        </ion-card-content>
+      </ion-card> -->
+
+  <ion-card class="welcome-card">
+  <ion-card-content>
+  <ion-item>
+    <ion-label position="floating">
+      Username
+    </ion-label>
+    <ion-input type="text" [(ngModel)] ="username"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label position="floating">
+      Email
+      </ion-label>
+      <ion-input type="text" [(ngModel)] ="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">
+         Password
+        </ion-label>
+        <ion-input type="text" [(ngModel)] ="pwd"></ion-input>
+      </ion-item>
+<br>
+<div text-center>
+  <ion-button expand="full" (click)="signup()" color="success">Signup</ion-button>
+</div>
+
+<br><br><br>
+<div text-center>
+
+    <ion-button (click)="goto_login()" fill="clear">Login</ion-button>
+   <!-- <ion-button expand="block" [routerDirection]="'forward'" [routerLink]="['/signup']">Sign Up</ion-button>  -->
+  </div>
+</ion-card-content>
+</ion-card>
 </ion-content>
