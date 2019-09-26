@@ -6,15 +6,27 @@ import { AgmCoreModule } from '@agm/core';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from '@angular/fire';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
+  authDomain: "internetcafe-8ab2b.firebaseapp.com",
+  databaseURL: "https://internetcafe-8ab2b.firebaseio.com",
+  projectId: "internetcafe-8ab2b",
+  storageBucket: "internetcafe-8ab2b.appspot.com",
+  messagingSenderId: "194688123148",
+  appId: "1:194688123148:web:0329ce7412e2b9ad2d4929"
+};
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AgmCoreModule.forRoot({
-    apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
+  imports: [BrowserModule, IonicModule.forRoot(),  AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig), AppRoutingModule,AgmCoreModule.forRoot({
+    apiKey: 'AIzaSyBy1jG31ICdmSvQDePrjpYVD4TC4fEjKZQ'
   })],
   providers: [
     StatusBar,
