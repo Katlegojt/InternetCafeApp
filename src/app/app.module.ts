@@ -11,8 +11,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import * as firebase from 'firebase';
+import { AuthenticationService } from './services/authentication.service';
+import { AngularFireAuth } from '@angular/fire/auth'
 const firebaseConfig = {
   apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
   authDomain: "internetcafe-8ab2b.firebaseapp.com",
@@ -22,16 +23,17 @@ const firebaseConfig = {
   messagingSenderId: "194688123148",
   appId: "1:194688123148:web:0329ce7412e2b9ad2d4929"
 };
-
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(),ReactiveFormsModule,  AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig), AppRoutingModule,AgmCoreModule.forRoot({
+  imports: [BrowserModule, IonicModule.forRoot(),  AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig), AppRoutingModule,AgmCoreModule.forRoot({
     apiKey: 'AIzaSyBy1jG31ICdmSvQDePrjpYVD4TC4fEjKZQ'
   })],
   providers: [
-    StatusBar,
-    SplashScreen,
+    StatusBar,AngularFireAuth,
+    SplashScreen,AuthenticationService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

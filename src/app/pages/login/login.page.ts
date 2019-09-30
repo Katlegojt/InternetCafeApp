@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { NavController, AlertController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+// import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth'
 
 @Component({
   selector: 'app-login',
@@ -19,6 +21,7 @@ export class LoginPage implements OnInit {
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
     public alertCtrl:AlertController,
+    public afAuth: AngularFireAuth,
    
     
   ) { }
@@ -52,7 +55,7 @@ export class LoginPage implements OnInit {
     .then(res => {
       console.log(res);
       this.errorMessage = "";
-      this.navCtrl.navigateForward('/edit');
+      this.navCtrl.navigateForward('/login');
     }, err => {
       this.errorMessage = err.message;
       console.log(err);
@@ -64,7 +67,7 @@ export class LoginPage implements OnInit {
     .then(res => {
       console.log(res);
       this.errorMessage = "";
-      this.navCtrl.navigateForward('/home');
+      this.navCtrl.navigateForward('/suggested-list');
     }, err => {
       this.errorMessage = err.message;
       console.log(err);
@@ -76,7 +79,7 @@ export class LoginPage implements OnInit {
       res=>{
         console.log(res);
         this.errorMessage="success", "Successfully Logged In with Google";
-        this.navCtrl.navigateForward('/home');
+        this.navCtrl.navigateForward('/suggested-list');
 
       },err=>{
         this.errorMessage="danger", err.message;
@@ -90,7 +93,7 @@ export class LoginPage implements OnInit {
       res=>{
         console.log(res);
         this.errorMessage="success", "Successfully Logged In with Facebook";
-        this.navCtrl.navigateForward('/home');
+        this.navCtrl.navigateForward('/suggested-list');
 
       },err=>{
         this.errorMessage="danger", err.message;
@@ -114,11 +117,19 @@ export class LoginPage implements OnInit {
   }
 
   loginAnonymously(){
-    
+    this.afAuth.auth.signInAnonymously().then(() => {
+      localStorage.setItem('userid', this.afAuth.auth.currentUser.uid);
+      this.navCtrl.navigateForward('/suggested-list');
+
+    }).catch(err => {
+      alert(err.message);
+    });
   }
   
   goToRegisterPage(){
     this.navCtrl.navigateForward('/register');
   }
-
+  goToResetPage(){
+    this.navCtrl.navigateForward('/reset');
+  }
 }

@@ -6,13 +6,20 @@ ion-button {
     margin: 5%;
 }
 img{
- padding: 20px 70px;
+height: 250px;
 
 }
 .form{
     background-color:#fff; 
     margin:10px;
+    border: 2px ;
+    padding: 10px;
+    border-radius: 25px;
+    
 }
 .go-to-login{
     color: black;
 }
+.go-to-register{ 
+    --border-color:white;
+ } 

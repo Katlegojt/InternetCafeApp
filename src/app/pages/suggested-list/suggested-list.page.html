@@ -1,9 +1,133 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>suggestedList</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
 
+<ion-content color="primary">
+    <ion-card>  
+     
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <!-- Searchbar with a placeholder -->
+            <ion-searchbar placeholder="Search internet cafe"class="searchbar-input" ></ion-searchbar>
+          </ion-col>
+          <ion-col>
+            <!-- filtering locations -->
+            <ion-searchbar placeholder="filter locations"[formControl]="searchControl"></ion-searchbar>
+
+            <!-- <ion-list>
+              <ion-item *ngFor="let item of items">
+                {{ item.title }}
+              </ion-item>
+            </ion-list> -->
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+      <ion-card>
+        
+          <ion-item lines="none">
+            <ion-icon name="pin" slot="start"></ion-icon>
+            <ion-label>Name of internet cafe</ion-label>
+           
+          </ion-item>
+        
+          <ion-card-content>
+              <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                        
+                        <ion-text>Street name</ion-text><br><br>
+                        <ion-button fill="outline" >See more</ion-button>
+                       
+                    </ion-col>
+                    <ion-col>
+                        <img src="assets/Background.png" alt="img">
+                        
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+             
+             
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+        
+            <ion-item lines="none">
+              <ion-icon name="pin" slot="start"></ion-icon>
+              <ion-label>Name of internet cafe</ion-label>
+             
+            </ion-item>
+          
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                          
+                          <ion-text>Street name</ion-text><br><br>
+                          <ion-button fill="outline" >See more</ion-button>
+                         
+                      </ion-col>
+                      <ion-col>
+                          <img src="assets/Background.png" alt="img">
+                          
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+               
+               
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+        
+              <ion-item lines="none">
+                <ion-icon name="pin" slot="start"></ion-icon>
+                <ion-label>Name of internet cafe</ion-label>
+               
+              </ion-item>
+            
+              <ion-card-content>
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col>
+                            
+                            <ion-text>Street name</ion-text><br><br>
+                            <ion-button fill="outline" >See more</ion-button>
+                           
+                        </ion-col>
+                        <ion-col>
+                            <img src="assets/Background.png" alt="img">
+                            
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                 
+                 
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+        
+                <ion-item lines="none">
+                  <ion-icon name="pin" slot="start"></ion-icon>
+                  <ion-label>Name of internet cafe</ion-label>
+                 
+                </ion-item>
+              
+                <ion-card-content>
+                    <ion-grid>
+                        <ion-row>
+                          <ion-col>
+                              
+                              <ion-text>Street name</ion-text><br><br>
+                              <ion-button fill="outline" >See more</ion-button>
+                             
+                          </ion-col>
+                          <ion-col>
+                              <img src="assets/Background.png" alt="img">
+                              
+                          </ion-col>
+                        </ion-row>
+                      </ion-grid>
+                   
+                   
+                </ion-card-content>
+              </ion-card>
 </ion-content>

@@ -1,9 +1,9 @@
 
 
     <ion-content color="primary">
-     
-      <img src="assets/logo.png">
-   
+     <br>
+      <img src="assets/Background.png">
+   <br>
         <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
             <ion-item>
                 <ion-label  position="floating" color="primary">Username</ion-label>
@@ -46,7 +46,7 @@
             <label class="error-message">{{errorMessage}}</label>
             <label class="success-message">{{successMessage}}</label>
         
-          <p class="go-to-login">Already have an account? <a (click)="goLoginPage()">Try to Log In.</a></p><br>
+            <ion-item class="go-to-register">Already have an account? <a (click)="goLoginPage()">Try to Log In.</a></ion-item><br>
         
         </form>
 </ion-content>
