@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
+import { GeoService } from 'src/app/services/geo.service';
 
 @Component({
   selector: 'app-map',
@@ -11,11 +12,15 @@ export class MapPage implements OnInit {
   lat :number;
   lng :number;
 
+  markers: any;
 
-  constructor() { }
+
+  constructor( private geo: GeoService) { }
 
   ngOnInit() {
     this.getUSerLocation();
+
+    this.geo.hits.subscribe(hits => this.markers = hits)
   }
 
   private getUSerLocation(){
@@ -24,8 +29,16 @@ export class MapPage implements OnInit {
       navigator.geolocation.getCurrentPosition(position => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
+
+        this.geo.getLocations(500, [this.lat, this.lng])
+
       })
     }
+  }
+
+  onClickLocation(event){
+   
+    console.log(event);
   }
 
 }
