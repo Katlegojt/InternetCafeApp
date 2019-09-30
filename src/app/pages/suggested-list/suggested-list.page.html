@@ -4,14 +4,11 @@
     <ion-card>  
      
       <ion-grid>
-        <ion-row>
-          <ion-col>
-            <!-- Searchbar with a placeholder -->
-            <ion-searchbar placeholder="Search internet cafe"class="searchbar-input" ></ion-searchbar>
-          </ion-col>
+       
+          <ion-row>
           <ion-col>
             <!-- filtering locations -->
-            <ion-searchbar placeholder="filter locations"[formControl]="searchControl"></ion-searchbar>
+            <ion-searchbar placeholder="Search internet cafe"[formControl]="searchControl"></ion-searchbar>
 
             <!-- <ion-list>
               <ion-item *ngFor="let item of items">
@@ -22,87 +19,7 @@
         </ion-row>
       </ion-grid>
     </ion-card>
-      <ion-card>
-        
-          <ion-item lines="none">
-            <ion-icon name="pin" slot="start"></ion-icon>
-            <ion-label>Name of internet cafe</ion-label>
-           
-          </ion-item>
-        
-          <ion-card-content>
-              <ion-grid>
-                  <ion-row>
-                    <ion-col>
-                        
-                        <ion-text>Street name</ion-text><br><br>
-                        <ion-button fill="outline" >See more</ion-button>
-                       
-                    </ion-col>
-                    <ion-col>
-                        <img src="assets/Background.png" alt="img">
-                        
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-             
-             
-          </ion-card-content>
-        </ion-card>
-        <ion-card>
-        
-            <ion-item lines="none">
-              <ion-icon name="pin" slot="start"></ion-icon>
-              <ion-label>Name of internet cafe</ion-label>
-             
-            </ion-item>
-          
-            <ion-card-content>
-                <ion-grid>
-                    <ion-row>
-                      <ion-col>
-                          
-                          <ion-text>Street name</ion-text><br><br>
-                          <ion-button fill="outline" >See more</ion-button>
-                         
-                      </ion-col>
-                      <ion-col>
-                          <img src="assets/Background.png" alt="img">
-                          
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid>
-               
-               
-            </ion-card-content>
-          </ion-card>
-          <ion-card>
-        
-              <ion-item lines="none">
-                <ion-icon name="pin" slot="start"></ion-icon>
-                <ion-label>Name of internet cafe</ion-label>
-               
-              </ion-item>
-            
-              <ion-card-content>
-                  <ion-grid>
-                      <ion-row>
-                        <ion-col>
-                            
-                            <ion-text>Street name</ion-text><br><br>
-                            <ion-button fill="outline" >See more</ion-button>
-                           
-                        </ion-col>
-                        <ion-col>
-                            <img src="assets/Background.png" alt="img">
-                            
-                        </ion-col>
-                      </ion-row>
-                    </ion-grid>
-                 
-                 
-              </ion-card-content>
-            </ion-card>
+      
             <ion-card>
         
                 <ion-item lines="none">
@@ -110,24 +27,65 @@
                   <ion-label>Name of internet cafe</ion-label>
                  
                 </ion-item>
-              
+                <img src="assets/cafe1.jpg" alt="img">
                 <ion-card-content>
-                    <ion-grid>
-                        <ion-row>
-                          <ion-col>
-                              
-                              <ion-text>Street name</ion-text><br><br>
-                              <ion-button fill="outline" >See more</ion-button>
-                             
-                          </ion-col>
-                          <ion-col>
-                              <img src="assets/Background.png" alt="img">
-                              
-                          </ion-col>
-                        </ion-row>
-                      </ion-grid>
-                   
-                   
+                   <ion-item lines="none">
+                     <ion-label>
+                        Street name
+                     </ion-label>
+                     <ion-button fill="outline" (click)="goToSeeMorePage()" >See more</ion-button>
+                   </ion-item>
                 </ion-card-content>
               </ion-card>
+              <ion-card>
+        
+                  <ion-item lines="none">
+                    <ion-icon name="pin" slot="start"></ion-icon>
+                    <ion-label>Name of internet cafe</ion-label>
+                   
+                  </ion-item>
+                  <img src="assets/cafe2.jpg" alt="img">
+                  <ion-card-content>
+                      <ion-item lines="none">
+                          <ion-label>
+                             Street name
+                          </ion-label>
+                          <ion-button fill="outline" (click)="goToSeeMorePage()" >See more</ion-button>
+                        </ion-item>
+                  </ion-card-content>
+                </ion-card>
+                <ion-card>
+        
+                    <ion-item lines="none">
+                      <ion-icon name="pin" slot="start"></ion-icon>
+                      <ion-label>Name of internet cafe</ion-label>
+                     
+                    </ion-item>
+                    <img src="assets/cafe3.jpg" alt="img">
+                    <ion-card-content>
+                        <ion-item lines="none">
+                            <ion-label>
+                               Street name
+                            </ion-label>
+                            <ion-button fill="outline" (click)="goToSeeMorePage()" >See more</ion-button>
+                          </ion-item>
+                    </ion-card-content>
+                  </ion-card>
+                  <ion-card>
+        
+                      <ion-item lines="none">
+                        <ion-icon name="pin" slot="start"></ion-icon>
+                        <ion-label>Name of internet cafe</ion-label>
+                       
+                      </ion-item>
+                      <img src="assets/cafe4.jpeg" alt="img">
+                      <ion-card-content>
+                          <ion-item lines="none">
+                              <ion-label>
+                                 Street name
+                              </ion-label>
+                              <ion-button fill="outline" (click)="goToSeeMorePage()" >See more</ion-button>
+                            </ion-item>
+                      </ion-card-content>
+                    </ion-card>
 </ion-content>
