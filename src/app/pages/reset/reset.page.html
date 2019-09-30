@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button default-href="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+
+    <br>
+    <img src="assets/Background.png">
+ <br>
+   
+   <div class="form">
+ <ion-item>
+    <ion-label  position="floating" color="primary">Email</ion-label>
+    <ion-input [(ngModel)]="resetEmail"></ion-input>
+  </ion-item>
+  <ion-button (click)="reset(resetEmail)">Reset password.</ion-button>
+</div>
+</ion-content>

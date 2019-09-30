@@ -29,11 +29,30 @@ export class GeoService {
 
   }
 
+  dummyMethod(){
+    this.geoFire.set("some_key", [37.79, -122.41]).then(function() {
+      console.log("Provided key has been added to GeoFire");
+    }, function(error) {
+      console.log("Error: " + error);
+    });
+    this.geoFire.set({
+      "some_key": [37.79, -122.41],
+      "another_key": [36.98, -122.56]
+    }).then(function() {
+      console.log("Provided keys have been added to GeoFire");
+    }, function(error) {
+      console.log("Error: " + error);
+    });
+    
+  }
+
   // adds Geofire data to a database
   setLocation(key: string, coords: Array<number>) {
     this.geoFire.set(key, coords)
       .then(_ => console.log('location updated'))
       .catch(err => console.log(err))
+
+      
   }
 
   //Query nearby locations, then maps to BehaviorSubject

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { GeoService } from 'src/app/services/geo.service';
 
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.page.html',
@@ -15,7 +16,10 @@ export class MapPage implements OnInit {
   markers: any;
 
 
-  constructor( private geo: GeoService) { }
+  constructor( private geo: GeoService) { 
+this.geo.dummyMethod();
+
+  }
 
   ngOnInit() {
     this.getUSerLocation();
@@ -36,8 +40,10 @@ export class MapPage implements OnInit {
     }
   }
 
+  
+
   onClickLocation(event){
-   
+   this.geo.setLocation('locations', [event.coords.lat, event.coords.lng]);
     console.log(event);
   }
 

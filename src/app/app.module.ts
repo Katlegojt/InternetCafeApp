@@ -12,6 +12,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import {  AngularFireDatabaseModule} from 'angularfire2/database'
+import * as firebase from 'firebase';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthenticationService } from './services/authentication.service';
 
 
 const firebaseConfig = {
@@ -23,16 +26,17 @@ const firebaseConfig = {
   messagingSenderId: "194688123148",
   appId: "1:194688123148:web:0329ce7412e2b9ad2d4929"
 };
-
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),  AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig),  AngularFireDatabaseModule, AppRoutingModule,AgmCoreModule.forRoot({
-    apiKey: 'AIzaSyBy1jG31ICdmSvQDePrjpYVD4TC4fEjKZQ'
+    apiKey: ''
   })],
   providers: [
-    StatusBar,
-    SplashScreen,
+    StatusBar,AngularFireAuth,
+    SplashScreen,AuthenticationService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
