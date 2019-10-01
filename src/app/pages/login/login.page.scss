@@ -1,26 +1,4 @@
-// .background{
-//     background-color: #689ACA
-//     }
-//     ion-button {
-//         width: 90%;
-//         margin: 5%;
-//     }
-//     img{
-//      padding: 20px 70px;
-    
-//     }
-//     .form{
-//         background-color:#fff; 
-//         margin:10px;
-//     }
-//     .go-to-login{
-//         color: black;
-//     }
    
-//     .icons {
-//         width: 90%;
-//          margin: 5%;
-//     }    
 .background{
     background-color: #689ACA
     }
@@ -49,3 +27,25 @@
     .go-to-register{ 
         --border-color:white;
      } 
+.validation-errors,.error-message{
+    color: red;
+}
+ion-row {
+    text-align: center;
+}
+ion-icon{
+    font-size: 30px; 
+}
+.facebook{
+    color:#3b5998;
+   
+}
+.twitter{
+    color: rgba(56,161,243)
+}
+.google {
+	
+    background: -webkit-linear-gradient(rgb(243, 24, 5), #F4B400,#0F9D58,#4285F4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

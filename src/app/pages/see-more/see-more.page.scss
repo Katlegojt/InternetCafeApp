@@ -11,14 +11,33 @@ ion-searchbar{
 
   }
   ion-col{
-     border: 2px solid #689ACA;
-    background-color: #689ACA;
-    color: white;
+      // border: 1px solid #689ACA;
+    //  background-color: #689ACA;
+     color: white;
      margin: 10px;
-    text-align: center;
+     text-align: center;
  
     
   }
   ion-text{
     text-align: center;
   }
+  .direction{
+    color: #689ACA;
+  }
+  .label{
+    font-size: 30px; 
+
+    color: #689ACA
+  }
+  ion-label{
+    color:#689ACA;
+    
+  }
+  img{
+    width: 100%;
+    height: 230px;
+}
+ion-slide{
+  width: 100%;
+}

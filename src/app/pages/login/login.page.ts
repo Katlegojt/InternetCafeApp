@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   errorMessage: string = '';
   // formBuilder: any;
   constructor(
- 
+    // public alertController: AlertController,
     private navCtrl: NavController,
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
@@ -50,17 +50,7 @@ export class LoginPage implements OnInit {
     ]
   };
 
-  reset(value){
-    this.authService.reset(value)
-    .then(res => {
-      console.log(res);
-      this.errorMessage = "";
-      this.navCtrl.navigateForward('/login');
-    }, err => {
-      this.errorMessage = err.message;
-      console.log(err);
-    })
-  }
+  
   
   loginUser(value){
     this.authService.loginUser(value)
@@ -131,5 +121,43 @@ export class LoginPage implements OnInit {
   }
   goToResetPage(){
     this.navCtrl.navigateForward('/reset');
+  }
+value;
+ async presentPrompt() {
+    const alert =await this.alertCtrl.create({
+       header: 'Reset password',
+       message: this.errorMessage,
+
+      inputs: [
+        {
+          name: 'Email',
+          placeholder: 'Email'
+        }
+       
+      ],
+      buttons: [
+        {
+          text: 'Reset',
+          role: 'reset',
+          handler: (data) => {
+          this.reset(data.Email)
+            console.log('Cancel clicked');
+          }
+        },
+       
+      ]
+    });
+    await alert.present();
+  }
+  reset(value){
+    this.authService.reset(value)
+    .then(res => {
+      console.log(res);
+      this.errorMessage = "";
+      this.navCtrl.navigateForward('/edit');
+    }, err => {
+      this.errorMessage = err.message;
+      console.log(err);
+    })
   }
 }

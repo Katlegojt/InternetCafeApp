@@ -1,8 +1,7 @@
 
 
      
-  
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   <ion-content color="primary">
       <br>
       <img src="assets/Background.png">
@@ -34,33 +33,40 @@
       <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Log In</ion-button>
 
       <label class="error-message">{{errorMessage}}</label>
+      <ion-item class="go-to-register">
+          <ion-grid>
+              <ion-row>
+                <ion-col>
+                  Or login with
+                </ion-col>
+              </ion-row>
+            <ion-row>
+              <ion-col >
+                <ion-icon name="logo-facebook" class="facebook"(click)="facebookLogin(value)"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <ion-icon name="logo-twitter"class="twitter" (click)="twitterLogin(value)"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <ion-icon name="person" class="anonymous"(click)="loginAnonymously()"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <ion-icon name="logo-google" class="fa fa-google google"(click)="loginWithGoogle(value)"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
 
       <ion-item class="go-to-register">
           No account yet? <a (click)="goToRegisterPage()">Create an account.</a>
         </ion-item>  
        
         <ion-item class="go-to-register">
-          <a (click)="goToResetPage()">Forgoten password?</a>
+          <a (click)="presentPrompt()">Forgoten password?</a>
         </ion-item> 
-
-        <ion-item class="go-to-register">
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-icon name="logo-facebook" (click)="facebookLogin(value)"></ion-icon>
-            </ion-col>
-            <ion-col>
-              <ion-icon name="logo-twitter" (click)="twitterLogin(value)"></ion-icon>
-            </ion-col>
-            <ion-col>
-              <ion-icon name="person" (click)="loginAnonymously()"></ion-icon>
-            </ion-col>
-            <ion-col>
-              <ion-icon name="logo-google" (click)="loginWithGoogle(value)"></ion-icon>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
+      
+   
+        
     </form>
    
     
