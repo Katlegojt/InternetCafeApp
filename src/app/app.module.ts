@@ -11,9 +11,12 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
+import {  AngularFireDatabaseModule} from 'angularfire2/database'
 import * as firebase from 'firebase';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthenticationService } from './services/authentication.service';
-import { AngularFireAuth } from '@angular/fire/auth'
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
   authDomain: "internetcafe-8ab2b.firebaseapp.com",
@@ -28,8 +31,8 @@ firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(),  AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig), AppRoutingModule,AgmCoreModule.forRoot({
-    apiKey: 'AIzaSyBy1jG31ICdmSvQDePrjpYVD4TC4fEjKZQ'
+  imports: [BrowserModule, IonicModule.forRoot(),  AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig),  AngularFireDatabaseModule, AppRoutingModule,AgmCoreModule.forRoot({
+    apiKey: ''
   })],
   providers: [
     StatusBar,AngularFireAuth,
