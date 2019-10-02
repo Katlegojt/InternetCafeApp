@@ -1,31 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
 import { FormControl } from '@angular/forms';
-import { debounceTime } from "rxjs/operators";
-import { NavController, MenuController } from '@ionic/angular';
+import { DataService } from 'src/app/services/data.service';
+import { NavController } from '@ionic/angular';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-suggested-list',
-  templateUrl: './suggested-list.page.html',
-  styleUrls: ['./suggested-list.page.scss'],
+  selector: 'app-posts',
+  templateUrl: './posts.page.html',
+  styleUrls: ['./posts.page.scss'],
 })
-export class SuggestedListPage implements OnInit {
+export class PostsPage implements OnInit {
 
   public searchControl: FormControl;
   public items: any;
 
   constructor(
     private dataService: DataService,
-    private navCtrl: NavController,
-    private menu: MenuController
+    private navCtrl: NavController
     
     ) {
     this.searchControl = new FormControl();
   }
 
   ngOnInit() {
-    this.menu.swipeEnable(false);
     this.setFilteredItems("");
+    
 
     this.searchControl.valueChanges
        .pipe(debounceTime(700))
@@ -38,8 +37,8 @@ export class SuggestedListPage implements OnInit {
     this.items = this.dataService.filterItems(searchTerm);
   }
  
-  goToSeeMorePage(){
-    this.navCtrl.navigateForward('/see-more');
+  goToCommentsPage(){
+    this.navCtrl.navigateForward('/comments');
   }
 
 }
