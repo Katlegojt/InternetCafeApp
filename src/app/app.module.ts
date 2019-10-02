@@ -18,21 +18,22 @@ import { AuthenticationService } from './services/authentication.service';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
+  apiKey: "",
   authDomain: "internetcafe-8ab2b.firebaseapp.com",
   databaseURL: "https://internetcafe-8ab2b.firebaseio.com",
   projectId: "internetcafe-8ab2b",
   storageBucket: "internetcafe-8ab2b.appspot.com",
   messagingSenderId: "194688123148",
-  appId: "1:194688123148:web:0329ce7412e2b9ad2d4929"
+  appId: ""
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(),  AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig),  AngularFireDatabaseModule, AppRoutingModule,AgmCoreModule.forRoot({
+  imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig),  AngularFireDatabaseModule, AppRoutingModule,AgmCoreModule.forRoot({
     apiKey: ''
+              
   })],
   providers: [
     StatusBar,AngularFireAuth,

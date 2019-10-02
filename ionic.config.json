@@ -1,5 +1,7 @@
 {
   "name": "InternetCafeApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

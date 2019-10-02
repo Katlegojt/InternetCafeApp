@@ -7,6 +7,7 @@ import { AgmCoreModule } from '@agm/core';
 import { IonicModule } from '@ionic/angular';
 
 import { MapPage } from './map.page';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 const routes: Routes = [
   {
@@ -19,12 +20,12 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule,GooglePlaceModule,
     RouterModule.forChild(routes)
     ,AgmCoreModule.forRoot({
       apiKey: ''
     })
   ],
-  declarations: [MapPage]
+  declarations: [MapPage],
 })
 export class MapPageModule {}
