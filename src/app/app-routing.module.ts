@@ -9,6 +9,10 @@ const routes: Routes = [
   { path: 'suggested-list', loadChildren: './pages/suggested-list/suggested-list.module#SuggestedListPageModule' },
   { path: 'map', loadChildren: './pages/map/map.module#MapPageModule' },  { path: 'reset', loadChildren: './pages/reset/reset.module#ResetPageModule' },
   { path: 'see-more', loadChildren: './pages/see-more/see-more.module#SeeMorePageModule' },
+  { path: 'posts', loadChildren: './pages/posts/posts.module#PostsPageModule' },
+  { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
+  { path: 'services', loadChildren: './pages/services/services.module#ServicesPageModule' },
+  { path: 'comments', loadChildren: './pages/comments/comments.module#CommentsPageModule' },
 
 ];
 

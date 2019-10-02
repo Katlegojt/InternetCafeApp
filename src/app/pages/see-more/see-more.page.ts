@@ -17,5 +17,11 @@ export class SeeMorePage implements OnInit {
   goToMapPage(){
     this.navCtrl.navigateForward('/map');
   }
+  goToPostsPage(){
+    this.navCtrl.navigateForward('/posts');
+  }
+  goToServicesPage(){
+    this.navCtrl.navigateForward('/services');
+  }
 
 }
