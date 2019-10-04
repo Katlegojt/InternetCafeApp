@@ -14,11 +14,11 @@
 
 
   <!-- <h1>{{ title }}</h1> -->
-  <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onClickLocation($event)">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <!-- <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onClickLocation($event)">
+    !-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker> --
   </agm-map>
 
-  <!-- nearby locations -->
+  !-- nearby locations --
   <agm-marker *ngFor= "let marker of markers">
     [latitude]= "marker.location[0]"
     [longitude]= "marker.location[1]"
@@ -27,7 +27,7 @@
     <agm-info-window>
       <h3>Location Details</h3>
       <p>You are {{marker.distance}} Km fron this point</p>
-    </agm-info-window>
+    </agm-info-window> -->
 
 
   <div id='map'></div>

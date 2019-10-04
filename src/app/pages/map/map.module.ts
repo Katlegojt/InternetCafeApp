@@ -7,7 +7,8 @@ import { AgmCoreModule } from '@agm/core';
 import { IonicModule } from '@ionic/angular';
 
 import { MapPage } from './map.page';
-import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+// import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 const routes: Routes = [
   {
@@ -23,7 +24,7 @@ const routes: Routes = [
     IonicModule,GooglePlaceModule,
     RouterModule.forChild(routes)
     ,AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyBy1jG31ICdmSvQDePrjpYVD4TC4fEjKZQ'
     })
   ],
   declarations: [MapPage],

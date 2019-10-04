@@ -5,6 +5,12 @@ ion-searchbar{
     box-shadow: none;
   
 }
+// ion-toolbar{
+//     text-align: center;
+//     h1{
+//         color: black;
+//     }
+// }
 .searchbar-input {
     
     border-radius: 0px !important;
@@ -14,3 +20,35 @@ img{
     width: 100%;
     height: 230px;
 }
+.h{
+    height: 30px;
+    width: 25px;
+   border-radius: 50%;
+}
+.box {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  ion-grid{
+      margin: -10px;
+    //   
+  }
+  ion-col{
+      margin: -10px;
+     
+    
+  }
+  .last-col{
+    margin-right: 10px;
+  }
+  ion-row{
+    // margin: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+     margin-right: -10px;
+}
+.last-row{
+    margin-top: -10px;
+}
+.searchbar-search-icon { display:none; width:0; height:0; }
