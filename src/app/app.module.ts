@@ -32,11 +32,7 @@ firebase.initializeApp(firebaseConfig);
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig),  AngularFireDatabaseModule, AppRoutingModule,AgmCoreModule.forRoot({
-<<<<<<< HEAD
   apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
-=======
-    apiKey: ''
->>>>>>> 58a62079566e80814136164be312060c9ef2bb7c
               
   })],
   providers: [
