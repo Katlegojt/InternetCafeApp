@@ -4,6 +4,7 @@ import { NavController, AlertController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 // import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth'
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -119,14 +120,13 @@ export class LoginPage implements OnInit {
   goToRegisterPage(){
     this.navCtrl.navigateForward('/register');
   }
-  goToResetPage(){
-    this.navCtrl.navigateForward('/reset');
-  }
+ 
 value;
+
  async presentPrompt() {
     const alert =await this.alertCtrl.create({
        header: 'Reset password',
-       message: this.errorMessage,
+       message: this.msg,
 
       inputs: [
         {
@@ -141,7 +141,7 @@ value;
           role: 'reset',
           handler: (data) => {
           this.reset(data.Email)
-            console.log('Cancel clicked');
+           
           }
         },
        
@@ -149,15 +149,16 @@ value;
     });
     await alert.present();
   }
+  msg:string='';
+   msg2:string='';
   reset(value){
-    this.authService.reset(value)
-    .then(res => {
-      console.log(res);
-      this.errorMessage = "";
-      this.navCtrl.navigateForward('/edit');
-    }, err => {
-      this.errorMessage = err.message;
-      console.log(err);
-    })
-  }
+    return new Promise<any>((resolve, reject) => {
+    firebase.auth().sendPasswordResetEmail(value)
+    .then((res: any) => this.msg = res=this.msg2)
+    .catch((error: any) => this.msg = error);
+    this.msg2="success"
+    console.log(this.msg)
+    
+    })}
+  
 }
