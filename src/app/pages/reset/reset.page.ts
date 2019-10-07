@@ -46,6 +46,7 @@ export class ResetPage implements OnInit {
   //   ]
    };
 
+<<<<<<< HEAD
   // reset(value){
   //   this.authService.reset(value)
   //   .then(res => {
@@ -57,4 +58,7 @@ export class ResetPage implements OnInit {
   //     console.log(err);
   //   })
   // }
+=======
+ 
+>>>>>>> 58a62079566e80814136164be312060c9ef2bb7c
 }
