@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
   { path: 'services', loadChildren: './pages/services/services.module#ServicesPageModule' },
   { path: 'comments', loadChildren: './pages/comments/comments.module#CommentsPageModule' },
+  { path: 'map2', loadChildren: './pages/map2/map2.module#Map2PageModule' },
 
 ];
 

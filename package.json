@@ -31,11 +31,13 @@
     "angularfire2": "^5.2.1",
     "cordova-plugin-geolocation": "^4.0.2",
     "core-js": "^2.5.4",
-    "firebase": "^7.0.0",
+    "firebase": "^7.1.0",
     "geofire": "^5.0.1",
     "geofirestore": "^3.3.1",
+    "geofirex": "0.0.6",
     "ngx-google-places-autocomplete": "^2.0.4",
-    "rxjs": "~6.5.1",
+    "rxjs": "^6.5.3",
+    "rxjs-compat": "^6.5.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
@@ -65,14 +67,10 @@
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
   },
-<<<<<<< HEAD
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
       "cordova-plugin-geolocation": {}
     }
   }
-=======
-  "description": "An Ionic project"
->>>>>>> 9294bb0911337646f897e04f6b36f3a5e756db21
 }

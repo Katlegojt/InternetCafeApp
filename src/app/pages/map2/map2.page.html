@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>map2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <agm-map [latitude]="-25.7479" [longitude]="28.2293" [zoom]="12">
+    <agm-marker *ngFor="let point of points | async " [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
+      <agm-info-window>
+          {{point.queryMetadata}}
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+
+</ion-content>

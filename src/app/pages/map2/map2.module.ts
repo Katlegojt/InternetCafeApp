@@ -6,13 +6,12 @@ import { AgmCoreModule } from '@agm/core';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MapPage } from './map.page';
-import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { Map2Page } from './map2.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: MapPage
+    component: Map2Page
   }
 ];
 
@@ -20,12 +19,12 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,GooglePlaceModule,
-    RouterModule.forChild(routes)
-    ,AgmCoreModule.forRoot({
-      apiKey: 
+    IonicModule,
+    RouterModule.forChild(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBy1jG31ICdmSvQDePrjpYVD4TC4fEjKZQ'
     })
   ],
-  declarations: [MapPage],
+  declarations: [Map2Page]
 })
-export class MapPageModule {}
+export class Map2PageModule {}

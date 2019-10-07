@@ -4,7 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { GeoFire } from 'geofire';
 import { BehaviorSubject } from 'rxjs';
 import * as firebase from 'firebase'
-import { element } from 'protractor';
+import { GeoFirestore, GeoCollectionReference } from 'geofirestore';
 
 @Injectable({
   providedIn: 'root'
@@ -20,52 +20,38 @@ export class GeoService {
   payl: any;
   items =[];
   constructor(private db: AngularFireDatabase) {
-    //reference a database location for Geofire
+   // reference a database location for Geofire
 
-    // var firebaseRef = firebase.database().ref('list')
-    //  this.geoFire = new GeoFire(firebaseRef);
+    var firebaseRef = firebase.database().ref('list')
+     this.geoFire = new GeoFire(firebaseRef);
 
-    // var ref = this.geoFire.ref();  // ref === firebaseRef
-    // db.list(ref);
+    var ref = this.geoFire.ref();  // ref === firebaseRef
+    db.list(ref);
 
-    // firebaseRef.on('value', resp =>{
+    firebaseRef.on('value', resp =>{
       
-    //   this.items = snapshoptToArray(resp);
-    //   console.log('hello' + this.items);
-    //   });
+      this.items = snapshoptToArray(resp);
+      
+      });
 
   
-    //   const snapshoptToArray = snapshot =>{
-    //     let returnArray = [];
-    //     snapshot.forEach(element => {
-    //       let item = element.val();
-    //       item.key = element.key;
-    //       returnArray.push(item)
-    //     });
-    //     return returnArray;
+      const snapshoptToArray = snapshot =>{
+        let returnArray = [];
+        snapshot.forEach(element => {
+          let item = element.val();
+          item.key = element.key;
+          returnArray.push(item)
+        });
+        return returnArray;
         
-    //   }
-
+      }
+    
+    
       
 
   }
 
-  dummyMethod(){
-    this.geoFire.set("some_key", [37.79, -122.41]).then(function() {
-      console.log("Provided key has been added to GeoFire");
-    }, function(error) {
-      console.log("Error: " + error);
-    });
-    this.geoFire.set({
-      "some_key": [37.79, -122.41],
-      "another_key": [36.98, -122.56]
-    }).then(function() {
-      console.log("Provided keys have been added to GeoFire");
-    }, function(error) {
-      console.log("Error: " + error);
-    });
-    
-  }
+
 
   // adds Geofire data to a database
   setLocation(key: string, coords: Array<number>) {
@@ -77,5 +63,22 @@ export class GeoService {
   }
 
   //Query nearby locations, then maps to BehaviorSubject
+
+  getLocations(radius: number, coords: Array<number>) {
+    this.geoFire.query({ center: coords, 
+      radius: radius })
+      .on('key_entered', (key, location, distance) => {
+  
+      let hit = {
+        location: location, 
+        distance: distance
+      }
+  
+      let currentHits = this.hits.value
+      currentHits.push(hit)
+      this.hits.next(currentHits)
+    })
+  
+  }
   
 }
