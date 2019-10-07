@@ -1,79 +1,73 @@
 
-
-     
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-  <ion-content color="primary">
-      <br>
-      <img src="assets/Background.png">
-   <br>
-     
-    <form  class="form"[formGroup]="validations_form" (ngSubmit)="loginUser(validations_form.value)">
-      <ion-item>
-        <ion-label  position="floating" color="primary">Email</ion-label>
-        <ion-input type="text" formControlName="email"></ion-input>
-      </ion-item>
-      <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.email">
-          <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
-            {{ validation.message }}
-          </div>
-        </ng-container>
-      </div>
-      <ion-item>
-        <ion-label  position="floating" color="primary">Password</ion-label>
-        <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
-      </ion-item>
-      <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.password">
-          <div class="error-message" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
-            {{ validation.message }}
-          </div>
-        </ng-container>
-      </div>
-      <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Log In</ion-button>
-
-      <label class="error-message">{{errorMessage}}</label>
-      <ion-item class="go-to-register">
-          <ion-grid>
-              <ion-row>
-                <ion-col>
-                  Or login with
-                </ion-col>
-              </ion-row>
-            <ion-row>
-              <ion-col >
-                <ion-icon name="logo-facebook" class="facebook"(click)="facebookLogin(value)"></ion-icon>
-              </ion-col>
-              <ion-col>
-                <ion-icon name="logo-twitter"class="twitter" (click)="twitterLogin(value)"></ion-icon>
-              </ion-col>
-              <ion-col>
-                <ion-icon name="person" class="anonymous"(click)="loginAnonymously()"></ion-icon>
-              </ion-col>
-              <ion-col>
-                <ion-icon name="logo-google" class="fa fa-google google"(click)="loginWithGoogle(value)"></ion-icon>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-item>
-
-      <ion-item class="go-to-register">
-          No account yet? <a (click)="goToRegisterPage()">Create an account.</a>
-        </ion-item>  
-       
-        <ion-item class="go-to-register">
-          <a (click)="presentPrompt()">Forgoten password?</a>
-          <p class="error">{{msg}}</p>
-        </ion-item> 
+    <ion-content color="primary">
       
-   
-        
-    </form>
-   
-    
-    
-    
-   
-   
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+            <img src="assets/Background.png">
+            <form  class="form"[formGroup]="validations_form" (ngSubmit)="loginUser(validations_form.value)">
+                <ion-item>
+                  <ion-label  position="floating" color="primary">Email</ion-label>
+                  <ion-input type="text" formControlName="email"></ion-input>
+                </ion-item>
+                <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validation_messages.email">
+                    <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+                      {{ validation.message }}
+                    </div>
+                  </ng-container>
+                </div>
+                <ion-item>
+                  <ion-label  position="floating" color="primary">Password</ion-label>
+                  <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+                </ion-item>
+                <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validation_messages.password">
+                    <div class="error-message" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+                      {{ validation.message }}
+                    </div>
+                  </ng-container>
+                </div>
+                <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Log In</ion-button>
+          
+                <label class="error-message">{{errorMessage}}</label>
+                <ion-item class="go-to-register">
+                    <ion-grid>
+                        <ion-row>
+                          <ion-col>
+                            Or login with
+                          </ion-col>
+                        </ion-row>
+                      <ion-row>
+                        <ion-col >
+                          <ion-icon name="logo-facebook" class="facebook"(click)="facebookLogin(value)"></ion-icon>
+                        </ion-col>
+                        <ion-col>
+                          <ion-icon name="logo-twitter"class="twitter" (click)="twitterLogin(value)"></ion-icon>
+                        </ion-col>
+                        <ion-col>
+                          <ion-icon name="person" class="anonymous"(click)="loginAnonymously()"></ion-icon>
+                        </ion-col>
+                        <ion-col>
+                          <ion-icon name="logo-google" class="fa fa-google google"(click)="loginWithGoogle(value)"></ion-icon>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-item>
+          
+                <ion-item class="go-to-register">
+                    No account yet? <a (click)="goToRegisterPage()">Create an account.</a>
+                  </ion-item>  
+                 
+                  <ion-item class="go-to-register">
+                    <a (click)="presentPrompt()">Forgoten password?</a>
+                    <p class="error">{{msg}}</p>
+                  </ion-item> 
+              </form>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>
 

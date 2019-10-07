@@ -24,8 +24,9 @@ const routes: Routes = [
     IonicModule,GooglePlaceModule,
     RouterModule.forChild(routes)
     ,AgmCoreModule.forRoot({
-      apiKey: 
+    apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
     })
+      
   ],
   declarations: [MapPage],
 })
