@@ -7,7 +7,8 @@ import { AgmCoreModule } from '@agm/core';
 import { IonicModule } from '@ionic/angular';
 
 import { MapPage } from './map.page';
-import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+// import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 const routes: Routes = [
   {
