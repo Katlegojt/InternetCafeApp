@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from "rxjs/operators";
 import { NavController, MenuController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-suggested-list',
@@ -17,7 +18,8 @@ export class SuggestedListPage implements OnInit {
   constructor(
     private dataService: DataService,
     private navCtrl: NavController,
-    private menu: MenuController
+    private menu: MenuController,
+    public afAuth: AngularFireAuth
     
     ) {
     this.searchControl = new FormControl();
@@ -39,7 +41,24 @@ export class SuggestedListPage implements OnInit {
   }
  
   goToSeeMorePage(){
-    this.navCtrl.navigateForward('/see-more');
+
+    
+    this.afAuth.user.subscribe((user) => {
+      if (user) {
+        this.navCtrl.navigateForward('/see-more');
+        console.log(this.afAuth.auth.currentUser.uid)
+      } else {
+        
+        this.navCtrl.navigateForward('/login');
+      }
+    })
+  }
+
+
+  logOut(){
+
+    this.afAuth.auth.signOut();
+    this.navCtrl.navigateForward('/login');
   }
 
 }

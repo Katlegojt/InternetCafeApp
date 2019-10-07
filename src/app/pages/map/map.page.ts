@@ -27,7 +27,7 @@ export class MapPage implements OnInit {
   input;
   GoogleAutocomplete;
   autocomplete;
-  autocompleteItems
+  autocompleteItems;
   dbRef: any;
 
   items: any[];
