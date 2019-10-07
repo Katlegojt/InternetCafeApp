@@ -45,3 +45,31 @@ ion-slide{
 .swipe{
   text-align: center;
 }
+   
+.background{
+  background-color: #689ACA
+  }
+ 
+  img{
+  height: 250px;
+  
+  }
+
+  ion-card{
+      display: flex;
+      flex-direction: column;
+      width: 100% !important;
+      margin: 0 !important;
+    }
+  
+ion-row {
+  text-align: center;
+}
+ion-icon{
+  font-size: 30px; 
+}
+
+
+$white-color: #fff;
+$height100: 100%;
+

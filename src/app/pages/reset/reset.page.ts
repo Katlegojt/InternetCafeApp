@@ -46,5 +46,15 @@ export class ResetPage implements OnInit {
   //   ]
    };
 
- 
+  // reset(value){
+  //   this.authService.reset(value)
+  //   .then(res => {
+  //     console.log(res);
+  //     this.errorMessage = "";
+  //     this.navCtrl.navigateForward('/edit');
+  //   }, err => {
+  //     this.errorMessage = err.message;
+  //     console.log(err);
+  //   })
+  // }
 }
