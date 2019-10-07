@@ -61,6 +61,7 @@ export class RegisterPage implements OnInit {
        console.log(err);
        this.errorMessage = err.message;
        this.successMessage = "";
+       this.navCtrl.navigateForward('/login');
      })
   }
  

@@ -16,8 +16,33 @@
         border: 2px ;
         padding: 10px;
         border-radius: 25px;
-        
+      widows: 100%;
     }
+    
+    .form1{
+        background-color:#fff; 
+        margin:10px;
+        border: 2px ;
+        padding: 10px;
+        border-radius: 25px;
+        display: none;
+        widows: 100%;
+    }
+    .form3{
+        background-color:#fff; 
+        margin:10px;
+        border: 2px ;
+        padding: 10px;
+        border-radius: 25px;
+        display: none;
+        widows: 100%;
+    }
+    ion-card{
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        margin: 0 !important;
+      }
     .go-to-login{
         color: black;
     }
