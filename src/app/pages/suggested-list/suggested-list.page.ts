@@ -11,9 +11,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./suggested-list.page.scss'],
 })
 export class SuggestedListPage implements OnInit {
-
   public searchControl: FormControl;
   public items: any;
+  visible = false;
 
   constructor(
     private dataService: DataService,
@@ -60,5 +60,7 @@ export class SuggestedListPage implements OnInit {
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
   }
-
+  toggle() {
+    this.visible = !this.visible;
+   }
 }
