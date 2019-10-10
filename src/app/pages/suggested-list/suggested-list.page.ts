@@ -42,7 +42,6 @@ export class SuggestedListPage implements OnInit {
  
   goToSeeMorePage(){
 
-    
     this.afAuth.user.subscribe((user) => {
       if (user) {
         this.navCtrl.navigateForward('/see-more');
@@ -52,6 +51,7 @@ export class SuggestedListPage implements OnInit {
         this.navCtrl.navigateForward('/login');
       }
     })
+
   }
 
 

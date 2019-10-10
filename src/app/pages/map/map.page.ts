@@ -1,6 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 // import { AgmCoreModule } from '@agm/core';
-import { GeoFirestore, GeoCollectionReference,GeoQuery,GeoQuerySnapshot  } from 'geofirestore';
+import { GeoFirestore, GeoCollectionReference, GeoQuery, GeoQuerySnapshot } from 'geofirestore';
 
 import { GeoService } from 'src/app/services/geo.service';
 import * as firebase from 'firebase'
@@ -39,7 +39,7 @@ export class MapPage implements OnInit {
     this.GoogleAutocomplete = new google.maps.places.AutocompleteService();
     this.autocomplete = { input: '' };
     this.autocompleteItems = [];
-    
+
     this.markers = [];
     const firestore = firebase.firestore();
     const geofirestore: GeoFirestore = new GeoFirestore(firestore);
@@ -50,7 +50,7 @@ export class MapPage implements OnInit {
 
     // Get query (as Promise)
     query.get().then((value: GeoQuerySnapshot) => {
-      
+
       // All GeoDocument returned by GeoQuery, like the GeoDocument added above
       console.log(value.docs);
     });
@@ -81,25 +81,18 @@ export class MapPage implements OnInit {
 
   //get users current location
   private getUSerLocation() {
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
-
         this.geo.getLocations(500, [this.lat, this.lng])
-
-
       })
 
     }
   }
 
-
-
   //////////////////////////////////////////
   //code from Ionic Themes
-
 
   updateSearchResults() {
     if (this.autocomplete.input == '') {
@@ -125,18 +118,17 @@ export class MapPage implements OnInit {
   selectSearchResult(item) {
     // this.clearMarkers();
     this.autocompleteItems = [];
-
     this.geocoder.geocode({ 'placeId': item.place_id }, (results, status) => {
       if (status === 'OK' && results[0]) {
         let position = {
           lat: results[0].geometry.location.lat,
           lng: results[0].geometry.location.lng
         };
-        let marker = new google.maps.Marker({
-          position: results[0].geometry.location,
-          map: this.map,
-        });
-        this.markers.push(marker);
+        // let marker = new google.maps.Marker({
+        //   position: results[0].geometry.location,
+        //   map: this.map,
+        // });
+        //this.markers.push(marker);
         this.map.setCenter(results[0].geometry.location);
       }
     })

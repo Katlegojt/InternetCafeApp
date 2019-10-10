@@ -15,6 +15,8 @@ import {  AngularFireDatabaseModule} from 'angularfire2/database'
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthenticationService } from './services/authentication.service';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 const firebaseConfig = {
@@ -31,10 +33,10 @@ firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig),  AngularFireDatabaseModule, AppRoutingModule,AgmCoreModule.forRoot({
-    apiKey: ''
-              
-  })],
+  imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig),  AngularFireDatabaseModule, AppRoutingModule,
+    AgmCoreModule.forRoot({
+    apiKey: ''           
+  }),MatGoogleMapsAutocompleteModule, BrowserAnimationsModule],
   providers: [
     StatusBar,AngularFireAuth,
     SplashScreen,AuthenticationService,
