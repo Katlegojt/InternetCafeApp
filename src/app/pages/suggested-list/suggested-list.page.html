@@ -11,24 +11,22 @@
   </ion-toolbar>
 </ion-header> -->
 <ion-header>
+  
   <ion-toolbar>
-      <ion-item>
         <ion-item [hidden]="visible">
           <h1>The internet cafe</h1>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <ion-icon (click)="toggle()" name="search" slot="end"> </ion-icon>
+           <ion-icon class="icon" (click)="toggle()" name="search" slot="end"> </ion-icon>
+            <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
         </ion-item>
-                      <ion-searchbar  class="search" [hidden]="!visible" class="accountBalance animated slideInUp"></ion-searchbar>
+        
+          <ion-searchbar  class="search" [hidden]="!visible" ></ion-searchbar>
       <!-- <ion-searchbar placeholder="Search internet cafe"[formControl]="searchControl"></ion-searchbar> -->
-    </ion-item>
+    
   </ion-toolbar>
  </ion-header>
 
 <ion-content color="primary">
        
-        
                     <ion-grid>
                         <ion-row>
                           <ion-col>
