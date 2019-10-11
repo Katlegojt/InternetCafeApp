@@ -1,19 +1,20 @@
 <ion-header>
+  
   <ion-toolbar>
-      <ion-item>
-          <h1>The internet cafe</h1>
-         
-
-      </ion-item>
-      <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
+        <ion-item [hidden]="visible">
+          <h3>The internet cafe</h3>
+           <ion-icon class="icon" (click)="toggle()" name="search" slot="end"> </ion-icon>
+            <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
+        </ion-item>
+        
+          <ion-searchbar  class="search" [hidden]="!visible" ></ion-searchbar>
       <!-- <ion-searchbar placeholder="Search internet cafe"[formControl]="searchControl"></ion-searchbar> -->
     
   </ion-toolbar>
-</ion-header>
+ </ion-header>
 
 <ion-content color="primary">
        
-        
                     <ion-grid>
                         <ion-row>
                           <ion-col>
