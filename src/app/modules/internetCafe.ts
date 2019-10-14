@@ -1,4 +1,4 @@
-class internetCafe{
+class InternetCafe{
     key?
     name;
     address;
