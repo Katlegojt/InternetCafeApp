@@ -15,7 +15,7 @@ export class SeeMorePage implements OnInit {
   ngOnInit() {
   }
   goToMapPage(){
-    this.navCtrl.navigateForward('/map');
+    this.navCtrl.navigateForward('/map2');
   }
   goToPostsPage(){
     this.navCtrl.navigateForward('/posts');

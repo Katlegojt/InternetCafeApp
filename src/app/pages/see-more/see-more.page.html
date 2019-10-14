@@ -1,152 +1,102 @@
 <ion-header>
-  <ion-toolbar  color="primary">
-     <ion-item lines="none" color="primary">
+  <ion-toolbar>
+     <ion-item lines="none"class="s">
                     <ion-back-button default-href="home" slot="start"></ion-back-button>
-                  <ion-icon name="pin" ></ion-icon>&nbsp;
-                  <ion-label>Name of internet cafe</ion-label>
+                  
+                  <ion-label >
+                      <ion-icon name="pin" color="black"></ion-icon>&nbsp;
+                    Name of internet cafe</ion-label>
                 </ion-item>
   </ion-toolbar>
-</ion-header>
-<!-- <ion-content  >
-   
-           
-                <ion-card-content>
-                    <ion-grid>
-                        <ion-row>
-                          <ion-col>
-                              <ion-icon name="globe" class="label"></ion-icon><br>
-                              <ion-label >Website</ion-label>
-
-                          </ion-col>
-                          <ion-col (click)="goToMapPage()">
-                             <ion-icon name="compass" class="label"></ion-icon><br> 
-                             <ion-label >Direction</ion-label> 
-                          </ion-col>
-                          <ion-col (click)="goToServicesPage()" >
-                             
-                              <ion-icon name="book"class="label"></ion-icon><br>
-                              <ion-label >Services</ion-label> 
-                          </ion-col>
-                          
-                        </ion-row>
-                      </ion-grid>
-                      <br>
-                      <ion-item lines="none">Address: //retrieve address from database </ion-item>
-                      <ion-item lines="none">Working hours: //retrieve w/hours from database</ion-item>
-                      <ion-item lines="none">Phone: //retrieve phone from database</ion-item>
-                      <ion-item lines="none">Email: //retrieve email from database</ion-item>
-                      <br>
-                      <br>
-                      <ion-item lines="none">
-                        <ion-label>Posts and Comments</ion-label>
-                        <ion-button (click)="goToPostsPage()">Post</ion-button>
-                      </ion-item>
-                      <br>
-                      
-              <div class="swipe">
-                <ion-label>Swipe</ion-label>
-                </div>
-                       
-                </ion-card-content>
-               
-                <ion-slides pager="true" class="pager">
-                    <ion-slide>
-                        <ion-card>
-                   <img src="assets/cafe1.jpg" alt="img">
-                  
-                        </ion-card>
-                    </ion-slide>
-                
-                    <ion-slide>
-                        <ion-card>
-                        <img src="assets/cafe2.jpg" alt="img">
-                      </ion-card>
-
-                    </ion-slide>
-                
-                    <ion-slide>
-                      <ion-card>
-                        <img src="assets/cafe3.jpg" alt="img">
-                      </ion-card>
-
-                    </ion-slide>
-                  </ion-slides>
-             
-</ion-content> -->
-
-
-     
-<ion-content>
-    <ion-grid>
-      <ion-row justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-           <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-           <ion-card-content>
-              <ion-grid>
-                  <ion-row>
-                    <ion-col>
-                        <ion-icon name="globe" class="label"></ion-icon><br>
-                        <ion-label >Website</ion-label>
-
-                    </ion-col>
-                    <ion-col (click)="goToMapPage()">
-                       <ion-icon name="compass" class="label"></ion-icon><br> 
-                       <ion-label >Direction</ion-label> 
-                    </ion-col>
-                    <ion-col (click)="goToServicesPage()" >
-                       
-                        <ion-icon name="book"class="label"></ion-icon><br>
-                        <ion-label >Services</ion-label> 
-                    </ion-col>
+</ion-header> 
+<ion-content color="secondary">
+ 
+      <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+               <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+               <ion-card-content>
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col>
+                            <ion-icon name="globe"  color="primary"></ion-icon><br>
+                            <ion-label >Website</ion-label>
+    
+                        </ion-col>
+                        <ion-col (click)="goToMapPage()">
+                           <ion-icon name="compass" ></ion-icon><br> 
+                           <ion-label >Direction</ion-label> 
+                        </ion-col>
+                        <ion-col (click)="goToServicesPage()" >
+                           
+                            <ion-icon name="book"></ion-icon><br>
+                            <ion-label >Services</ion-label> 
+                        </ion-col>
+                        
+                      </ion-row>
+                      <ion-row justify-content-center>
+                        
+                        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                            
+                                <ion-item lines="none" color="secondary">
+                                    <a>
+                                        <ion-icon name="home" ></ion-icon> 
+                                        //retrieve address from database
+                                    </a>
+                                </ion-item>
+                                <ion-item lines="none"color="secondary">
+                                    <a>
+                                        <ion-icon name="clock" ></ion-icon> 
+                                        //retrieve w/hours from database
+                                    </a>
+                                </ion-item>
+                                <ion-item lines="none"color="secondary">
+                                  <a>
+                                    <ion-icon name="call" ></ion-icon> 
+                                    //retrieve phone from database
+                                  </a>
+                                </ion-item>
+                                <ion-item lines="none"color="secondary">
+                                  <a>
+                                    <ion-icon name="mail" ></ion-icon> 
+                                    //retrieve email from database
+                                  </a>
+                                </ion-item>
+                              
+                        </ion-col>
+                        
+                      </ion-row>
+                    </ion-grid>
+                   
+                    <br>
+                      <ion-button (click)="goToPostsPage()">Posts and Comments</ion-button>
+                   
+                    <br>
                     
-                  </ion-row>
-                </ion-grid>
-                <br>
-                <ion-item lines="none">Address: //retrieve address from database </ion-item>
-                <ion-item lines="none">Working hours: //retrieve w/hours from database</ion-item>
-                <ion-item lines="none">Phone: //retrieve phone from database</ion-item>
-                <ion-item lines="none">Email: //retrieve email from database</ion-item>
-                <br>
-                <br>
-                <ion-item lines="none">
-                  <ion-label>Posts and Comments</ion-label>
-                  <ion-button (click)="goToPostsPage()">Post</ion-button>
-                </ion-item>
-                <br>
-                
-        <div class="swipe">
-          <ion-label>Swipe</ion-label>
-          </div>
-                 
-          </ion-card-content>
-         
-          <ion-slides pager="true" class="pager">
-              <ion-slide>
-                  <ion-card>
-             <img src="assets/cafe1.jpg" alt="img">
-            
-                  </ion-card>
-              </ion-slide>
           
-              <ion-slide>
-                  <ion-card>
-                  <img src="assets/cafe2.jpg" alt="img">
-                </ion-card>
-
-              </ion-slide>
-          
-              <ion-slide>
-                <ion-card>
-                  <img src="assets/cafe3.jpg" alt="img">
-                </ion-card>
-
-              </ion-slide>
-            </ion-slides>
-          
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  
+              </ion-card-content>
+             
+                <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+                <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+               
+                <div class="container">
+                        <div id="carousel">
+                      <figure><img src="assets/cafe1.jpg" alt=""></figure>
+                      <figure><img src="assets/cafe2.jpg" alt=""></figure>
+                      <figure><img src="assets/cafe3.jpg" alt=""></figure>
+                      <figure><img src="assets/cafe4.jpeg" alt=""></figure>
+                      <figure><img src="assets/cafe1.jpg" alt=""></figure>
+                      <figure><img src="assets/cafe2.jpg" alt=""></figure>
+                      <figure><img src="assets/cafe3.jpg" alt=""></figure>
+                      <figure><img src="assets/cafe4.jpeg" alt=""></figure>
+                      <figure><img src="assets/cafe1.jpg" alt=""></figure>
+                    </div>
+                  </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+ 
 </ion-content>
 
 
