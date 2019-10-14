@@ -89,7 +89,7 @@ export class Map2Page implements OnInit {
     console.log(event.coords.lat);
     console.log(event.coords.lng);
     console.log(event);
-    this.geoservice.setALocation(event.coords.lat, event.coords.lng, 'katlego')
+   
   }
 
 

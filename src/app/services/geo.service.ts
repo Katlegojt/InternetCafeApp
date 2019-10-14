@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-//import * as GeoFire from 'geofire';
-import { GeoFire } from 'geofire';
-import * as firebase from 'firebase'
 import { BehaviorSubject } from 'rxjs';
 import * as geofirex from 'geofirex';
 import * as firebaseApp from 'firebase/app';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +14,12 @@ export class GeoService {
   geoFire: any;
   geo = geofirex.init(firebaseApp);
   collectionRef
- 
+  ans;
   hits = new BehaviorSubject([]);
   txt;
   payl: any;
   items =[];
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase, private http: HttpClient) {
    // reference a database location for Geofire
 
     // var firebaseRef = firebase.database().ref('list')
@@ -42,6 +40,7 @@ export class GeoService {
         
     //   }
     
+    this.showConfig();
   }
 
   //set point to a firestore collection
@@ -80,6 +79,18 @@ export class GeoService {
       this.hits.next(currentHits)
     })
   
+  }
+
+
+  getGeopoints(){
+   return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY')
+  }
+
+  showConfig() {
+    this. getGeopoints()
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
   
 }

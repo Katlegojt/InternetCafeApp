@@ -4,7 +4,10 @@ import { GeoFirestore, GeoCollectionReference, GeoQuery, GeoQuerySnapshot } from
 
 import { GeoService } from 'src/app/services/geo.service';
 import * as firebase from 'firebase'
-import { BehaviorSubject } from 'rxjs';
+import * as firebaseApp from 'firebase/app';
+import * as geofirex from 'geofirex';
+import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 declare var google;
 
@@ -34,11 +37,16 @@ export class MapPage implements OnInit {
 
   geocoder = new google.maps.Geocoder;
   hits = new BehaviorSubject([]);
+  pointList:any;
+  appearance = Appearance;
+  points: Observable<any>;
+  geo = geofirex.init(firebaseApp);
 
-  constructor(private geo: GeoService, private zone: NgZone) {
+  constructor(private geoS: GeoService, private zone: NgZone) {
     this.GoogleAutocomplete = new google.maps.places.AutocompleteService();
     this.autocomplete = { input: '' };
     this.autocompleteItems = [];
+  
 
     this.markers = [];
     const firestore = firebase.firestore();
@@ -70,6 +78,19 @@ export class MapPage implements OnInit {
     //this.getUSerLocation();
     this.tryGeolocation();
     this.map = new google.maps.Map(document.getElementById('map'));
+    this.geo.collection('internetCafe').snapshot().subscribe(data =>{
+
+      data.forEach(item=>{
+        console.log(item.data().position.geohash);
+        let marker = new google.maps.Marker({
+          position: item.data().position.geoPoint,
+          map: this.map,
+        });
+
+        this.markers.push(marker);
+        console.log(this.markers);
+      })
+    });
   }
   //markerDraggable 
   markerDragEnd(event) {
@@ -85,7 +106,7 @@ export class MapPage implements OnInit {
       navigator.geolocation.getCurrentPosition(position => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
-        this.geo.getLocations(500, [this.lat, this.lng])
+        this.geoS.getLocations(500, [this.lat, this.lng])
       })
 
     }

@@ -6,21 +6,33 @@
 </ion-header>
 
 <ion-content>
-
-
-  <mat-google-maps-autocomplete [appearance]="appearance.STANDARD"
-  (onAutocompleteSelected)="onAutocompleteSelected($event)"
-  (onLocationSelected)="onLocationSelected($event)">
-</mat-google-maps-autocomplete>
-
-  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12" >
-    <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
-      <agm-info-window>
-          {{point.name}}
-      </agm-info-window>
-    </agm-marker>
-  </agm-map>
+<!-- 
 
   
+
+  <mat-google-maps-autocomplete [appearance]="appearance.STANDARD" type="address"
+  (onAutocompleteSelected)="onAutocompleteSelected($event)"
+  (onLocationSelected)="onLocationSelected($event)">
+</mat-google-maps-autocomplete> -->
+
+
+
+<div id="container">
+  <input class="input1"
+       matGoogleMapsAutocomplete
+       (onAutocompleteSelected)="onAutocompleteSelected($event)"
+       (onLocationSelected)="onLocationSelected($event)">
+      </div>
+
+    
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12" >
+  <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
+    <agm-info-window>
+        {{point.name}}
+        <ion-button routerLink="/see-more">see more</ion-button>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
+
 
 </ion-content>
