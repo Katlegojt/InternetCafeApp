@@ -48,7 +48,7 @@ export class SuggestedListPage implements OnInit {
         this.navCtrl.navigateForward('/see-more');
         console.log(this.afAuth.auth.currentUser.uid)
       } else {
-        
+         
         this.navCtrl.navigateForward('/login');
       }
     })
