@@ -41,7 +41,7 @@ export class Map2Page implements OnInit {
     //   cities.add({ name: 'Phoenix33', position: point.data });
 
 
-   this.geoservice.setALocation(-25.782823,28.2749065);
+   //this.geoservice.setALocation(-25.782823,28.2749065);
    
     this.pointList=[];
 
@@ -70,7 +70,7 @@ export class Map2Page implements OnInit {
       data.forEach(item=>{
         //console.log(item.data().position.geohash);
 
-        this.pointList.push(item.data().name);
+        this.pointList.push(item.data());
 
         console.log(this.pointList);
       })
