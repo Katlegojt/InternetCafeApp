@@ -21,14 +21,14 @@ export class AuthenticationService {
     })
    }
 
-  //  reset(value){
-  //   return new Promise<any>((resolve, reject) => {
-  //   firebase.auth().sendPasswordResetEmail(value)
-  //   .then((res: any) => console.log(res))
-  //   .catch((error: any) => console.error(error));
+   reset(value){
+    return new Promise<any>((resolve, reject) => {
+    firebase.auth().sendPasswordResetEmail(value)
+    .then((res: any) => console.log(res))
+    .catch((error: any) => console.error(error));
     
     
-  //   })}
+    })}
     loginWithNumber(value){
      this. applicationVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container',firebase.auth().signInWithPhoneNumber);
   //     return new Promise<any>((resolve, reject) => {

@@ -1,0 +1,97 @@
+ion-content{
+        text-align: center;
+}
+.filebtn {
+	opacity: 0;
+	position: absolute;
+	top: -100em;
+	left: -100em;
+}
+
+.profile-pic {
+	width: 200px;
+	height: 200px;
+}
+
+
+.img-circle {
+        
+    top: 10px;
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 78px;
+        height: 78px;
+        display: inline-block;
+        border : 1px solid black;
+    
+}
+.upload{
+        margin-left: 25%;
+        margin-top: -25%;
+}
+.submit-btn {
+        margin-top: 40px;
+      }
+
+  
+      .background{
+        background-color: #689ACA
+        }
+        ion-button {
+            width: 90%;
+            margin: 5%;
+        }
+        img{
+        height: 250px;
+        
+        }
+        .form{
+            background-color:#fff; 
+            margin:10px;
+            border: 2px ;
+            padding: 10px;
+            border-radius: 25px;
+        }
+            
+        
+        .go-to-login{
+            color: black;
+        }
+        ion-icon,p{
+            color: black;
+        }   
+        .go-to-register{ 
+            --border-color:white;
+         } 
+    .validation-errors,.error-message{
+        color: red;
+    }
+    ion-row {
+        text-align: center;
+    }
+    ion-icon{
+        font-size: 30px; 
+    }
+    .facebook{
+        color:#3b5998;
+       
+    }
+    .twitter{
+        color: rgba(56,161,243)
+    }
+    .google {
+            
+        background: -webkit-linear-gradient(rgb(243, 24, 5), #F4B400,#0F9D58,#4285F4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .error{
+        color:red;
+    }
+    
+    
+     $white-color: #fff;
+     $height100: 100%;
+    
+    

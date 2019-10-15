@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import * as geofirex from 'geofirex';
 import * as firebaseApp from 'firebase/app';
+import * as firebase from 'firebase/app';
 import { HttpClient } from '@angular/common/http';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +22,13 @@ export class GeoService {
   txt;
   payl: any;
   items =[];
-  constructor(private db: AngularFireDatabase, private http: HttpClient) {
+  point;
+  cities;
+  write: any;
+
+  item: Observable<InternetCafe>;
+
+  constructor(private db: AngularFireDatabase, private http: HttpClient, private firestore: AngularFirestore) {
    // reference a database location for Geofire
 
     // var firebaseRef = firebase.database().ref('list')
@@ -40,22 +49,24 @@ export class GeoService {
         
     //   }
     
-    this.showConfig();
+    //this.showConfig();
   }
 
   //set point to a firestore collection
-  setALocation(lat , lng, name)
+  setALocation(lat , lng, )
   {
-
-    const point = this.geo.point(lat, lng);
-    const cities = this.geo.collection('internetCafe');
-    cities.add({ name: name, position: point.data });
-
+    this.point = this.geo.point(lat, lng);
+    this.cities = this.firestore.collection('localCafe');
+    this.cities.add({URL:'http://www.google.com', address: '', email: 'zanoxolo', name: 'we', phone: 'fgh65768', position: this.point.data }).then(()=> {
+     console.log('successful');
+    }).catch(err =>{
+    console.log(err.message);
+    })
   }
 
 
 
-  // set points to geoFire database
+  // // set points to geoFire database
   setLocation(key: string, coords: Array<number>) {
     this.geoFire.set(key, coords)
       .then(_ => console.log('location updated'))
@@ -82,15 +93,15 @@ export class GeoService {
   }
 
 
-  getGeopoints(){
-   return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY')
+  getGeopoints(address){
+   return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+ address +'key=AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY')
   }
 
-  showConfig() {
-    this. getGeopoints()
-      .subscribe((data) => {
-        console.log(data);
-      });
-  }
+  // showConfig() {
+  //   this. getGeopoints()
+  //     .subscribe((data) => {
+  //       console.log(data);
+  //     });
+  // }
   
 }
