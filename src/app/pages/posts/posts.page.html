@@ -6,6 +6,7 @@
     </ion-toolbar>
    </ion-header>
 <ion-content color="primary">
+    <div class="progress-bar" id="myBar">
   <ion-grid>
           <ion-row justify-content-center>
             <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -16,6 +17,7 @@
                       <ion-avatar item-start>
                           <img src="assets/Background.png">
                        </ion-avatar>
+                       
                   </ion-col>
                   <ion-col size="9.5">
                       <h3 style="color:black; margin-top: 0px;">Post Tittle</h3>
@@ -88,5 +90,45 @@
                   </ion-card>
                 </ion-col>
             </ion-row>
-        </ion-grid>  
+        </ion-grid>
+      </div>
+        <!-- ratings -->
+        <!-- <ion-card>
+          <ion-card-content>
+              <ion-item lines="none">
+                  <ion-label  position="stacked">Rate this event </ion-label>
+                  <br>
+                    <rating  [rate]="rate"
+                        readonly="false" 
+                        size="default"
+                        (rateChange)="onRateChange($event)">
+                  </rating>
+              </ion-item>
+          </ion-card-content>
+    <ion-card-content>
+             <ion-button  expand="full">Submit</ion-button>
+   </ion-card-content>
+  </ion-card> -->
+ 
+  <!-- <div class="header">
+      <h2>Scroll Indicator</h2>
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+    
+    <div class="content">
+      <h3>Scroll Down to See The Effect</h3>
+      <p>We have created a "progress bar" to <b>show how far a page has been scrolled</b>.</p>
+      <p>It also <b>works when you scroll back up</b>.</p>
+      <p>It is even <b>responsive</b>! Resize the browser window to see the effect.</p>
+      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    </div> -->
 </ion-content>

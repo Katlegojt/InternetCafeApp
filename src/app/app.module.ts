@@ -19,7 +19,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-
+import { IonicRatingModule } from 'ionic-rating';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
@@ -35,7 +35,8 @@ firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig),  AngularFireDatabaseModule, AppRoutingModule,
+  imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig), 
+    IonicRatingModule, AngularFireDatabaseModule, AppRoutingModule,
     AgmCoreModule.forRoot({
     apiKey: ''           
   }),MatGoogleMapsAutocompleteModule, BrowserAnimationsModule, HttpClientModule],

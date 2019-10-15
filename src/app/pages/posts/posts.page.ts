@@ -4,6 +4,8 @@ import { DataService } from 'src/app/services/data.service';
 import { NavController } from '@ionic/angular';
 import { debounceTime } from 'rxjs/operators';
 
+// import { IonicRatingModule } from 'ionic-rating';
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.page.html',
