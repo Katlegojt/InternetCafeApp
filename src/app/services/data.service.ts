@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -7,20 +8,17 @@ export class DataService {
 
   public items: any = [];
 
-  constructor() {
-    this.items = [
-      { title: "one" },
-      { title: "two" },
-      { title: "three" },
-      { title: "four" },
-      { title: "five" },
-      { title: "six" }
-    ];
+  constructor(private db: AngularFirestore) {
+   
   }
 
   filterItems(searchTerm) {
     return this.items.filter(item => {
       return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });
+  }
+
+  getItemSnapChanges() {
+    return this.db.collection('internetCafe').snapshotChanges();
   }
 }
