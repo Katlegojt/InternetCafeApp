@@ -5,4 +5,5 @@ class InternetCafe{
     phone;
     email;
     url;
+    
 }

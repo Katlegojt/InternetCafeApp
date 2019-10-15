@@ -19,6 +19,6 @@ export class DataService {
   }
 
   getItemSnapChanges() {
-    return this.db.collection('internetCafe').snapshotChanges();
+    return this.db.collection('localCafe').snapshotChanges();
   }
 }
