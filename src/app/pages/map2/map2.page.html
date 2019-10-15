@@ -28,12 +28,12 @@
 
     
 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12" >
-  <!-- <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
+  <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
     <agm-info-window>
         {{point.name}}
         <ion-button routerLink="/see-more">see more</ion-button>
     </agm-info-window>
-  </agm-marker> -->
+  </agm-marker>
 </agm-map>
 
 
