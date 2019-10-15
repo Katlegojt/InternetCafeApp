@@ -8,6 +8,7 @@ import {Location, Appearance} from '@angular-material-extensions/google-maps-aut
 import PlaceResult = google.maps.places.PlaceResult;
 import { AlertController } from '@ionic/angular';
 import { GeoService } from 'src/app/services/geo.service';
+import { GeoPoint } from '@firebase/firestore-types';
 
 
 @Component({
@@ -34,19 +35,24 @@ export class Map2Page implements OnInit {
 
 
   constructor(public alertController: AlertController, private geoservice : GeoService)  { 
-    // const point = this.geo.point(40, -119);
-    // const cities = this.geo.collection('internetCafe');
-    // cities.add({ name: 'Phoenix33', position: point.data });
+
+    //  const point = this.geo.point(-25.782823,28.2749065);
+    //  const cities = this.geo.collection('internetCafe');
+    //   cities.add({ name: 'Phoenix33', position: point.data });
+
+
+   this.geoservice.setALocation(-25.782823,28.2749065);
    
     this.pointList=[];
-    const center = this.geo.point(-25.7479, -28.2293)
-    const radius = new BehaviorSubject(0.5);
+
+    // const center = this.geo.point(-25.7479, -28.2293)
+    // const radius = new BehaviorSubject(0.5);
     
-    this.points = radius.pipe(
-      switchMap(radius => {
-        return this.geo.collection('internetCafe').within(center, 0.5, 'position');
-      })
-    );
+    // this.points = radius.pipe(
+    //   switchMap(radius => {
+    //     return this.geo.collection('internetCafe').within(center, 0.5, 'position');
+    //   })
+    // );
  
    
   }
@@ -59,12 +65,12 @@ export class Map2Page implements OnInit {
     })
    
 
-    this.geo.collection('internetCafe').snapshot().subscribe(data =>{
+    this.geo.collection('localCafe').snapshot().subscribe(data =>{
 
       data.forEach(item=>{
-        console.log(item.data().position.geohash);
+        //console.log(item.data().position.geohash);
 
-        this.pointList.push(item.data());
+        this.pointList.push(item.data().name);
 
         console.log(this.pointList);
       })

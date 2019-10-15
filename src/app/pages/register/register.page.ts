@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/modules/User';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +14,7 @@ export class RegisterPage implements OnInit {
   validations_form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
+  user = {} as User
  
   validation_messages = {
     'username': [
@@ -59,6 +62,7 @@ export class RegisterPage implements OnInit {
   goLoginPage(){
     this.navCtrl.navigateForward('/login');
   }
+
 
 
 }

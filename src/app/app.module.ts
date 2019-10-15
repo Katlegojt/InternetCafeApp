@@ -39,6 +39,7 @@ firebase.initializeApp(firebaseConfig);
   imports: [BrowserModule,
      IonicModule.forRoot(), 
     AngularFirestoreModule, 
+    HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig), 
      AngularFireDatabaseModule,
       AppRoutingModule,AgmCoreModule.forRoot({
