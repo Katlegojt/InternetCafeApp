@@ -1,10 +1,13 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 // import { AgmCoreModule } from '@agm/core';
-import { GeoFirestore, GeoCollectionReference,GeoQuery,GeoQuerySnapshot  } from 'geofirestore';
+import { GeoFirestore, GeoCollectionReference, GeoQuery, GeoQuerySnapshot } from 'geofirestore';
 
 import { GeoService } from 'src/app/services/geo.service';
 import * as firebase from 'firebase'
-import { BehaviorSubject } from 'rxjs';
+import * as firebaseApp from 'firebase/app';
+import * as geofirex from 'geofirex';
+import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 declare var google;
 
@@ -34,12 +37,17 @@ export class MapPage implements OnInit {
 
   geocoder = new google.maps.Geocoder;
   hits = new BehaviorSubject([]);
+  pointList:any;
+  appearance = Appearance;
+  points: Observable<any>;
+  geo = geofirex.init(firebaseApp);
 
-  constructor(private geo: GeoService, private zone: NgZone) {
+  constructor(private geoS: GeoService, private zone: NgZone) {
     this.GoogleAutocomplete = new google.maps.places.AutocompleteService();
     this.autocomplete = { input: '' };
     this.autocompleteItems = [];
-    
+  
+
     this.markers = [];
     const firestore = firebase.firestore();
     const geofirestore: GeoFirestore = new GeoFirestore(firestore);
@@ -50,7 +58,7 @@ export class MapPage implements OnInit {
 
     // Get query (as Promise)
     query.get().then((value: GeoQuerySnapshot) => {
-      
+
       // All GeoDocument returned by GeoQuery, like the GeoDocument added above
       console.log(value.docs);
     });
@@ -70,6 +78,19 @@ export class MapPage implements OnInit {
     //this.getUSerLocation();
     this.tryGeolocation();
     this.map = new google.maps.Map(document.getElementById('map'));
+    this.geo.collection('internetCafe').snapshot().subscribe(data =>{
+
+      data.forEach(item=>{
+        console.log(item.data().position.geohash);
+        let marker = new google.maps.Marker({
+          position: item.data().position.geoPoint,
+          map: this.map,
+        });
+
+        this.markers.push(marker);
+        console.log(this.markers);
+      })
+    });
   }
   //markerDraggable 
   markerDragEnd(event) {
@@ -81,25 +102,18 @@ export class MapPage implements OnInit {
 
   //get users current location
   private getUSerLocation() {
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
-
-        this.geo.getLocations(500, [this.lat, this.lng])
-
-
+        this.geoS.getLocations(500, [this.lat, this.lng])
       })
 
     }
   }
 
-
-
   //////////////////////////////////////////
   //code from Ionic Themes
-
 
   updateSearchResults() {
     if (this.autocomplete.input == '') {
@@ -125,18 +139,17 @@ export class MapPage implements OnInit {
   selectSearchResult(item) {
     // this.clearMarkers();
     this.autocompleteItems = [];
-
     this.geocoder.geocode({ 'placeId': item.place_id }, (results, status) => {
       if (status === 'OK' && results[0]) {
         let position = {
           lat: results[0].geometry.location.lat,
           lng: results[0].geometry.location.lng
         };
-        let marker = new google.maps.Marker({
-          position: results[0].geometry.location,
-          map: this.map,
-        });
-        this.markers.push(marker);
+        // let marker = new google.maps.Marker({
+        //   position: results[0].geometry.location,
+        //   map: this.map,
+        // });
+        //this.markers.push(marker);
         this.map.setCenter(results[0].geometry.location);
       }
     })

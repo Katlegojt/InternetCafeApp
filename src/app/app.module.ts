@@ -15,6 +15,10 @@ import {  AngularFireDatabaseModule} from 'angularfire2/database'
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthenticationService } from './services/authentication.service';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 const firebaseConfig = {

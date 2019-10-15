@@ -1,25 +1,38 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>map2</ion-title>
-    <ion-toolbar color="primary">
-      <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a place"></ion-searchbar>
-    </ion-toolbar>
-    <ion-list [hidden]="autocompleteItems.length == 0">
-      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
-        {{ item.description }}
-      </ion-item>
-    </ion-list>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<!-- 
 
-  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12">
-    <agm-marker *ngFor="let point of points | async " [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
-      <agm-info-window>
-          {{point.queryMetadata}}
-      </agm-info-window>
-    </agm-marker>
-  </agm-map>
+  
+
+  <mat-google-maps-autocomplete [appearance]="appearance.STANDARD" type="address"
+  (onAutocompleteSelected)="onAutocompleteSelected($event)"
+  (onLocationSelected)="onLocationSelected($event)">
+</mat-google-maps-autocomplete> -->
+
+
+
+<div id="container">
+  <input class="input1"
+       matGoogleMapsAutocomplete
+       (onAutocompleteSelected)="onAutocompleteSelected($event)"
+       (onLocationSelected)="onLocationSelected($event)">
+      </div>
+
+    
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12" >
+  <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
+    <agm-info-window>
+        {{point.name}}
+        <ion-button routerLink="/see-more">see more</ion-button>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
+
 
 </ion-content>

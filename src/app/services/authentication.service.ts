@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import * as firebase from "firebase"
+import { User } from '../modules/User';
+import { AngularFirestore } from '@angular/fire/firestore';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  constructor(public alertCtrl:AlertController) { }
+
+
+  applicationVerifier:any;
+  provider:any;
+  constructor(public alertCtrl:AlertController,  private db: AngularFirestore,public navCtrl: NavController) { }
   registerUser(value){
     return new Promise<any>((resolve, reject) => {
       firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
@@ -14,8 +20,6 @@ export class AuthenticationService {
         err => reject(err))
     })
    }
-   applicationVerifier:any;
-   provider:any;
 
    reset(value){
     return new Promise<any>((resolve, reject) => {
@@ -105,4 +109,30 @@ get windowRef() {
   userDetails(){
     return firebase.auth().currentUser;
   }
+          // sign up
+          signup(user: User) {
+            firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then((credential) => {
+              this.db.collection('users').doc(credential.user.uid).set({
+                username : user.username,
+                email : user.email,
+                UserID: firebase.auth().currentUser.uid,
+                profilepic: "",
+              });
+  
+              localStorage.setItem('userid', firebase.auth().currentUser.uid);
+              firebase.auth().currentUser.updateProfile({
+                displayName : user.username,
+                photoURL: '',
+  
+              }).then(() => {
+                this.navCtrl.navigateRoot('/login');
+  
+              }).catch(err => {
+                alert(err.message);
+              });
+            }).catch(err => {
+              alert(err.message);
+            });
+  
+           }
 }

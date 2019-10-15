@@ -5,12 +5,7 @@ ion-searchbar{
     box-shadow: none;
   
 }
-// ion-toolbar{
-//     text-align: center;
-//     h1{
-//         color: black;
-//     }
-// }
+
 .searchbar-input {
     
     border-radius: 0px !important;
@@ -51,8 +46,16 @@ img{
 .last-row{
     margin-top: -10px;
 }
+
 // .searchbar-search-icon { display:none; width:0; height:0; }
 .search{
-  width:120%;
+  width:100%;
   margin: auto;
  }
+ .icon{
+ margin-right: -1% ;
+ }
+
+.searchbar-search-icon { 
+  display:none; width:0; height:0; }
+

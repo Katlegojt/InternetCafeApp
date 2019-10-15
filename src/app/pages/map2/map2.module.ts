@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AgmCoreModule } from '@agm/core';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+
+
 
 import { IonicModule } from '@ionic/angular';
 
@@ -22,8 +25,9 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     AgmCoreModule.forRoot({
-      apiKey: ''
-    })
+      apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
+    }),
+    MatGoogleMapsAutocompleteModule.forRoot(),
   ],
   declarations: [Map2Page]
 })

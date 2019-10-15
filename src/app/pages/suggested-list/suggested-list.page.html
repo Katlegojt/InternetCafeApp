@@ -1,34 +1,20 @@
-<!-- <ion-header>
-  <ion-toolbar>
-      <ion-item>
-          <h1>The internet cafe</h1>
-         
-
-      </ion-item>
-      <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
-      <ion-searchbar placeholder="Search internet cafe"[formControl]="searchControl"></ion-searchbar>
-    
-  </ion-toolbar>
-</ion-header> -->
 <ion-header>
+  
   <ion-toolbar>
-      <ion-item>
         <ion-item [hidden]="visible">
-          <h1>The internet cafe</h1>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <ion-icon (click)="toggle()" name="search" slot="end"> </ion-icon>
+          <h3>The internet cafe</h3>
+           <ion-icon class="icon" (click)="toggle()" name="search" slot="end"> </ion-icon>
+            <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
         </ion-item>
-                      <ion-searchbar  class="search" [hidden]="!visible" class="accountBalance animated slideInUp"></ion-searchbar>
+        
+          <ion-searchbar  class="search" [hidden]="!visible" ></ion-searchbar>
       <!-- <ion-searchbar placeholder="Search internet cafe"[formControl]="searchControl"></ion-searchbar> -->
-    </ion-item>
+    
   </ion-toolbar>
  </ion-header>
 
-<ion-content color="primary">
+<ion-content color="primary" *ngFor="let item of itemList">
        
-        
                     <ion-grid>
                         <ion-row>
                           <ion-col>
@@ -36,14 +22,14 @@
         
                                   <ion-item lines="none">
                                     <ion-icon name="pin" slot="start"></ion-icon>
-                                    <ion-label>Name of internet cafe</ion-label>
+                                    <ion-label>{{item.name}}</ion-label>
                                    
                                   </ion-item>
                                   <img src="assets/cafe1.jpg" alt="img">
                                   <ion-card-content>
                                       <ion-item lines="none">
                                           <ion-label>
-                                             Street name
+                                              {{item.address.substring(4, item.address.indexOf(','))}}
                                           </ion-label>
                                           <ion-button fill="outline" (click)="goToSeeMorePage()" >See more</ion-button>
                                         </ion-item>
