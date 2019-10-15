@@ -1,11 +1,11 @@
 <ion-header>
   
-  <ion-toolbar>
-        <ion-item [hidden]="visible">
-          <h3>The internet cafe</h3>
+  <ion-toolbar color="primary">
+        
+        <img class="img" src="assets/logo.png">
            <ion-icon class="icon" (click)="toggle()" name="search" slot="end"> </ion-icon>
             <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
-        </ion-item>
+       
         
           <ion-searchbar  class="search" [hidden]="!visible" ></ion-searchbar>
       <!-- <ion-searchbar placeholder="Search internet cafe"[formControl]="searchControl"></ion-searchbar> -->
@@ -31,7 +31,7 @@
                                           <ion-label>
                                               {{item.address.substring(4, item.address.indexOf(','))}}
                                           </ion-label>
-                                          <ion-button fill="outline" (click)="goToSeeMorePage()" >See more</ion-button>
+                                          <ion-button fill="outline" (click)="goToSeeMorePage(item)" >See more</ion-button>
                                         </ion-item>
                                   </ion-card-content>
                                 </ion-card>
@@ -50,7 +50,7 @@
                                           <ion-label>
                                              Street name
                                           </ion-label>
-                                          <ion-button fill="outline" (click)="goToSeeMorePage()" >See more</ion-button>
+                                          <ion-button fill="outline" (click)="goToSeeMorePage(item)" >See more</ion-button>
                                         </ion-item>
                                   </ion-card-content>
                                 </ion-card>

@@ -8,9 +8,9 @@ ion-content{
 	left: -100em;
 }
 
-.profile-pic {
-	width: 200px;
-	height: 200px;
+.img {
+	width: 100%;
+	height: 50px;
 }
 
 
@@ -20,8 +20,8 @@ ion-content{
         position: relative;
         border-radius: 50%;
         overflow: hidden;
-        width: 78px;
-        height: 78px;
+        width: 150px;
+        height: 150px;
         display: inline-block;
         border : 1px solid black;
     

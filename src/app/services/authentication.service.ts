@@ -3,23 +3,34 @@ import { AlertController, NavController } from '@ionic/angular';
 import * as firebase from "firebase"
 import { User } from '../modules/User';
 import { AngularFirestore } from '@angular/fire/firestore';
+
+interface user {
+	username: string,
+	uid: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+ 
+	setUser(user: user) {
+		this.user = user
+	}
 
 
   applicationVerifier:any;
   provider:any;
+  private user: user
   constructor(public alertCtrl:AlertController,  private db: AngularFirestore,public navCtrl: NavController) { }
-  registerUser(value){
-    return new Promise<any>((resolve, reject) => {
-      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
-      .then(
-        res => resolve(res),
-        err => reject(err))
-    })
-   }
+  // registerUser(value){
+  //   return new Promise<any>((resolve, reject) => {
+  //     firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+  //     .then(
+  //       res => resolve(res),
+  //       err => reject(err))
+  //   })
+  //  }
 
    reset(value){
     return new Promise<any>((resolve, reject) => {
@@ -31,12 +42,7 @@ export class AuthenticationService {
     })}
     loginWithNumber(value){
      this. applicationVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container',firebase.auth().signInWithPhoneNumber);
-  //     return new Promise<any>((resolve, reject) => {
-  //     // firebase.auth().verifyPhoneNumber('+123456789', '30000')
-  //     firebase.auth().signInWithPhoneNumber(value.email,this.applicationVerifier)
-  // .then((res: any) => console.log(res))
-  // .catch((error: any) => console.error(error));
-  //    })
+  
 }
 
    loginUser(value){
@@ -110,7 +116,7 @@ get windowRef() {
     return firebase.auth().currentUser;
   }
           // sign up
-          signup(user: User) {
+  signup(user: User) {
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then((credential) => {
               this.db.collection('users').doc(credential.user.uid).set({
                 username : user.username,

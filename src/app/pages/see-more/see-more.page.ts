@@ -11,7 +11,9 @@ import { ActivatedRoute } from '@angular/router';
 export class SeeMorePage implements OnInit {
 objectA={
   name:'',
-
+  address:'',
+  phone:'',
+  email:'',
 }
   itemList;
   constructor(
@@ -28,9 +30,10 @@ objectA={
     this.route.queryParams.subscribe(data=>{
       console.log(data);
       this.objectA.name=data.name;
-    
-       console.log(data.name);
-      // this.price;
+      this.objectA.address=data.address;
+      this.objectA.phone=data.phone;
+      this.objectA.email=data.email;
+      
     })
   }
   goToMapPage(){

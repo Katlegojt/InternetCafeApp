@@ -16,7 +16,13 @@ export class SuggestedListPage implements OnInit {
   public items: any;
   visible = false;
   itemList;
-
+  item={
+    name:'',
+    address:'',
+    phone:'',
+    email:'',
+   
+  }
   constructor(
     private dataService: DataService,
     private navCtrl: NavController,
@@ -52,16 +58,15 @@ export class SuggestedListPage implements OnInit {
   setFilteredItems(searchTerm) {
     this.items = this.dataService.filterItems(searchTerm);
   }
-//  add(item){
-//   this.route.navigate(['/edit'],{queryParams:{name: item.name,price:item.price,type:item.type,key:item.key}})
-// }
+
   goToSeeMorePage(item){
    
     this.afAuth.user.subscribe((user) => {
       if (user) {
-        // this.navCtrl.navigateForward('/see-more');
-        this.route.navigate(['/see-more'],{queryParams:{name:item.name}})
+       
+        this.route.navigate(['/see-more'],{queryParams:{name:item.name,address:item.address,phone:item.phone, email:item.email}})
         console.log(this.afAuth.auth.currentUser.uid)
+        // console.log(item.name)
       } else {
         
         this.navCtrl.navigateForward('/login');
