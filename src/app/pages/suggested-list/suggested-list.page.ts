@@ -16,6 +16,15 @@ export class SuggestedListPage implements OnInit {
   public items: any;
   visible = false;
   itemList;
+  item={
+    name:'',
+    address:'',
+    phone:'',
+    email:'',
+    from:'',
+    to:'',
+   
+  }
 
   constructor(
     private dataService: DataService,
@@ -57,8 +66,16 @@ export class SuggestedListPage implements OnInit {
    
     this.afAuth.user.subscribe((user) => {
       if (user) {
-        // this.navCtrl.navigateForward('/see-more');
-        this.route.navigate(['/see-more'],{queryParams:{name:item.name}})
+       
+        this.route.navigate(['/see-more'],{queryParams:{
+          name:item.name,
+          address:item.address,
+          phone:item.phone,
+          email:item.email,
+          from:item.from,
+          to: item.to
+          }})
+       
         console.log(this.afAuth.auth.currentUser.uid)
       } else {
          

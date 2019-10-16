@@ -20,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { IonicRatingModule } from 'ionic-rating';
+// import { IonicRatingModule } from 'ionic-rating';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
@@ -37,7 +37,7 @@ firebase.initializeApp(firebaseConfig);
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig), 
-    IonicRatingModule, AngularFireDatabaseModule, AppRoutingModule, ReactiveFormsModule,FormsModule,
+     AngularFireDatabaseModule, AppRoutingModule, ReactiveFormsModule,FormsModule,
     AgmCoreModule.forRoot({
     apiKey: ''           
   }),MatGoogleMapsAutocompleteModule, BrowserAnimationsModule, HttpClientModule],

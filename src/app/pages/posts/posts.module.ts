@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { PostsPage } from './posts.page';
-import { IonicRatingModule } from 'ionic-rating';
+// import { IonicRatingModule } from 'ionic-rating';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    IonicRatingModule ,
+    // IonicRatingModule ,
     RouterModule.forChild(routes)
   ],
   declarations: [PostsPage]

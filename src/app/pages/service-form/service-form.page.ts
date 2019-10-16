@@ -156,5 +156,7 @@ export class ServiceFormPage implements OnInit {
   submit(){
     
   }
-
+  tryRegister(){
+    this.navCtrl.navigateForward('/suggested-list');
+  }
 }

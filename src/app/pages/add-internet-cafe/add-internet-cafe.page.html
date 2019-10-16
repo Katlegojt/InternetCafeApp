@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <!-- <ion-title>Add your internetCafe</ion-title> -->
+      <ion-back-button default-href="home" slot="start"></ion-back-button>
     <img class="img" src="assets/logo.png">
   </ion-toolbar>
 </ion-header>
@@ -12,8 +12,14 @@
               <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
               
 <img class="img-circle"src="assets/profile.png"><br>
-<ion-icon class="upload"name="camera"></ion-icon>
-       <!-- <input  type="file" (change)="uploadPic($event)" /> -->
+
+<div class="image-upload">
+    <label for="file-input">
+        <ion-icon class="upload"name="camera"></ion-icon>
+    </label>
+
+    <input id="file-input" type="file"/>
+</div>
               <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
                 <!-- name -->
                   <ion-item>
@@ -42,7 +48,7 @@
                     <!-- phone -->
                     <ion-item>
                       <ion-label  position="floating" color="primary">Phone</ion-label>
-                      <ion-input type="text" formControlName="phone"></ion-input>
+                      <ion-input type="number" min="1" max="5" formControlName="phone"></ion-input>
                     </ion-item>
                     <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.phone">
@@ -65,10 +71,11 @@
                   </div>
                
                   
-                  <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Register</ion-button>
+                  <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" routerLink="/serviceForm">Next</ion-button>
                   <label class="error-message">{{errorMessage}}</label>
                   <label class="success-message">{{successMessage}}</label>
               
+                  <!-- <ion-item class="go-to-register">Already have an account? <a (click)="goLoginPage()">Try Log In.</a></ion-item><br> -->
               
               </form>
               

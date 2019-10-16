@@ -7,6 +7,13 @@
 
     color: black;
 }
+.submit-btn {
+    margin-top: 40px;
+  }
+  ion-button {
+    width: 90%;
+    margin: 5%;
+}
 .background{
     background-color: #689ACA
     }
@@ -22,7 +29,10 @@
           color: red;
       }
 
-  
+      .img {
+        width: 100%;
+        height: 50px;
+      }
   
 
     
