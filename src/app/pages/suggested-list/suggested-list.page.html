@@ -15,18 +15,16 @@
 
 <ion-content color="primary" >
        
-                    <ion-grid>
+                    <ion-grid class="flex1">
                         <ion-row *ngFor="let item of itemList">
-                          <ion-col>
+                          <ion-col size='auto'>
                               <ion-card>
-        
                                   <ion-item lines="none">
                                     <ion-icon name="pin" slot="start" routerLink="/map2"></ion-icon>
                                     <ion-label>{{item.name}}</ion-label>
-                                   
                                   </ion-item>
-                                  <img src="assets/cafe1.jpg" alt="img">
                                   <ion-card-content>
+                                      <img src="assets/cafe1.jpg" alt="img">
                                       <ion-item lines="none">
                                           <ion-label>
                                               {{item.address.substring(4, item.address.indexOf(','))}}

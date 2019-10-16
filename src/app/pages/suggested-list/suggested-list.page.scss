@@ -1,5 +1,7 @@
 ion-card{
+
     background-color: white;
+   
 }
 ion-searchbar{
     box-shadow: none;
@@ -34,7 +36,7 @@ img{
   }
   ion-col{
       margin: -10px;
-     
+      
     
   }
   .last-col{
@@ -63,3 +65,7 @@ img{
 .searchbar-search-icon { 
   display:none; width:0; height:0; }
 
+  .flex1{
+    display: flex;
+    flex-wrap: wrap;
+  }
