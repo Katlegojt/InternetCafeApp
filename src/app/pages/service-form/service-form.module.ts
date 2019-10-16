@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PostsPage } from './posts.page';
-// import { IonicRatingModule } from 'ionic-rating';
+import { ServiceFormPage } from './service-form.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: PostsPage
+    component: ServiceFormPage
   }
 ];
 
@@ -20,10 +19,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule,
-    // IonicRatingModule ,
+    ReactiveFormsModule ,
     RouterModule.forChild(routes)
   ],
-  declarations: [PostsPage]
+  declarations: [ServiceFormPage]
 })
-export class PostsPageModule {}
+export class ServiceFormPageModule {}

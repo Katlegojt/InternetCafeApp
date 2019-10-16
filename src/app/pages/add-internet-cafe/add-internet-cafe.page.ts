@@ -66,7 +66,7 @@ export class AddInternetCafePage implements OnInit {
 
   }
   tryRegister(){
-    this.navCtrl.navigateForward('/suggested-list');
+    this.navCtrl.navigateForward('/service-form');
   }
   goLoginPage(){
     this.navCtrl.navigateForward('/login');

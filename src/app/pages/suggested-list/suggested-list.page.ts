@@ -75,11 +75,10 @@ export class SuggestedListPage implements OnInit {
           from:item.from,
           to: item.to
           }})
-        // this.navCtrl.navigateForward('/see-more');
-        this.route.navigate(['/see-more'],{queryParams:{name:item.name}})
+       
         console.log(this.afAuth.auth.currentUser.uid)
       } else {
-        
+         
         this.navCtrl.navigateForward('/login');
       }
     })
