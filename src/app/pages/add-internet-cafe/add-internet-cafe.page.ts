@@ -25,7 +25,7 @@ export class AddInternetCafePage implements OnInit {
     ],
     'phone': [
       { type: 'required', message: 'phone is required.' },
-      { type: 'pattern', message: 'Enter a valid phone.' }
+      { type: 'pattern', message: 'Phone must contain numbers only.' }
     ],
    'email': [
      { type: 'required', message: 'Email is required.' },
@@ -48,11 +48,11 @@ export class AddInternetCafePage implements OnInit {
       ])),
       address: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z]+$')
+        Validators.pattern('^[a-zA-Z0-9]+$')
       ])),
       phone: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z]+$')
+        Validators.pattern('^[0-9]+$')
       ])),
       email: new FormControl('', Validators.compose([
         Validators.required,
@@ -62,20 +62,12 @@ export class AddInternetCafePage implements OnInit {
     });
   }
  
-  tryRegister(value){
-    // this.authService.registerUser(value)
-    //  .then(res => {
-    //    console.log(res);
-    //    this.errorMessage = "";
-    //    this.successMessage = "Your account has been created. Please log in.";
-    //  }, err => {
-    //    console.log(err);
-    //    this.errorMessage = err.message;
-    //    this.successMessage = "";
-    //    this.navCtrl.navigateForward('/login');
-    //  })
+  addInternetCafe(){
+
   }
- 
+  tryRegister(){
+    this.navCtrl.navigateForward('/suggested-list');
+  }
   goLoginPage(){
     this.navCtrl.navigateForward('/login');
   }

@@ -21,6 +21,8 @@ export class SuggestedListPage implements OnInit {
     address:'',
     phone:'',
     email:'',
+    from:'',
+    to:'',
    
   }
   constructor(
@@ -64,7 +66,14 @@ export class SuggestedListPage implements OnInit {
     this.afAuth.user.subscribe((user) => {
       if (user) {
        
-        this.route.navigate(['/see-more'],{queryParams:{name:item.name,address:item.address,phone:item.phone, email:item.email}})
+        this.route.navigate(['/see-more'],{queryParams:{
+          name:item.name,
+          address:item.address,
+          phone:item.phone,
+          email:item.email,
+          from:item.from,
+          to: item.to
+          }})
         console.log(this.afAuth.auth.currentUser.uid)
         // console.log(item.name)
       } else {

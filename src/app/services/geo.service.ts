@@ -57,7 +57,7 @@ export class GeoService {
   {
     this.point = this.geo.point(lat, lng);
     this.cities = this.firestore.collection('localCafe');
-    this.cities.add({URL:'http://www.google.com', address: '',hours:'', email: 'zanoxolo', name: 'we', phone: 'fgh65768', position: this.point.data }).then(()=> {
+    this.cities.add({URL:'http://www.google.com', address: '',from:'07:00',to:'17:00', email: 'zanoxolo', name: 'we', phone: 'fgh65768', position: this.point.data }).then(()=> {
      console.log('successful');
     }).catch(err =>{
     console.log(err.message);
