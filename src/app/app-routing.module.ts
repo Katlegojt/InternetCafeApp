@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'services', loadChildren: './pages/services/services.module#ServicesPageModule' },
   { path: 'comments', loadChildren: './pages/comments/comments.module#CommentsPageModule' },
   { path: 'map2', loadChildren: './pages/map2/map2.module#Map2PageModule' },
-  { path: 'internetCafe', loadChildren: './pages/add-internet-cafe/add-internet-cafe.module#AddInternetCafePageModule' },
+  { path: 'internetCafe', loadChildren: './pages/add-internet-cafe/add-internet-cafe.module#AddInternetCafePageModule' },  { path: 'service-form', loadChildren: './pages/service-form/service-form.module#ServiceFormPageModule' },
+
 
 
 ];

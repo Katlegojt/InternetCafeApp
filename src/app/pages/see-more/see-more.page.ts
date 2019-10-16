@@ -14,6 +14,8 @@ objectA={
   address:'',
   phone:'',
   email:'',
+  from:'',
+  to:'',
 }
   itemList;
   constructor(
@@ -33,6 +35,8 @@ objectA={
       this.objectA.address=data.address;
       this.objectA.phone=data.phone;
       this.objectA.email=data.email;
+      this.objectA.from=data.from;
+      this.objectA.to=data.to;
       
     })
   }

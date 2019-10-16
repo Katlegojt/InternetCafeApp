@@ -18,8 +18,9 @@ import { AuthenticationService } from './services/authentication.service';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+// import { IonicRatingModule } from 'ionic-rating';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
@@ -35,17 +36,11 @@ firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-
-  imports: [BrowserModule,
-     IonicModule.forRoot(), 
-    AngularFirestoreModule, 
-    HttpClientModule,
-    AngularFireModule.initializeApp(firebaseConfig), 
-     AngularFireDatabaseModule,
-      AppRoutingModule,AgmCoreModule.forRoot({
-        apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
-   
-  })],
+  imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig), 
+     AngularFireDatabaseModule, AppRoutingModule, ReactiveFormsModule,FormsModule,
+    AgmCoreModule.forRoot({
+    apiKey: ''           
+  }),MatGoogleMapsAutocompleteModule, BrowserAnimationsModule, HttpClientModule],
   providers: [
     StatusBar,AngularFireAuth,
     SplashScreen,AuthenticationService,

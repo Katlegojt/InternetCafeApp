@@ -43,6 +43,8 @@
     "geofire": "^5.0.1",
     "geofirestore": "^3.3.1",
     "geofirex": "0.0.6",
+    "ionic-rating": "^2.0.0",
+    "ionic4-rating": "^1.0.9",
     "ngx-google-places-autocomplete": "^2.0.4",
     "rxjs": "^6.5.3",
     "rxjs-compat": "^6.5.3",
