@@ -1,8 +1,13 @@
 <ion-header>
   
   <ion-toolbar color="primary">
-        
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
         <img class="img" src="assets/logo.png">
+        </ion-col>
+        </ion-row>
+        </ion-grid>
         <ion-menu-button autoHide="false"slot="start"></ion-menu-button>
             <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
        
@@ -15,18 +20,16 @@
 
 <ion-content color="primary" >
        
-                    <ion-grid>
-                        <ion-row  *ngFor="let item of itemList">
-                          <ion-col  class="last-col">
+                    <ion-grid class="flex1">
+                        <ion-row  *ngFor="let item of itemList" >
+                          <ion-col>
                               <ion-card>
-        
                                   <ion-item lines="none">
                                     <ion-icon name="pin" slot="start" routerLink="/map2"></ion-icon>
                                     <ion-label>{{item.name}}</ion-label>
-                                   
                                   </ion-item>
-                                  <img src="assets/cafe1.jpg" alt="img">
                                   <ion-card-content>
+                                      <img src="assets/cafe1.jpg" alt="img">
                                       <ion-item lines="none">
                                           <ion-label>
                                               {{item.address.substring(4, item.address.indexOf(','))}}
