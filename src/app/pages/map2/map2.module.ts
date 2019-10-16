@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AgmCoreModule } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { AgmDirectionModule} from 'agm-direction'
 
 
 
@@ -22,7 +23,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule,AgmDirectionModule,
     RouterModule.forChild(routes),
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
