@@ -1,6 +1,8 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>map2</ion-title>
+  <ion-toolbar color="primary">
+      <ion-back-button default-href="home" slot="start"></ion-back-button>
+    <img class="img" src="assets/logo.png">
+     <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
 
   </ion-toolbar>
 </ion-header>
@@ -26,12 +28,12 @@
 
     
 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12" >
-  <!-- <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
+  <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
     <agm-info-window>
         {{point.name}}
         <ion-button routerLink="/see-more">see more</ion-button>
     </agm-info-window>
-  </agm-marker> -->
+  </agm-marker>
 </agm-map>
 
 

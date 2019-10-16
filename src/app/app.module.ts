@@ -18,6 +18,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicRatingModule } from 'ionic-rating';
 
@@ -36,7 +37,7 @@ firebase.initializeApp(firebaseConfig);
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig), 
-    IonicRatingModule, AngularFireDatabaseModule, AppRoutingModule,
+    IonicRatingModule, AngularFireDatabaseModule, AppRoutingModule, ReactiveFormsModule,FormsModule,
     AgmCoreModule.forRoot({
     apiKey: ''           
   }),MatGoogleMapsAutocompleteModule, BrowserAnimationsModule, HttpClientModule],

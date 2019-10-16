@@ -1,21 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Add your internetCafe</ion-title>
+  <ion-toolbar color="primary">
+    <!-- <ion-title>Add your internetCafe</ion-title> -->
+    <img class="img" src="assets/logo.png">
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="primary">
- 
-<img class="img-circle"src="assets/cafe1.jpg"><br>
-<ion-icon class="upload"name="camera"></ion-icon>
-       <input  type="file" (change)="uploadPic($event)" />
-
-
        <ion-grid>
         <ion-row justify-content-center>
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
               <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
               
+<img class="img-circle"src="assets/profile.png"><br>
+<ion-icon class="upload"name="camera"></ion-icon>
+       <!-- <input  type="file" (change)="uploadPic($event)" /> -->
               <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
                 <!-- name -->
                   <ion-item>
@@ -71,9 +69,9 @@
                   <label class="error-message">{{errorMessage}}</label>
                   <label class="success-message">{{successMessage}}</label>
               
-                  <ion-item class="go-to-register">Already have an account? <a (click)="goLoginPage()">Try Log In.</a></ion-item><br>
               
               </form>
+              
           </ion-col>
         </ion-row>
       </ion-grid>

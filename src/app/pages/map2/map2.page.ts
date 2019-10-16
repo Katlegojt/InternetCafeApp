@@ -6,9 +6,10 @@ import * as geofirex from 'geofirex';
 import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
 
 import PlaceResult = google.maps.places.PlaceResult;
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { GeoService } from 'src/app/services/geo.service';
 import { GeoPoint } from '@firebase/firestore-types';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -34,14 +35,19 @@ export class Map2Page implements OnInit {
   
 
 
-  constructor(public alertController: AlertController, private geoservice : GeoService)  { 
+  constructor(public alertController: AlertController,
+     private geoservice : GeoService,
+     private navCtrl: NavController,
+     public afAuth: AngularFireAuth
+    
+    )  { 
 
     //  const point = this.geo.point(-25.782823,28.2749065);
     //  const cities = this.geo.collection('internetCafe');
     //   cities.add({ name: 'Phoenix33', position: point.data });
 
 
-   this.geoservice.setALocation(-25.782823,28.2749065);
+   //this.geoservice.setALocation(-25.782823,28.2749065);
    
     this.pointList=[];
 
@@ -70,7 +76,7 @@ export class Map2Page implements OnInit {
       data.forEach(item=>{
         //console.log(item.data().position.geohash);
 
-        this.pointList.push(item.data().name);
+        this.pointList.push(item.data());
 
         console.log(this.pointList);
       })
@@ -98,5 +104,9 @@ export class Map2Page implements OnInit {
    
   }
 
+  logOut(){
 
+    this.afAuth.auth.signOut();
+    this.navCtrl.navigateForward('/login');
+  }
 }

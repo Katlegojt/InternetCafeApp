@@ -1,12 +1,7 @@
 <ion-header>
-  <ion-toolbar>
-     <ion-item lines="none"class="s">
+  <ion-toolbar color="primary">
                     <ion-back-button default-href="home" slot="start"></ion-back-button>
-                  
-                  <ion-label >
-                      <ion-icon name="pin" color="black"></ion-icon>&nbsp;
-                   {{objectA.name}}</ion-label>
-                </ion-item>
+                    <img class="img" src="assets/logo.png">
   </ion-toolbar>
 </ion-header> 
 <ion-content color="secondary">
@@ -15,6 +10,7 @@
           <ion-row justify-content-center>
             <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+               {{objectA.name}}
                <ion-card-content>
                   <ion-grid>
                       <ion-row>
@@ -41,7 +37,7 @@
                                 <ion-item lines="none" color="secondary">
                                     <a>
                                         <ion-icon name="home" ></ion-icon> 
-                                        //retrieve address from database
+                                        {{objectA.address}}
                                     </a>
                                 </ion-item>
                                 <ion-item lines="none"color="secondary">
@@ -53,13 +49,13 @@
                                 <ion-item lines="none"color="secondary">
                                   <a>
                                     <ion-icon name="call" ></ion-icon> 
-                                    //retrieve phone from database
+                                    {{objectA.phone}}
                                   </a>
                                 </ion-item>
                                 <ion-item lines="none"color="secondary">
                                   <a>
                                     <ion-icon name="mail" ></ion-icon> 
-                                    //retrieve email from database
+                                    {{objectA.email}}
                                   </a>
                                 </ion-item>
                               
@@ -92,7 +88,9 @@
                       <figure><img src="assets/cafe4.jpeg" alt=""></figure>
                       <figure><img src="assets/cafe1.jpg" alt=""></figure>
                     </div>
+                   
                   </div>
+                  <br><br>
             </ion-col>
           </ion-row>
         </ion-grid>
