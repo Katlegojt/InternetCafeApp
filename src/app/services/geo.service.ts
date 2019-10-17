@@ -53,11 +53,11 @@ export class GeoService {
   }
 
   //set point to a firestore collection
-  setALocation(lat , lng, )
+  setALocation(lat , lng, name,address, phone,email, )
   {
     this.point = this.geo.point(lat, lng);
     this.cities = this.firestore.collection('localCafe');
-    this.cities.add({URL:'http://www.google.com', address: '',from:'07:00',to:'17:00', email: 'zanoxolo', name: 'we', phone: 'fgh65768', position: this.point.data }).then(()=> {
+    this.cities.add({URL:'http://www.google.com', address:address, from:'07:00',to:'17:00', email: email, name: name, phone: phone, position: this.point.data }).then(()=> {
      console.log('successful');
     }).catch(err =>{
     console.log(err.message);
@@ -93,8 +93,8 @@ export class GeoService {
   }
 
 
-  getGeopoints(address){
-   return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+ address +'key=AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY')
+  getAGeopoints(address){
+   return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+ address+'&key=AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY')
   }
 
   // showConfig() {

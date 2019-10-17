@@ -24,7 +24,7 @@
                 <!-- name -->
                   <ion-item>
                       <ion-label  position="floating" color="primary">Name</ion-label>
-                      <ion-input type="text" formControlName="name"></ion-input>
+                      <ion-input type="text" formControlName="name" [(ngModel)]="name"></ion-input>
                     </ion-item>
                     <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.name">
@@ -36,7 +36,7 @@
                     <!-- address -->
                     <ion-item>
                       <ion-label  position="floating" color="primary">Address</ion-label>
-                      <ion-input type="text" formControlName="address"></ion-input>
+                      <ion-input type="text" formControlName="address" [(ngModel)]="address"></ion-input>
                     </ion-item>
                     <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.address">
@@ -48,7 +48,7 @@
                     <!-- phone -->
                     <ion-item>
                       <ion-label  position="floating" color="primary">Phone</ion-label>
-                      <ion-input type="number" min="1" max="5" formControlName="phone"></ion-input>
+                      <ion-input type="number" min="1" max="5" formControlName="phone" [(ngModel)]="phone"></ion-input>
                     </ion-item>
                     <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.phone">
@@ -60,7 +60,7 @@
                     <!-- email -->
                   <ion-item>
                     <ion-label  position="floating" color="primary">Email</ion-label>
-                    <ion-input type="text" formControlName="email"></ion-input>
+                    <ion-input type="text" formControlName="email" [(ngModel)]="email"></ion-input>
                   </ion-item>
                   <div class="validation-errors">
                     <ng-container *ngFor="let validation of validation_messages.email">
@@ -71,7 +71,7 @@
                   </div>
                
                   
-                  <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" routerLink="/serviceForm">Next</ion-button>
+                  <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)=getGeopoints(address,name,phone,email)>Next</ion-button>
                   <label class="error-message">{{errorMessage}}</label>
                   <label class="success-message">{{successMessage}}</label>
               
