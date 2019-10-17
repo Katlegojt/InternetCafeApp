@@ -21,8 +21,8 @@
 <ion-content color="primary" >
        
                     <ion-grid class="flex1">
-                        <ion-row  *ngFor="let item of itemList" >
-                          <ion-col>
+                        <ion-row *ngFor="let item of itemList">
+                          <ion-col >
                               <ion-card>
                                   <ion-item lines="none">
                                     <ion-icon name="pin" slot="start" routerLink="/map2"></ion-icon>
@@ -34,7 +34,8 @@
                                           <ion-label>
                                               {{item.address.substring(4, item.address.indexOf(','))}}
                                           </ion-label>
-                                          <ion-button fill="outline" (click)="goToSeeMorePage(item)" >See more</ion-button>
+                                          <ion-button fill="outline" (click)="goToSeeMorePage(item)" >See more</ion-button> 
+
                                         </ion-item>
                                   </ion-card-content>
                                 </ion-card>

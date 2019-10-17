@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { ActivatedRoute } from '@angular/router';
+import { NavController, AlertController } from '@ionic/angular';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth'
+import * as firebase from 'firebase';
+
+
+
+
 
 @Component({
   selector: 'app-see-more',
@@ -21,10 +29,12 @@ objectA={
   constructor(
     private navCtrl: NavController,
     private dataService: DataService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private authService: AuthenticationService,
+    private formBuilder: FormBuilder,
+    public alertCtrl:AlertController,
+    public afAuth: AngularFireAuth,
   ) {
-
-  
 
    }
 
@@ -49,5 +59,36 @@ objectA={
   goToServicesPage(){
     this.navCtrl.navigateForward('/services');
   }
+   async presentPrompt() {
+    const alert = await this.alertCtrl.create({
+      header: 'Comment here',
+      message: 'Message <strong>text</strong>!!!',
+      inputs: [
+                {
+                  type:'text',
+                  name: 'comment',
+                  placeholder: 'Type...'
+                }
+               
+              ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('cancelled');
+          }
+        }, {
+          text: 'Post',
+          handler: (data) => {
+            console.log(data.name);
+          }
+        }
+      ]
+    });
 
+    await alert.present();
+  }
+ 
 }
