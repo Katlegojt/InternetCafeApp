@@ -31,7 +31,18 @@ export class AddInternetCafePage implements OnInit {
      { type: 'required', message: 'Email is required.' },
      { type: 'pattern', message: 'Enter a valid email.' }
    ],
+   'closeTime':[
+    { type: 'required', message: 'Please select closing time.' },
    
+   ],
+   'openTime':[
+    { type: 'required', message: 'Please select opening time.' },
+   
+   ],
+   'website':[
+    { type: 'required', message: 'website is required.' },
+    { type: 'pattern', message: 'Enter a valid website url.' }
+   ]
  };
  
   constructor(
@@ -41,12 +52,23 @@ export class AddInternetCafePage implements OnInit {
   ) {}
 
   ngOnInit(){
+    
     this.validations_form = this.formBuilder.group({
+      openTime:new FormControl('',Validators.compose([
+        Validators.required
+      ])),
+      closeTime:new FormControl('',Validators.compose([
+        Validators.required
+      ])),
       name: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z]+$')
       ])),
       address: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9]+$')
+      ])),
+      website: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9]+$')
       ])),
