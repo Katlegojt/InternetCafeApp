@@ -123,42 +123,41 @@ export class LoginPage implements OnInit {
  
 value;
 
- async presentPrompt() {
-    const alert =await this.alertCtrl.create({
-       header: 'Reset password',
-       message: this.msg,
+async presentPrompt() {
+  const alert =await this.alertCtrl.create({
+     header: 'Reset password',
+     message: this.msg,
 
-      inputs: [
-        {
-          name: 'Email',
-          placeholder: 'Email'
+    inputs: [
+      {
+        name: 'Email',
+        placeholder: 'Email'
+      }
+     
+    ],
+    buttons: [
+      {
+        text: 'Reset',
+        role: 'reset',
+        handler: (data) => {
+        this.reset(data.Email)
+         
         }
-       
-      ],
-      buttons: [
-        {
-          text: 'Reset',
-          role: 'reset',
-          handler: (data) => {
-          this.reset(data.Email)
-           
-          }
-        },
-       
-      ]
-    });
-    await alert.present();
-  }
-  msg:string='';
-   msg2:string='';
-  reset(value){
-    return new Promise<any>((resolve, reject) => {
-    firebase.auth().sendPasswordResetEmail(value)
-    .then((res: any) => this.msg = res=this.msg2)
-    .catch((error: any) => this.msg = error);
-    this.msg2="success"
-    console.log(this.msg)
-    
-    })}
-  
+      },
+     
+    ]
+  });
+  await alert.present();
+}
+msg:string='';
+msg2:string='';
+reset(value){
+ return new Promise<any>((resolve, reject) => {
+ firebase.auth().sendPasswordResetEmail(value)
+ .then((res: any) => this.msg = res=this.msg2)
+ .catch((error: any) => this.msg = error);
+ this.msg2="success"
+ console.log(this.msg)
+ 
+ })}
 }

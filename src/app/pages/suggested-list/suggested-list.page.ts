@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from "rxjs/operators";
-import { NavController, MenuController } from '@ionic/angular';
+import { NavController, MenuController,AlertController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
@@ -31,7 +31,8 @@ export class SuggestedListPage implements OnInit {
     private navCtrl: NavController,
     private menu: MenuController,
     public afAuth: AngularFireAuth,
-    private route: Router
+    private route: Router,
+    public alertCtrl:AlertController,
     
     ) {
     this.searchControl = new FormControl();
@@ -79,7 +80,7 @@ export class SuggestedListPage implements OnInit {
         console.log(this.afAuth.auth.currentUser.uid)
       } else {
          
-        this.navCtrl.navigateForward('/login');
+        this.presentPrompt();
       }
     })
 
@@ -94,4 +95,30 @@ export class SuggestedListPage implements OnInit {
   toggle() {
     this.visible = !this.visible;
    }
+   async presentPrompt() {
+    const alert = await this.alertCtrl.create({
+      header: 'Comment here',
+      message: 'To access more information, you have to log in first',
+     
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('cancelled');
+          }
+        }, {
+          text: 'okay',
+          handler: () => {
+            this.navCtrl.navigateForward('/login');
+            console.log(name);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+ 
 }
