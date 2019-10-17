@@ -19,6 +19,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class Map2Page implements OnInit {
 
+  iconurl ='assets/favicon-96x96-removebg-preview.png'
   pointList:any;
   appearance = Appearance;
   points: Observable<any>;
@@ -30,7 +31,7 @@ export class Map2Page implements OnInit {
   longitude ;
   geocoder = new google.maps.Geocoder;
   active: boolean = false;
-  
+  dir ;
   address: any = {};
   
 
@@ -108,5 +109,13 @@ export class Map2Page implements OnInit {
 
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
+  }
+
+  
+  public getDirection() {
+    this.dir = {
+      origin: { lat: this.latitude , lng: this.longitude},
+      destination: { lat: -25.781460, lng: 28.274750 }
+    }
   }
 }

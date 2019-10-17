@@ -3,16 +3,14 @@
       <ion-back-button default-href="home" slot="start"></ion-back-button>
     <img class="img" src="assets/logo.png">
      <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
-
+     
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 <!-- 
 
-  
-
-  <mat-google-maps-autocomplete [appearance]="appearance.STANDARD" type="address"
+<mat-google-maps-autocomplete [appearance]="appearance.STANDARD" type="address"
   (onAutocompleteSelected)="onAutocompleteSelected($event)"
   (onLocationSelected)="onLocationSelected($event)">
 </mat-google-maps-autocomplete> -->
@@ -23,18 +21,26 @@
   <input class="input1"
        matGoogleMapsAutocomplete
        (onAutocompleteSelected)="onAutocompleteSelected($event)"
-       (onLocationSelected)="onLocationSelected($event)">
+       (onLocationSelected)="onLocationSelected($event)"> 
       </div>
-
+   
     
 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12" >
-  <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
+    <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
+    <ion-button (click)="getDirection()">Get Direction</ion-button>
+  <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude"
+  [iconUrl]="iconurl">
+ 
     <agm-info-window>
         {{point.name}}
         <ion-button routerLink="/see-more">see more</ion-button>
     </agm-info-window>
+
   </agm-marker>
+  <button (click)="getDirection()">Get something</button>
 </agm-map>
+
+
 
 
 </ion-content>
