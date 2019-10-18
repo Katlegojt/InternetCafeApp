@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { GeoService } from 'src/app/services/geo.service';
 
 @Component({
   selector: 'app-add-internet-cafe',
@@ -13,6 +14,10 @@ export class AddInternetCafePage implements OnInit {
   validations_form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
+  name;
+ address;
+  phone;
+  email;
  
   validation_messages = {
     'name': [
@@ -44,12 +49,18 @@ export class AddInternetCafePage implements OnInit {
     { type: 'pattern', message: 'Enter a valid website url.' }
    ]
  };
+  latitude: any;
+  longitude: any;
  
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticationService,
-    private formBuilder: FormBuilder
-  ) {}
+    private formBuilder: FormBuilder,
+    private geoService : GeoService
+  ) {
+    //this.getGeopoints('540 Paul kruger street, pretoria')
+    
+  }
 
   ngOnInit(){
     
@@ -66,7 +77,7 @@ export class AddInternetCafePage implements OnInit {
       ])),
       address: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9]+$')
+        
       ])),
       website: new FormControl('', Validators.compose([
         Validators.required,
@@ -92,6 +103,18 @@ export class AddInternetCafePage implements OnInit {
   }
   goLoginPage(){
     this.navCtrl.navigateForward('/login');
+  }
+
+  getGeopoints(address,name, phone ,email){
+
+this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
+   this.latitude = data.results[0].geometry.location.lat,
+   this.longitude = data.results[0].geometry.location.lng,
+   this.geoService.setALocation(this.latitude ,  this.longitude, name,address, phone ,email)
+  
+  }
+  );
+
   }
 
 }
