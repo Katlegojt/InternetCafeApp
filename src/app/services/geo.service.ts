@@ -6,6 +6,7 @@ import * as firebaseApp from 'firebase/app';
 import * as firebase from 'firebase/app';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Injectable({
@@ -28,7 +29,7 @@ export class GeoService {
 
   item: Observable<InternetCafe>;
 
-  constructor(private db: AngularFireDatabase, private http: HttpClient, private firestore: AngularFirestore) {
+  constructor(private db: AngularFireDatabase, private http: HttpClient, private firestore: AngularFirestore, private afAuth : AngularFireAuth) {
    // reference a database location for Geofire
 
     // var firebaseRef = firebase.database().ref('list')
@@ -53,12 +54,12 @@ export class GeoService {
   }
 
   //set point to a firestore collection
-  setALocation(lat , lng, name,address, phone,email, )
+  setALocation(lat , lng, name,address, phone,email,url,from,to,img )
   {
     this.point = this.geo.point(lat, lng);
-    this.cities = this.firestore.collection('localCafe');
-    this.cities.add({URL:'http://www.google.com', address:address, from:'07:00',to:'17:00', email: email, name: name, phone: phone, position: this.point.data }).then(()=> {
-     console.log('successful');
+    this.cities = this.firestore.collection('localCafe')
+    this.cities.add({URL:url, address:address, from:from,to:to, email: email, name: name, phone: phone, position: this.point.data, img:img }).then(()=> {
+     console.log('successful')
     }).catch(err =>{
     console.log(err.message);
     })

@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { NavController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { GeoService } from 'src/app/services/geo.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-add-internet-cafe',
@@ -18,6 +19,11 @@ export class AddInternetCafePage implements OnInit {
  address;
   phone;
   email;
+  website;
+  openTime;
+  closeTime;
+  selectedFile;
+  imageUrl: string;
  
   validation_messages = {
     'name': [
@@ -73,7 +79,6 @@ export class AddInternetCafePage implements OnInit {
       ])),
       name: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z]+$')
       ])),
       address: new FormControl('', Validators.compose([
         Validators.required,
@@ -81,7 +86,7 @@ export class AddInternetCafePage implements OnInit {
       ])),
       website: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9]+$')
+        
       ])),
       phone: new FormControl('', Validators.compose([
         Validators.required,
@@ -105,16 +110,57 @@ export class AddInternetCafePage implements OnInit {
     this.navCtrl.navigateForward('/login');
   }
 
-  getGeopoints(address,name, phone ,email){
 
-this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
-   this.latitude = data.results[0].geometry.location.lat,
-   this.longitude = data.results[0].geometry.location.lng,
-   this.geoService.setALocation(this.latitude ,  this.longitude, name,address, phone ,email)
-  
+  onUpload(event) {
+    this.selectedFile = <File>event.target.files[0];
+    console.log(event.target.files[0]);
+    const file = event.target.files[0];
+    this.uploadViaFileChooser(file);// call helper method
+    console.log("upload complete !");
   }
-  );
-
+  uploadViaFileChooser(_image) {
+    console.log('uploadToFirebase');
+    return new Promise((resolve, reject) => {
+      const fileRef = firebase.storage().ref('images/' + this.selectedFile.name);
+      const uploadTask = fileRef.put(_image);
+      uploadTask.on(
+        'state_changed',
+        (_snapshot: any) => {
+          console.log(
+            'snapshot progess ' +
+            (_snapshot.bytesTransferred / _snapshot.totalBytes) * 100
+          );
+          const progress = (_snapshot.bytesTransferred / _snapshot.totalBytes) * 100;
+          if (progress === 100) {
+            fileRef.getDownloadURL().then(uri => {
+              this.imageUrl = uri;
+              console.log('downloadurl', uri)
+            });
+            
+            
+          }
+        },
+        _error => {
+          console.log(_error);
+          reject(_error);
+        },
+        () => {
+          // completion...
+          resolve(uploadTask.snapshot);
+        }
+      );
+    });
   }
+  getGeopoints(address,name,phone,email,url,from,to){
 
+    this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
+       this.latitude = data.results[0].geometry.location.lat,
+       this.longitude = data.results[0].geometry.location.lng,
+       this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl)
+      
+      }
+      );
+    
+      }
+    
 }

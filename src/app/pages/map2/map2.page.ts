@@ -35,7 +35,8 @@ export class Map2Page implements OnInit {
   dir ;
   address: any = {};
   
-
+  point1: 51.507351;
+  point2: -0.127758;
 
   constructor(public alertController: AlertController,
      private geoservice : GeoService,

@@ -29,10 +29,10 @@
                                     <ion-label>{{item.name}}</ion-label>
                                   </ion-item>
                                   <ion-card-content>
-                                      <img src="assets/cafe1.jpg" alt="img">
+                                      <img src="{{item.img}}" alt="img">
                                       <ion-item lines="none">
                                           <ion-label>
-                                              {{item.address.substring(4, item.address.indexOf(','))}}
+                                              {{item.address.substring(0, item.address.indexOf(','))}}
                                           </ion-label>
                                           <ion-button fill="outline" (click)="goToSeeMorePage(item)" >See more</ion-button> 
 
