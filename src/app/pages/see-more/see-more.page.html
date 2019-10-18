@@ -1,9 +1,27 @@
 <ion-header>
+  <!-- <ion-toolbar color="primary">
+    <ion-grid class="head_ion-grid">
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <img class="img"src="assets/logo.png">
+        </ion-col>
+        </ion-row>
+        </ion-grid>
+        <ion-menu-button autoHide="false"slot="start"></ion-menu-button>
+            <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
+  </ion-toolbar> -->
   <ion-toolbar color="primary">
-                    <ion-back-button default-href="home" slot="start"></ion-back-button>
-                    <img class="img" src="assets/logo.png">
+    <ion-grid class="head_ion-grid">
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <img class="img"src="assets/logo.png">
+        </ion-col>
+        </ion-row>
+        </ion-grid>
+        <ion-back-button default-href="home" slot="start"></ion-back-button>
+            <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
   </ion-toolbar>
-</ion-header> 
+ </ion-header>
 <ion-content color="secondary">
  
       <ion-grid>

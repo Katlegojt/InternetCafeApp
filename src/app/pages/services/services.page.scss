@@ -10,6 +10,15 @@
 	width: 100%;
 	height: 50px;
 }
+.head_ion-grid{
+   margin: -10px;
+}
+.head_ion-col{
+   margin: -10px;
+   width: 100%;
+   border: none;
+ 
+}
    ion-col {
        background-color: #f7f7f7;
       border: solid 1px #ddd;
@@ -22,5 +31,10 @@
 
       text-align: center;
      }
-   
+  .head{
+     border: 0px;
+     ion-row{
+        border: 0px;
+     }
+  } 
 

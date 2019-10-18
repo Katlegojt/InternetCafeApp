@@ -1,20 +1,14 @@
 <ion-header>
-  
   <ion-toolbar color="primary">
-    <ion-grid>
+    <ion-grid class="head_ion-grid">
       <ion-row justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-        <img class="img" src="assets/logo.png">
+        <ion-col class="head_ion-col"align-self-center size-md="6" size-lg="5" size-xs="12">
+        <img class="img"src="assets/logo.png">
         </ion-col>
         </ion-row>
         </ion-grid>
         <ion-menu-button autoHide="false"slot="start"></ion-menu-button>
             <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
-       
-        
-          <ion-searchbar showCancelButton="true" (ioCancel)="isSearchbarOpened=false" class="search" [hidden]="!visible" ></ion-searchbar>
-      <!-- <ion-searchbar placeholder="Search internet cafe"[formControl]="searchControl"></ion-searchbar> -->
-    
   </ion-toolbar>
  </ion-header>
 

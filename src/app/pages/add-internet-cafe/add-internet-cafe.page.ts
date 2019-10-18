@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-add-internet-cafe',
@@ -48,6 +49,7 @@ export class AddInternetCafePage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticationService,
+    public afAuth: AngularFireAuth,
     private formBuilder: FormBuilder
   ) {}
 
@@ -94,4 +96,9 @@ export class AddInternetCafePage implements OnInit {
     this.navCtrl.navigateForward('/login');
   }
 
+  logOut(){
+
+    this.afAuth.auth.signOut();
+    this.navCtrl.navigateForward('/login');
+  }
 }

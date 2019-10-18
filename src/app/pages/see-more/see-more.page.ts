@@ -90,5 +90,9 @@ objectA={
 
     await alert.present();
   }
- 
+  logOut(){
+
+    this.afAuth.auth.signOut();
+    this.navCtrl.navigateForward('/login');
+  }
 }
