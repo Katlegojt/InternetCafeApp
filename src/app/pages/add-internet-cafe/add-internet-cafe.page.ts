@@ -151,16 +151,16 @@ export class AddInternetCafePage implements OnInit {
       );
     });
   }
-  getGeopoints(address,name,phone,email,url,from,to){
+  // getGeopoints(address,name,phone,email,url,from,to){
 
-    this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
-       this.latitude = data.results[0].geometry.location.lat,
-       this.longitude = data.results[0].geometry.location.lng,
-       this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl)
+  //   this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
+  //      this.latitude = data.results[0].geometry.location.lat,
+  //      this.longitude = data.results[0].geometry.location.lng,
+  //      this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl)
       
-      }
-      );
+  //     }
+  //     );
     
-      }
+  //     }
     
 }

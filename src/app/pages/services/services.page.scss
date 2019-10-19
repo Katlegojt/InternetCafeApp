@@ -5,6 +5,10 @@
 .heading{
 text-align: center;
 font-size: 150%;
+margin-top: 6%;
+text-underline-position: below;
+color: black;
+
 }
 .img {
  width: 100%;
@@ -17,6 +21,7 @@ font-size: 150%;
    }
   .row{
       border: solid 2px rgba(12, 1, 1, 0.89);
+      margin-top: 6%;
    } 
    .shirts{
 
