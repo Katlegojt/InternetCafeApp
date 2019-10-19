@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-      <ion-back-button default-href="home" slot="start"></ion-back-button>
+      <ion-icon name="home"(click)="home()" slot="start"></ion-icon>
     <img class="img" src="assets/logo.png">
      <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
      
@@ -22,6 +22,7 @@
        matGoogleMapsAutocomplete
        (onAutocompleteSelected)="onAutocompleteSelected($event)"
        (onLocationSelected)="onLocationSelected($event)"> 
+      
       </div>
    
     
@@ -32,10 +33,14 @@
   [iconUrl]="iconurl">
  
     <agm-info-window>
-        {{point.name}}
-        <ion-button routerLink="/see-more">see more</ion-button>
+        {{point.name}}<br>
+        <a (click)="seeMore(point)">see more</a>
     </agm-info-window>
 
+  </agm-marker>
+
+  <agm-marker [latitude]="point1" [longitude]="point2" [iconUrl]="iconurl">
+    
   </agm-marker>
   <button (click)="getDirection()">Get something</button>
 </agm-map>

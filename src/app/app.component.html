@@ -2,9 +2,11 @@
   <ion-router-outlet></ion-router-outlet>
 </ion-app> -->
 <ion-app>
-    <ion-menu contentId="content1" side="start">
+ 
+    <ion-menu contentId="content1" side="start" class="menu">
       <ion-header>
         <ion-toolbar color="primary">
+            <ion-icon class="close" name="close" slot="start" (click)="closeMenu()"></ion-icon>
             <img class="img" src="assets/logo.png">
         </ion-toolbar>
       </ion-header>
@@ -17,5 +19,6 @@
             </ion-list>
       </ion-content>
     </ion-menu>
-    <ion-router-outlet id="content1" main></ion-router-outlet>
+    
+    <ion-router-outlet id="content1"  main></ion-router-outlet>
   </ion-app>

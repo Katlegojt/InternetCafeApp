@@ -90,9 +90,8 @@ objectA={
 
     await alert.present();
   }
-  logOut(){
+  home(){
 
-    this.afAuth.auth.signOut();
-    this.navCtrl.navigateForward('/login');
+    this.navCtrl.navigateForward('/suggested-list');
   }
 }

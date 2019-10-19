@@ -20,5 +20,15 @@ export class DataService {
 
   getItemSnapChanges() {
     return this.db.collection('localCafe').snapshotChanges();
+    //,ref => ref.where()
+  }
+
+  addComments()
+  {
+    this.db.collection('users').add({
+    
+    });
+
+
   }
 }

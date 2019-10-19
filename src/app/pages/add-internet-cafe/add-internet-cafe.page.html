@@ -18,20 +18,26 @@
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
               <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
               
-<img class="img-circle"src="assets/profile.png"><br>
+<img class="img-circle"src="{{imageUrl}}"><br>
 
 <div class="image-upload">
-    <label for="file-input">
-        <ion-icon class="upload"name="camera"></ion-icon>
+    <!-- <label for="file-input">
+        <ion-icon class="upload"name="camera" (click)="upload()"></ion-icon>
     </label>
-
-    <input id="file-input" type="file"/>
+    <input id="file-input" type="file"/> -->
+    <ion-icon (click)="input.click()" name="camera" fill="clear"></ion-icon>
+    <input style="display: none" type="file" (change)="onUpload($event)" #input>
 </div>
+
+
+
+
+
               <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
                 <!-- name -->
                   <ion-item>
                       <ion-label  position="floating" color="primary">Name</ion-label>
-                      <ion-input type="text" formControlName="name"></ion-input>
+                      <ion-input type="text" formControlName="name" [(ngModel)]="name"></ion-input>
                     </ion-item>
                     <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.name">
@@ -43,7 +49,7 @@
                     <!-- address -->
                     <ion-item>
                       <ion-label  position="floating" color="primary">Address</ion-label>
-                      <ion-input type="text" formControlName="address"></ion-input>
+                      <ion-input type="text" formControlName="address" [(ngModel)]="address"></ion-input>
                     </ion-item>
                     <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.address">
@@ -55,7 +61,7 @@
                      <!-- website -->
                      <ion-item>
                       <ion-label  position="floating" color="primary">Website url</ion-label>
-                      <ion-input type="text" formControlName="website"></ion-input>
+                      <ion-input type="text" formControlName="website" [(ngModel)]="website"></ion-input>
                     </ion-item>
                     <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.website">
@@ -67,7 +73,7 @@
                     <!-- phone -->
                     <ion-item>
                       <ion-label  position="floating" color="primary">Phone</ion-label>
-                      <ion-input type="number" min="1" max="5" formControlName="phone"></ion-input>
+                      <ion-input type="number" min="1" max="5" formControlName="phone" [(ngModel)]="phone"></ion-input>
                     </ion-item>
                     <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.phone">
@@ -79,7 +85,7 @@
                     <!-- email -->
                   <ion-item>
                     <ion-label  position="floating" color="primary">Email</ion-label>
-                    <ion-input type="text" formControlName="email"></ion-input>
+                    <ion-input type="text" formControlName="email" [(ngModel)]="email"></ion-input>
                   </ion-item>
                   <div class="validation-errors">
                     <ng-container *ngFor="let validation of validation_messages.email">
@@ -95,7 +101,7 @@
                  <ion-col>
                   <ion-item>
                     <ion-label  position="floating" color="primary">Open time</ion-label>
-                     <ion-input class="time"type="time" formControlName="openTime"></ion-input>
+                     <ion-input class="time"type="time" formControlName="openTime"[(ngModel)]="openTime"></ion-input>
                   </ion-item>
                   <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.openTime">
@@ -109,7 +115,7 @@
                  <ion-col>
                  <ion-item>
                   <ion-label  position="floating" color="primary">Close time</ion-label>
-                  <ion-input class="time"type="time" name="closeTime" formControlName="closeTime"></ion-input>
+                  <ion-input class="time"type="time" name="closeTime" formControlName="closeTime"[(ngModel)]="closeTime"></ion-input>
                  </ion-item>
                  <div class="validation-errors">
                     <ng-container *ngFor="let validation of validation_messages.closeTime">
@@ -121,7 +127,7 @@
                  </ion-col>
                </ion-row>
               
-                  <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" >Next</ion-button>
+                  <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="getGeopoints(address,name,phone,email,website,openTime,closeTime)" >Next</ion-button>
                   <label class="error-message">{{errorMessage}}</label>
                   <label class="success-message">{{successMessage}}</label>
               

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 
@@ -14,6 +14,15 @@ export class AddInternetCafePage implements OnInit {
   validations_form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
+  name;
+ address;
+  phone;
+  email;
+  website;
+  openTime;
+  closeTime;
+  selectedFile;
+  imageUrl: string;
  
   validation_messages = {
     'name': [
@@ -45,6 +54,8 @@ export class AddInternetCafePage implements OnInit {
     { type: 'pattern', message: 'Enter a valid website url.' }
    ]
  };
+  latitude: any;
+  longitude: any;
  
   constructor(
     private navCtrl: NavController,
@@ -64,15 +75,14 @@ export class AddInternetCafePage implements OnInit {
       ])),
       name: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z]+$')
       ])),
       address: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9]+$')
+        
       ])),
       website: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9]+$')
+        
       ])),
       phone: new FormControl('', Validators.compose([
         Validators.required,

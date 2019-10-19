@@ -13,22 +13,24 @@
  </ion-header>
 
 <ion-content color="primary" >
-       
+    <!-- <ion-row justify-content-center> -->
+        <!-- <ion-col align-self-center size-md="6" size-lg="5" size-xs="12"> -->
+           <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
                     <ion-grid class="flex1">
-                        <ion-row *ngFor="let item of itemList">
-                          <ion-col >
-                              <ion-card>
+                        <ion-row class="last-col">
+                          <ion-col  *ngFor="let item of itemList" align-self-center size-md="6" size-lg="4" size-xs="12">
+                            <ion-card class="ion-text-wrap">
                                   <ion-item lines="none">
                                     <ion-icon name="pin" slot="start" routerLink="/map2"></ion-icon>
                                     <ion-label>{{item.name}}</ion-label>
                                   </ion-item>
                                   <ion-card-content>
-                                      <img src="assets/cafe1.jpg" alt="img">
+                                      <img src="{{item.img}}" alt="img">
                                       <ion-item lines="none">
                                           <ion-label>
-                                              {{item.address.substring(4, item.address.indexOf(','))}}
+                                              {{item.address.substring(0, item.address.indexOf(','))}}
                                           </ion-label>
-                                          <ion-button fill="outline" (click)="goToSeeMorePage(item)" >See more</ion-button> 
+                                          <ion-button fill="outline"slot="end" (click)="goToSeeMorePage(item)" >See more</ion-button> 
 
                                         </ion-item>
                                   </ion-card-content>
@@ -37,4 +39,5 @@
                          
                           </ion-row>
                        </ion-grid>
+      
 </ion-content>

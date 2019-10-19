@@ -10,6 +10,7 @@ import { AlertController, NavController } from '@ionic/angular';
 import { GeoService } from 'src/app/services/geo.service';
 import { GeoPoint } from '@firebase/firestore-types';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -34,12 +35,13 @@ export class Map2Page implements OnInit {
   dir ;
   address: any = {};
   
-
+  point1: 51.507351;
+  point2: -0.127758;
 
   constructor(public alertController: AlertController,
      private geoservice : GeoService,
      private navCtrl: NavController,
-     public afAuth: AngularFireAuth
+     public afAuth: AngularFireAuth,private route: Router
     
     )  { 
 
@@ -110,12 +112,37 @@ export class Map2Page implements OnInit {
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
   }
+  home(){
 
+    this.navCtrl.navigateForward('/suggested-list');
+  }
   
   public getDirection() {
     this.dir = {
       origin: { lat: this.latitude , lng: this.longitude},
       destination: { lat: -25.781460, lng: 28.274750 }
     }
+  }
+
+  seeMore(point){
+    this.afAuth.user.subscribe((user) => {
+      if (user) {
+       
+        this.route.navigate(['/see-more'],{queryParams:{
+          name:point.name,
+          address:point.address,
+          phone:point.phone,
+          email:point.email,
+          from:point.from,
+          to: point.to
+          }})
+       
+        console.log(this.afAuth.auth.currentUser.uid)
+      } else {
+         
+        this.navCtrl.navigateForward('/login');
+      }
+    })
+
   }
 }

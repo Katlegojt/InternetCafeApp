@@ -1,9 +1,9 @@
 ion-card{
 
     background-color: white;
-  
    
 }
+
 ion-searchbar{
     box-shadow: none;
   
@@ -14,10 +14,10 @@ ion-searchbar{
     border-radius: 0px !important;
 
   }
-// img{
-//     width: 100%;
-//     height: 230px;
-// }
+img{
+    width: 100%;
+    height: 230px;
+}
 .img {
 	width: 100%;
 	height: 50px;
@@ -59,10 +59,63 @@ ion-searchbar{
  ion-icon{
   font-size: 30px; 
 }
+
 .searchbar-search-icon { 
   display:none; width:0; height:0; }
 
   .flex1{
     display: flex;
+  
     flex-wrap: wrap;
   }
+  ion-grid{
+    // margin: -10px;
+    margin-right: 0px;
+    width: 100%;
+    // display: flex;
+    // flex-flow:wrap;
+  //
+}
+
+ion-col{
+   right: 0px;
+    width: 100%;
+}
+.last-col{
+   margin-right: 10px;
+}
+ion-row{
+  margin-right: 0px;
+   width: 100%;
+}
+.last-row{
+  margin-top: -10px;
+}
+/* Note: This example only works with Windows Insider Preview Builds 16237+ or the Fall Creators Update. */
+
+body { 
+	font-family: segoe-ui_normal,Segoe UI,Segoe,Segoe WP,Helvetica Neue,Helvetica,sans-serif;
+	display: grid;
+	grid-template-areas: 
+    "header header header"
+    ;
+	grid-template-rows: 80px 1fr 50px;
+	grid-template-columns: 15% 1fr 18%;
+	grid-gap: 5px;
+  height: 100vh;
+  margin: 10px;  
+}
+
+header {
+	background: #707070;
+	grid-area: header;
+}
+
+header, nav, section, aside, footer {
+	padding: 5px;
+}
+ion-label {
+  white-space: normal !important;
+  max-width: none !important;
+  width: 100%;
+}
