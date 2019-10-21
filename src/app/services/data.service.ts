@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class DataService {
 
   public items: any = [];
+  uid
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore,  ) {
    
   }
 
@@ -29,6 +31,14 @@ export class DataService {
     
     });
 
+
+  }
+
+  getCafeList(uid)
+  {
+    
+    return this.db.collection('localCafe/'+ uid).snapshotChanges();
+   
 
   }
 }

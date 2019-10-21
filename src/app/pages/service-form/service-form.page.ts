@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { NavController } from '@ionic/angular';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GeoService } from 'src/app/services/geo.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-service-form',
@@ -80,9 +81,18 @@ export class ServiceFormPage implements OnInit {
     { type: 'pattern', message: 'Price must be a number.' }
   ],
  };
+  id1: any;
   constructor(private navCtrl: NavController,
     private authService: AuthenticationService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private geoService: GeoService,
+    private storage: Storage) {
+
+      // this.storage.get('ID').then((val) => {
+      //   console.log('Your age is', val);
+      // });
+      //  console.log('this is id 1:',this.id1);
+     }
 
   ngOnInit() {
     this.validations_form = this.formBuilder.group({

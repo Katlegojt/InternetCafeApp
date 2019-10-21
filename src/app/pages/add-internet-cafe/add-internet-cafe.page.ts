@@ -24,6 +24,7 @@ export class AddInternetCafePage implements OnInit {
   closeTime;
   selectedFile;
   imageUrl: string;
+  promise;
  
   validation_messages = {
     'name': [
@@ -57,6 +58,8 @@ export class AddInternetCafePage implements OnInit {
  };
   latitude: any;
   longitude: any;
+  id;
+  id1;
  
   constructor(
     private navCtrl: NavController,
@@ -65,7 +68,8 @@ export class AddInternetCafePage implements OnInit {
     private geoService : GeoService
   ) {
     //this.getGeopoints('540 Paul kruger street, pretoria')
-    
+    this.latitude=0;
+    this.longitude=0;
   }
 
   ngOnInit(){
@@ -152,15 +156,24 @@ export class AddInternetCafePage implements OnInit {
     });
   }
   getGeopoints(address,name,phone,email,url,from,to){
-
+   // URL:url, address:address, from:from,to:to, email: email, name: name, phone: phone
+   
     this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
        this.latitude = data.results[0].geometry.location.lat,
        this.longitude = data.results[0].geometry.location.lng,
-       this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl)
+       this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl).then((data)=>{
+          console.log('id :', data)
+       })
+
+   
       
-      }
+      },
+    
       );
     
+
       }
+
+      
     
 }
