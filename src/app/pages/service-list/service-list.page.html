@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>List of internet cafes added by user</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngfor="let item of itemList">
+      {{item.name}}
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -19,6 +19,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { IonicStorageModule } from '@ionic/storage';
 
 
 // import { IonicRatingModule } from 'ionic-rating';

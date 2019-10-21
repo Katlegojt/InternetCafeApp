@@ -28,13 +28,16 @@
     
 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12" >
     <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
-    <ion-button (click)="getDirection()">Get Direction</ion-button>
+    
   <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude"
   [iconUrl]="iconurl">
  
     <agm-info-window>
         {{point.name}}<br>
-        <a (click)="seeMore(point)">see more</a>
+        <ion-item>
+          <ion-icon slot="end" (click)="getDirection(point.position.geopoint.latitude,point.position.geopoint.longitude)" name="compass"></ion-icon><a (click)="seeMore(point)">see more</a>
+        </ion-item>
+        
     </agm-info-window>
 
   </agm-marker>
