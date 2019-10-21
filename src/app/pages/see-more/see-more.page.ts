@@ -90,5 +90,8 @@ objectA={
 
     await alert.present();
   }
- 
+  home(){
+
+    this.navCtrl.navigateForward('/suggested-list');
+  }
 }

@@ -37,6 +37,8 @@ export class Map2Page implements OnInit {
   
   point1: 51.507351;
   point2: -0.127758;
+  lati: any;
+  longi: any;
 
   constructor(public alertController: AlertController,
      private geoservice : GeoService,
@@ -80,7 +82,8 @@ export class Map2Page implements OnInit {
         //console.log(item.data().position.geohash);
 
         this.pointList.push(item.data());
-
+        this.lati=item.data().position.geopoint.latitude;
+        this.longi =item.data().position.geopoint.longitude;
         console.log(this.pointList);
       })
     });
@@ -112,12 +115,15 @@ export class Map2Page implements OnInit {
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
   }
+  home(){
 
+    this.navCtrl.navigateForward('/suggested-list');
+  }
   
-  public getDirection() {
+  public getDirection(lati,longi) {
     this.dir = {
       origin: { lat: this.latitude , lng: this.longitude},
-      destination: { lat: -25.781460, lng: 28.274750 }
+      destination: { lat: lati, lng: longi}
     }
   }
 
