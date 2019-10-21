@@ -1,4 +1,8 @@
 <ion-header>
+<<<<<<< HEAD
+    
+      <ion-toolbar color="primary">
+=======
   <ion-toolbar color="primary">
     <ion-grid class="head_ion-grid">
       <ion-row justify-content-center>
@@ -7,28 +11,87 @@
         </ion-col>
         </ion-row>
         </ion-grid>
+>>>>>>> 8c9864028ee203a7d9e8d852dfd5b806b237f900
         <ion-back-button default-href="home" slot="start"></ion-back-button>
 
   </ion-toolbar>
+<<<<<<< HEAD
+    
+=======
+>>>>>>> 8c9864028ee203a7d9e8d852dfd5b806b237f900
   </ion-header>
   
-  <ion-content color="primary">  
-      <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
+  <ion-content color="primary"> 
+ <ion-list>
+    <ion-label  position="floating" >Internet Hours</ion-label>
+   
+      <ion-item>
+       <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
+   R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
+  </ion-item>   
+
+                <ion-radio-group>
+                  <ion-list-header>
+                      Printing and Copying
+                  </ion-list-header>
+                  
+                    <ion-label>Black and White</ion-label>
+                    <ion-radio value="cord" slot="start"></ion-radio> &nbsp;
+  
+                    <ion-label>colour</ion-label>
+                    <ion-radio value="duesenberg" slot="start"></ion-radio>
+                  
+                </ion-radio-group>
+                <ion-item> 
+                     <ion-input placeholder="time" [(ngModel)] ="hours" ></ion-input> R
+                       <ion-input placeholder="price" [(ngModel)] ="price" ></ion-input>
+                      </ion-item> 
+                       <ion-label  position="floating" >Scanner</ion-label>
+         
+                       <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
+                   R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
+                  
+                   <ion-label  position="floating" >Fax</ion-label>
+                   <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
+               R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
+          
+                
+               <ion-label  position="floating" >Email</ion-label>
+               <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
+           R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
+            
+            
+           <ion-label  position="floating" >Binding</ion-label>
+           <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
+       R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
+
+        
+       <ion-label  position="floating" >Printing of T-shirt</ion-label>
+       <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
+   R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
+      <ion-button (click)="add()">Add</ion-button>
+    </ion-list>
+      <!-- <ion-item>
+          <ion-label>Internet Hours</ion-label>
+          <ion-textarea rows="6" cols="20">{{service.hours}} &nbsp;{{service.price}}</ion-textarea>
+        </ion-item> -->
+ 
+      <!-- <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
       <ion-grid>
           <ion-row class="row">
-            <ion-col>
+    
                 <ion-label  position="floating" color="primary">Internet Hours</ion-label>
                <br>
-            </ion-col>
-            <ion-col>
+         
+    
               Time
-                <ion-row><ion-item>15 Min</ion-item> </ion-row>
-                <ion-row><ion-item>30 Min</ion-item></ion-row>
-                <ion-row><ion-item>1 Hour</ion-item></ion-row>
-            </ion-col>
-            <ion-col>
+              <ion-item>15 Min</ion-item>
+              <ion-item>30 Min</ion-item></ion-row>
+              <ion-item>1 Hour</ion-item></ion-row>
+         
+    
               Price
-                <ion-row> <ion-item> R<ion-input type="number" formControlName="InternetHours15" ></ion-input>
+               <ion-item> R<ion-input type="number" formControlName="InternetHours15" ></ion-input>
                 </ion-item></ion-row>
                 <div class="validation-errors">
                     <ng-container *ngFor="let validation of validation_messages.InternetHours15">
@@ -37,7 +100,7 @@
                   </div>
                    </ng-container>
                   </div>
-                <ion-row><ion-item>R<ion-input type="number" formControlName="InternetHours30" ></ion-input> </ion-item> </ion-row>
+              <ion-item>R<ion-input type="number" formControlName="InternetHours30" ></ion-input> </ion-item>
                 <div class="validation-errors">
                     <ng-container *ngFor="let validation of validation_messages.InternetHours30">
                     <div class="error-message" *ngIf="validations_form.get('InternetHours30').hasError(validation.type) && (validations_form.get('InternetHours30').dirty || validations_form.get('InternetHours30').touched)">
@@ -45,7 +108,7 @@
                   </div>
                    </ng-container>
                   </div>
-                <ion-row><ion-item>R<ion-input type="number" formControlName="InternetHours1h" ></ion-input></ion-item></ion-row>
+              <ion-item>R<ion-input type="number" formControlName="InternetHours1h" ></ion-input></ion-item></ion-row>
                 <div class="validation-errors">
                     <ng-container *ngFor="let validation of validation_messages.InternetHours1h">
                     <div class="error-message" *ngIf="validations_form.get('InternetHours1h').hasError(validation.type) && (validations_form.get('InternetHours1h').dirty || validations_form.get('InternetHours1h').touched)">
@@ -53,26 +116,26 @@
                   </div>
                    </ng-container>
                   </div>
-            </ion-col>
-          </ion-row>
+         
+         
           <br>
           <ion-row class="row">
-              <ion-col>
+      
                   <ion-label  position="floating" color="primary">Printing and Copying</ion-label>
                  <br>
-              </ion-col>
-              <ion-col>
+           
+      
                 size
                 <br>
-                <ion-row><ion-item>A4/ SS</ion-item> </ion-row>
-                <ion-row><ion-item>A4/ DS</ion-item> </ion-row>
-                <ion-row><ion-item>A3/ SS</ion-item></ion-row>
-                <ion-row><ion-item>A3/ DS</ion-item></ion-row>
-              </ion-col>
-              <ion-col>
+              <ion-item>A4/ SS</ion-item>
+              <ion-item>A4/ DS</ion-item>
+              <ion-item>A3/ SS</ion-item></ion-row>
+              <ion-item>A3/ DS</ion-item></ion-row>
+           
+      
                 B&W
                 <br>
-                  <ion-row><ion-item>R
+                <ion-item>R
                           <ion-input type="number" formControlName="Printing1"></ion-input>
                         </ion-item></ion-row>
                         <div class="validation-errors">
@@ -82,10 +145,10 @@
                               </div>
                             </ng-container>
                           </div>
-                  <ion-row><ion-item>R
+                <ion-item>R
                           <ion-input type="number" formControlName="Printing2"></ion-input>
-                        </ion-item> </ion-row>
-                        <ion-row><ion-item>
+                        </ion-item>
+                      <ion-item>
                             <div class="validation-errors">
                                 <ng-container *ngFor="let validation of validation_messages.Printing2">
                                   <div class="error-message" *ngIf="validations_form.get('Printing2').hasError(validation.type) && (validations_form.get('Printing2').dirty || validations_form.get('Printing2').touched)">
@@ -94,8 +157,8 @@
                                 </ng-container>
                               </div>R
                             <ion-input type="number" formControlName="Printing3"></ion-input>
-                          </ion-item> </ion-row>
-                          <ion-row><ion-item>
+                          </ion-item>
+                        <ion-item>
                               <div class="validation-errors">
                                   <ng-container *ngFor="let validation of validation_messages.Printing3">
                                     <div class="error-message" *ngIf="validations_form.get('Printing3').hasError(validation.type) && (validations_form.get('Printing3').dirty || validations_form.get('Printing3').touched)">
@@ -104,7 +167,7 @@
                                   </ng-container>
                                 </div>R
                               <ion-input type="number" formControlName="Printing4"></ion-input>
-                            </ion-item> </ion-row>
+                            </ion-item>
                             <div class="validation-errors">
                                 <ng-container *ngFor="let validation of validation_messages.Printing4">
                                   <div class="error-message" *ngIf="validations_form.get('Printing4').hasError(validation.type) && (validations_form.get('Printing4').dirty || validations_form.get('Printing4').touched)">
@@ -112,13 +175,13 @@
                                   </div>
                                 </ng-container>
                               </div>
-              </ion-col>
-              <ion-col>
+           
+      
                 color
                 <br>
-                <ion-row><ion-item>R
+              <ion-item>R
                     <ion-input type="number" formControlName="PrintingA"></ion-input>
-                  </ion-item> </ion-row>
+                  </ion-item>
                   <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.PrintingA">
                         <div class="error-message" *ngIf="validations_form.get('PrintingA').hasError(validation.type) && (validations_form.get('PrintingA').dirty || validations_form.get('PrintingA').touched)">
@@ -126,9 +189,9 @@
                         </div>
                       </ng-container>
                     </div>
-                  <ion-row><ion-item>R
+                <ion-item>R
                       <ion-input type="number" formControlName="PrintingB"></ion-input>
-                    </ion-item> </ion-row>
+                    </ion-item>
                     <div class="validation-errors">
                         <ng-container *ngFor="let validation of validation_messages.PrintingB">
                           <div class="error-message" *ngIf="validations_form.get('PrintingB').hasError(validation.type) && (validations_form.get('PrintingB').dirty || validations_form.get('PrintingB').touched)">
@@ -136,9 +199,9 @@
                           </div>
                         </ng-container>
                       </div>
-                    <ion-row><ion-item>R
+                  <ion-item>R
                         <ion-input type="number" formControlName="PrintingC"></ion-input>
-                      </ion-item> </ion-row>
+                      </ion-item>
                       <div class="validation-errors">
                           <ng-container *ngFor="let validation of validation_messages.PrintingC">
                             <div class="error-message" *ngIf="validations_form.get('PrintingC').hasError(validation.type) && (validations_form.get('PrintingC').dirty || validations_form.get('PrintingC').touched)">
@@ -146,9 +209,9 @@
                             </div>
                           </ng-container>
                         </div>
-                      <ion-row><ion-item>R
+                    <ion-item>R
                           <ion-input type="number" formControlName="PrintingD"></ion-input>
-                        </ion-item> </ion-row>
+                        </ion-item>
                         <div class="validation-errors">
                             <ng-container *ngFor="let validation of validation_messages.PrintingD">
                               <div class="error-message" *ngIf="validations_form.get('PrintingD').hasError(validation.type) && (validations_form.get('PrintingD').dirty || validations_form.get('PrintingD').touched)">
@@ -156,20 +219,20 @@
                               </div>
                             </ng-container>
                           </div>
-              </ion-col>
-            </ion-row>
+           
+           
             <br>
             <ion-row class="row">
-                <ion-col>
+        
                     <ion-label  position="floating" color="primary">Scanner</ion-label>
                    <br>
-                </ion-col>
-                <ion-col>
+             
+        
                   Separate
                   <br>
-                    <ion-row><ion-item>R
+                  <ion-item>R
                         <ion-input type="number" formControlName="Scanner1"></ion-input>
-                      </ion-item></ion-row> 
+                      </ion-item>
                       <div class="validation-errors">
                           <ng-container *ngFor="let validation of validation_messages.Scanner1">
                             <div class="error-message" *ngIf="validations_form.get('Scanner1').hasError(validation.type) && (validations_form.get('Scanner1').dirty || validations_form.get('Scanner1').touched)">
@@ -177,11 +240,11 @@
                             </div>
                           </ng-container>
                         </div>                 
-                </ion-col>
-                <ion-col>
+             
+        
                     Together
                     <br>
-                    <ion-row><ion-item>R
+                  <ion-item>R
                         <ion-input type="number" formControlName="Scanner2"></ion-input>
                       </ion-item></ion-row>
                       <div class="validation-errors">
@@ -191,20 +254,20 @@
                             </div>
                           </ng-container>
                         </div>
-                </ion-col>
-           </ion-row>
+             
+          
            <br>
            <ion-row class="row">
-              <ion-col>
+      
                   <ion-label  position="floating" color="primary">Fax</ion-label>
                <br>
-              </ion-col>
-              <ion-col>
+           
+      
                   Per Page
                   <br>
-                  <ion-row> <ion-item>R
+                 <ion-item>R
                       <ion-input type="number"  formControlName="Fax"></ion-input>
-                    </ion-item> </ion-row>
+                    </ion-item>
                     <div class="validation-errors">
                         <ng-container *ngFor="let validation of validation_messages.Fax">
                           <div class="error-message" *ngIf="validations_form.get('Fax').hasError(validation.type) && (validations_form.get('Fax').dirty || validations_form.get('Fax').touched)">
@@ -212,20 +275,20 @@
                           </div>
                         </ng-container>
                       </div>
-              </ion-col>
-         </ion-row>
+           
+        
          <br>
          <ion-row class="row">
-            <ion-col>
+    
                 <ion-label  position="floating" color="primary">Email</ion-label>
               <br>
-            </ion-col>
-            <ion-col>
+         
+    
              Per Page
              <br>
-                <ion-row> <ion-item>R
+               <ion-item>R
                     <ion-input type="number" formControlName="Email"></ion-input>
-                  </ion-item> </ion-row>
+                  </ion-item>
                   <div class="validation-errors">
                       <ng-container *ngFor="let validation of validation_messages.Email">
                         <div class="error-message" *ngIf="validations_form.get('Email').hasError(validation.type) && (validations_form.get('Email').dirty || validations_form.get('Email').touched)">
@@ -233,16 +296,16 @@
                         </div>
                       </ng-container>
                     </div>
-            </ion-col>
-       </ion-row>
+         
+      
             <br> 
             <ion-row class="row">
-            <ion-col>
+    
                 <ion-label  position="floating" color="primary">Binding</ion-label>
-            </ion-col>
-            <ion-col>
+         
+    
               price
-                <ion-row><ion-item>R
+              <ion-item>R
                     <ion-input type="number" formControlName="Binding"></ion-input>
                   </ion-item></ion-row>
                   <div class="validation-errors">
@@ -252,11 +315,22 @@
                         </div>
                       </ng-container>
                     </div> 
-            </ion-col>
-       </ion-row>
+         
+      
   <br>
+<<<<<<< HEAD
+     
+      </ion-grid> 
+      <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" routerLink="/serviceForm">Submit</ion-button>
+      </form>
+
+      
+          
+          
+    
+=======
        <ion-row class="row">
-          <ion-col>
+  
               <ion-label  position="floating" color="primary">Printing Of T-shirts</ion-label>
               <br>
   
@@ -280,15 +354,15 @@
   
                   
             
-          </ion-col>
+       
   
-          <ion-col>Price
-            <ion-row>
+  Price
+          
               <ion-item>
                   <ion-input type="number" formControlName="tshirt"></ion-input>
               </ion-item>
   
-              </ion-row>
+             
   
               <div class="validation-errors">
                   <ng-container *ngFor="let validation of validation_messages.tshirt">
@@ -298,11 +372,13 @@
                   </ng-container>
                 </div> 
           
-          </ion-col>
-     </ion-row>
+       
+    
       </ion-grid> 
       <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" routerLink="/serviceForm">Submit</ion-button>
        
-      </form>
+      </form> -->
+
+>>>>>>> 8c9864028ee203a7d9e8d852dfd5b806b237f900
   </ion-content>
   
