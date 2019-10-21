@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { NavController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { GeoService } from 'src/app/services/geo.service';
 
 @Component({
   selector: 'app-add-internet-cafe',
@@ -23,6 +24,7 @@ export class AddInternetCafePage implements OnInit {
   closeTime;
   selectedFile;
   imageUrl: string;
+  promise;
  
   validation_messages = {
     'name': [
@@ -56,13 +58,23 @@ export class AddInternetCafePage implements OnInit {
  };
   latitude: any;
   longitude: any;
+  id;
+  id1;
  
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticationService,
+    private formBuilder: FormBuilder,
+    private geoService : GeoService,
     public afAuth: AngularFireAuth,
-    private formBuilder: FormBuilder
-  ) {}
+    
+  ) {
+    //this.getGeopoints('540 Paul kruger street, pretoria')
+    this.latitude=0;
+    this.longitude=0;
+  }
+  
+
 
   ngOnInit(){
     
@@ -111,6 +123,29 @@ export class AddInternetCafePage implements OnInit {
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
   }
+<<<<<<< HEAD
+  getGeopoints(address,name,phone,email,url,from,to){   
+   
+    this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
+       this.latitude = data.results[0].geometry.location.lat,
+       this.longitude = data.results[0].geometry.location.lng,
+       this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl).then((data)=>{
+          console.log('id :', data)
+       })
+
+   
+      
+      },
+    
+      );
+    
+
+      }
+
+      
+    
+}
+=======
   // getGeopoints(address,name,phone,email,url,from,to){
 
   //   this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
@@ -124,3 +159,4 @@ export class AddInternetCafePage implements OnInit {
   //     }
     
 }
+>>>>>>> 03cae4258aba7c4ec9a497e58a7b54d0f8cc1341
