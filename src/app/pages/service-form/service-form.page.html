@@ -12,57 +12,138 @@
   </ion-toolbar>
   </ion-header>
   
-  <ion-content color="primary"> 
- <ion-list>
-    <ion-label  position="floating" >Internet Hours</ion-label>
-   
-      <ion-item>
-       <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
-   R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
-  </ion-item>   
-
-                <ion-radio-group>
-                  <ion-list-header>
-                      Printing and Copying
-                  </ion-list-header>
-                  
-                    <ion-label>Black and White</ion-label>
-                    <ion-radio value="cord" slot="start"></ion-radio> &nbsp;
+  <ion-content > 
   
-                    <ion-label>colour</ion-label>
-                    <ion-radio value="duesenberg" slot="start"></ion-radio>
-                  
-                </ion-radio-group>
-                <ion-item> 
-                     <ion-input placeholder="time" [(ngModel)] ="hours" ></ion-input> R
-                       <ion-input placeholder="price" [(ngModel)] ="price" ></ion-input>
-                      </ion-item> 
-                       <ion-label  position="floating" >Scanner</ion-label>
-         
-                       <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
-                   R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
-                  
-                   <ion-label  position="floating" >Fax</ion-label>
-                   <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
-               R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
-          
-                
-               <ion-label  position="floating" >Email</ion-label>
-               <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
-           R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
-            
-            
-           <ion-label  position="floating" >Binding</ion-label>
-           <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
-       R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
+    <ion-grid>
+      <ion-card> 
+        <ion-row>
+          <ion-col>
+              <ion-label  position="floating" >Internet Hours</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col>
+              <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input>
+          </ion-col>
+          <ion-col>
+              <ion-input placeholder="00.00" [(ngModel)] ="Iprice" >R</ion-input>
+          </ion-col>
+        </ion-row>
+        <div class="th">
+        <ion-icon (click)="add0()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
+      </div>
+      </ion-card> 
 
-        
-       <ion-label  position="floating" >Printing of T-shirt</ion-label>
-       <ion-input placeholder="time" [(ngModel)] ="Ihours" ></ion-input> 
-   R<ion-input placeholder="price" [(ngModel)] ="Iprice" ></ion-input>
-      <ion-button (click)="add()">Add</ion-button>
-    </ion-list>
-      <!-- <ion-item>
+      <ion-card>
+    <ion-list lines="none">
+        <ion-radio-group>
+          <!-- <ion-list-header> -->
+            <ion-label position="floating" > Printing and Copying</ion-label>
+          <!-- </ion-list-header> -->
+      
+          <ion-item lines="none">
+            <ion-label>Black and White</ion-label>
+            <ion-radio slot="start" value="black" checked></ion-radio>
+          </ion-item>
+      
+          <ion-item lines="none">
+            <ion-label>colour</ion-label>
+            <ion-radio slot="start" value="color"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      <ion-row>
+          <ion-col>
+                <ion-input placeholder="page size" [(ngModel)] ="Printinghours" ></ion-input>
+            </ion-col>
+            <ion-col>
+                <ion-input placeholder="00.00" [(ngModel)] ="Printingprice" >R</ion-input>
+            </ion-col>
+          </ion-row>
+          <div class="th">
+            <ion-icon (click)="add1()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
+          </div>
+        </ion-card>
+</ion-grid>
+
+<ion-card>
+  <ion-row>
+      <ion-col>
+          <ion-label  position="floating" >Scanner</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+    <ion-col>
+          <ion-input placeholder="pages" [(ngModel)] ="Scannerhours" ></ion-input>
+      </ion-col>
+      <ion-col>
+          <ion-input placeholder="00.00" [(ngModel)] ="Scannerprice" >R</ion-input>
+      </ion-col>
+    </ion-row>
+    <div class="th">
+      <ion-icon (click)="add2()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
+    </div>
+  </ion-card>  
+  
+<ion-card>
+    <ion-row>
+        <ion-col>
+            <ion-label  position="floating" >Fax</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+      <ion-col>
+            <ion-input placeholder="pages" [(ngModel)] ="Faxhours" ></ion-input>
+        </ion-col>
+        <ion-col>
+            <ion-input placeholder="00.00" [(ngModel)] ="Faxprice" >R</ion-input>
+        </ion-col>
+      </ion-row>
+      <div class="th">
+        <ion-icon (click)="add3()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
+      </div>
+    </ion-card>
+    
+  <ion-card>
+      <ion-row>
+          <ion-col>
+              <ion-label  position="floating" >Email</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col>
+              <ion-input placeholder="pages" [(ngModel)] ="Emailhours" ></ion-input>
+          </ion-col>
+          <ion-col>
+              <ion-input placeholder="00.00" [(ngModel)] ="Emailprice" >R</ion-input>
+          </ion-col>
+        </ion-row>
+        <div class="th">
+          <ion-icon (click)="add4()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
+        </div>
+      </ion-card> 
+      
+    <ion-card>
+        <ion-row>
+            <ion-col>
+                <ion-label  position="floating" >Binding</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+          <ion-col>
+                <ion-input placeholder="pages" [(ngModel)] ="Bindinghours" ></ion-input>
+            </ion-col>
+            <ion-col>
+                <ion-input placeholder="00.00" [(ngModel)] ="Bindingprice">R</ion-input>
+            </ion-col>
+          </ion-row>
+          <div class="th">
+            <ion-icon (click)="add5()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
+          </div>
+        </ion-card>
+      <ion-button expand="full" color="primary" (click)="add()">Save</ion-button>
+   
+           <!-- <ion-item>
           <ion-label>Internet Hours</ion-label>
           <ion-textarea rows="6" cols="20">{{service.hours}} &nbsp;{{service.price}}</ion-textarea>
         </ion-item> -->
@@ -75,7 +156,7 @@
                <br>
          
     
-              Time
+              pages
               <ion-item>15 Min</ion-item>
               <ion-item>30 Min</ion-item></ion-row>
               <ion-item>1 Hour</ion-item></ion-row>

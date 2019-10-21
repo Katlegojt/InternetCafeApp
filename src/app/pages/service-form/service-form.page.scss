@@ -7,25 +7,17 @@
 
 //     color: black;
 // }
-.submit-btn {
-    margin-top: 40px;
-  }
-  ion-button {
-    width: 90%;
-    margin: 5%;
-}
-.background{
-    background-color: #689ACA
-    }
-    ion-col {
-        background-color: #f7f7f7;
-       border: solid 1px #ddd;
-       padding: 10px;
-       color:black;
-      }
-    //  .row{
-    //      border: solid 2px rgba(12, 1, 1, 0.89);
-    //   }
+// .submit-btn {
+//     margin-top: 40px;
+//   }
+//   ion-button {
+//     width: 90%;
+//     margin: 5%;
+// }
+// .background{
+//     background-color: #689ACA
+//     }
+  
     //   .validation-errors{
     //       color: red;
     //   }
@@ -46,4 +38,10 @@
 // }
 ion-label{
     color:black;
+}
+.th{
+  top:0px;
+  margin-left: 300px;
+  margin-right: 0px;
+  font-size: 25px;
 }
