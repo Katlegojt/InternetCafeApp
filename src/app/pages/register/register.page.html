@@ -5,7 +5,7 @@
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
             <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
             <img src="assets/Background.png">
-            <form class="form" [formGroup]="validations_form"  (ngSubmit)="register(validations_form.value)">
+            <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
                 <ion-item>
                     <ion-label  position="floating" color="primary">Username</ion-label>
                     <ion-input type="text" formControlName="username"></ion-input>

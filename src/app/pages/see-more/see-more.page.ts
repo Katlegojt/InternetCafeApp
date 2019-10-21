@@ -62,11 +62,12 @@ objectA={
    async presentPrompt() {
     const alert = await this.alertCtrl.create({
       header: 'Comment here',
-      message: this.msg,
+      message: 'Message <strong>text</strong>!!!',
       inputs: [
                 {
+                  type:'text',
                   name: 'comment',
-                  placeholder: 'comment'
+                  placeholder: 'Type...'
                 }
                
               ],
@@ -80,10 +81,8 @@ objectA={
           }
         }, {
           text: 'Post',
-          role: 'post',
           handler: (data) => {
-            this.post(data)
-            console.log(data.comment);
+            console.log(data.name);
           }
         }
       ]
@@ -91,15 +90,8 @@ objectA={
 
     await alert.present();
   }
- msg:string='';
- msg2:string='';
- post(value){
-  return new Promise<any>((resolve, reject) => {
-    this.msg2="message send"
-    console.log(this.msg)
-    
-    }) 
- }
+  home(){
 
+    this.navCtrl.navigateForward('/suggested-list');
+  }
 }
-
