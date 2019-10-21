@@ -112,7 +112,10 @@ export class Map2Page implements OnInit {
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
   }
+  home(){
 
+    this.navCtrl.navigateForward('/suggested-list');
+  }
   
   public getDirection() {
     this.dir = {

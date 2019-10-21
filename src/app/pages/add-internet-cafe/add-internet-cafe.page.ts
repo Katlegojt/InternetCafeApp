@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { GeoService } from 'src/app/services/geo.service';
-import * as firebase from 'firebase';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-add-internet-cafe',
@@ -61,12 +60,9 @@ export class AddInternetCafePage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private authService: AuthenticationService,
-    private formBuilder: FormBuilder,
-    private geoService : GeoService
-  ) {
-    //this.getGeopoints('540 Paul kruger street, pretoria')
-    
-  }
+    public afAuth: AngularFireAuth,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(){
     
@@ -110,46 +106,10 @@ export class AddInternetCafePage implements OnInit {
     this.navCtrl.navigateForward('/login');
   }
 
+  logOut(){
 
-  onUpload(event) {
-    this.selectedFile = <File>event.target.files[0];
-    console.log(event.target.files[0]);
-    const file = event.target.files[0];
-    this.uploadViaFileChooser(file);// call helper method
-    console.log("upload complete !");
-  }
-  uploadViaFileChooser(_image) {
-    console.log('uploadToFirebase');
-    return new Promise((resolve, reject) => {
-      const fileRef = firebase.storage().ref('images/' + this.selectedFile.name);
-      const uploadTask = fileRef.put(_image);
-      uploadTask.on(
-        'state_changed',
-        (_snapshot: any) => {
-          console.log(
-            'snapshot progess ' +
-            (_snapshot.bytesTransferred / _snapshot.totalBytes) * 100
-          );
-          const progress = (_snapshot.bytesTransferred / _snapshot.totalBytes) * 100;
-          if (progress === 100) {
-            fileRef.getDownloadURL().then(uri => {
-              this.imageUrl = uri;
-              console.log('downloadurl', uri)
-            });
-            
-            
-          }
-        },
-        _error => {
-          console.log(_error);
-          reject(_error);
-        },
-        () => {
-          // completion...
-          resolve(uploadTask.snapshot);
-        }
-      );
-    });
+    this.afAuth.auth.signOut();
+    this.navCtrl.navigateForward('/login');
   }
   // getGeopoints(address,name,phone,email,url,from,to){
 

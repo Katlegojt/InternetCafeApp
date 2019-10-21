@@ -1,9 +1,17 @@
 <ion-header>
-  <ion-toolbar color="primary">
-                    <ion-back-button default-href="home" slot="start"></ion-back-button>
-                    <img class="img" src="assets/logo.png">
+
+  <ion-toolbar color="primary" >
+    <ion-grid class="head_ion-grid">
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <img class="img"src="assets/logo.png">
+        </ion-col>
+        </ion-row>
+        </ion-grid>
+        <ion-icon class="icon" name="home"(click)="home()" slot="start"></ion-icon>
+            <ion-icon class="icon" slot="end" name="log-out"(click)="logOut()"></ion-icon>
   </ion-toolbar>
-</ion-header> 
+ </ion-header>
 <ion-content color="secondary">
  
       <ion-grid>
