@@ -1,10 +1,10 @@
 <ion-header>
-    <ion-toolbar>
+    
       <ion-toolbar color="primary">
         <ion-back-button default-href="home" slot="start"></ion-back-button>
         <img class="img" src="assets/logo.png">
   </ion-toolbar>
-    </ion-toolbar>
+    
   </ion-header>
   
   <ion-content color="primary">  
@@ -250,54 +250,14 @@
             </ion-col>
        </ion-row>
   <br>
-       <ion-row class="row">
-          <ion-col>
-              <ion-label  position="floating" color="primary">Printing Of T-shirts</ion-label>
-              <br>
-  
-  
-                  <div class="image-upload">
-                      <label for="file-input"> 
-                  <ion-slides autoplay="5000" loop="true" speed="3000" class="full">
-                      <ion-slide>
-                          <img src="" alt="img">
-                      </ion-slide>
-                      <ion-slide>
-                          <img src="" alt="img">
-                      </ion-slide>
-                      <ion-slide>
-                          <img src="" alt="img">
-                      </ion-slide>
-                    </ion-slides>
-                    <input id="file-input" type="file"/>
-                    </label>
-                  </div>
-  
-                  
-            
-          </ion-col>
-  
-          <ion-col>Price
-            <ion-row>
-              <ion-item>
-                  <ion-input type="number" formControlName="tshirt"></ion-input>
-              </ion-item>
-  
-              </ion-row>
-  
-              <div class="validation-errors">
-                  <ng-container *ngFor="let validation of validation_messages.tshirt">
-                    <div class="error-message" *ngIf="validations_form.get('tshirt').hasError(validation.type) && (validations_form.get('tshirt').dirty || validations_form.get('tshirt').touched)">
-                      {{ validation.message }}
-                    </div>
-                  </ng-container>
-                </div> 
-          
-          </ion-col>
-     </ion-row>
+     
       </ion-grid> 
       <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" routerLink="/serviceForm">Submit</ion-button>
-       
       </form>
+
+      
+          
+          
+    
   </ion-content>
   

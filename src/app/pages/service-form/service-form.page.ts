@@ -79,10 +79,7 @@ export class ServiceFormPage implements OnInit {
     { type: 'required', message: 'Price is required.' },
     { type: 'pattern', message: 'Price must be a number.' }
   ],
-  'tshirt': [
-    { type: 'required', message: 'Price is required.' },
-    { type: 'pattern', message: 'Price must be a number.' }
-  ],
+ 
  };
   constructor(private navCtrl: NavController,
     private authService: AuthenticationService,
@@ -154,10 +151,7 @@ export class ServiceFormPage implements OnInit {
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      tshirt: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
+   
       
     });
   }
