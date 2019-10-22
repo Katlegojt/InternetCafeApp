@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Storage } from '@ionic/storage';
+
 
 
 @Injectable({
@@ -31,7 +31,7 @@ export class GeoService {
 
   item: Observable<InternetCafe>;
 
-  constructor(private http: HttpClient, private firestore: AngularFirestore, private afAuth: AngularFireAuth, private storage: Storage) {
+  constructor(private http: HttpClient, private firestore: AngularFirestore, private afAuth: AngularFireAuth) {
     // reference a database location for Geofire
 
     // var firebaseRef = firebase.database().ref('list')
