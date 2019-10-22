@@ -4,6 +4,9 @@ import { NavController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { GeoService } from 'src/app/services/geo.service';
+import { service } from 'src/app/modules/service';
+import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-add-internet-cafe',
@@ -60,6 +63,7 @@ export class AddInternetCafePage implements OnInit {
   longitude: any;
   id;
   id1;
+  
  
   constructor(
     private navCtrl: NavController,
@@ -107,12 +111,51 @@ export class AddInternetCafePage implements OnInit {
       
     });
   }
- 
-  addInternetCafe(){
-
+  onUpload(event) {
+    this.selectedFile = <File>event.target.files[0];
+    console.log(event.target.files[0]);
+    const file = event.target.files[0];
+    this.uploadViaFileChooser(file);// call helper method
+    console.log("upload complete !");
   }
+  
+  uploadViaFileChooser(_image) {
+    console.log('uploadToFirebase');
+    return new Promise((resolve, reject) => {
+      const fileRef = firebase.storage().ref('images/' + this.selectedFile.name);
+      const uploadTask = fileRef.put(_image);
+      uploadTask.on(
+        'state_changed',
+        (_snapshot: any) => {
+          console.log(
+            'snapshot progess ' +
+            (_snapshot.bytesTransferred / _snapshot.totalBytes) * 100
+          );
+          const progress = (_snapshot.bytesTransferred / _snapshot.totalBytes) * 100;
+          if (progress === 100) {
+            fileRef.getDownloadURL().then(uri => {
+              this.imageUrl = uri;
+              console.log('downloadurl', uri);
+              
+            });
+            
+            
+          }
+        },
+        _error => {
+          console.log(_error);
+          reject(_error);
+        },
+        () => {
+          // completion...
+          resolve(uploadTask.snapshot);
+        }
+      );
+    });
+  }
+
   tryRegister(){
-    this.navCtrl.navigateForward('/service-form');
+    //this.navCtrl.navigateForward('/service-form');
   }
   goLoginPage(){
     this.navCtrl.navigateForward('/login');
@@ -123,40 +166,18 @@ export class AddInternetCafePage implements OnInit {
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
   }
-<<<<<<< HEAD
   getGeopoints(address,name,phone,email,url,from,to){   
-   
+   let service = {} as service
     this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
        this.latitude = data.results[0].geometry.location.lat,
        this.longitude = data.results[0].geometry.location.lng,
-       this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl).then((data)=>{
-          console.log('id :', data)
-       })
-
-   
-      
+       this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)
       },
     
       );
     
-
+      this.navCtrl.navigateForward('/service-list');
       }
-
       
     
 }
-=======
-  // getGeopoints(address,name,phone,email,url,from,to){
-
-  //   this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
-  //      this.latitude = data.results[0].geometry.location.lat,
-  //      this.longitude = data.results[0].geometry.location.lng,
-  //      this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl)
-      
-  //     }
-  //     );
-    
-  //     }
-    
-}
->>>>>>> 03cae4258aba7c4ec9a497e58a7b54d0f8cc1341

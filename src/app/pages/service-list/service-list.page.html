@@ -6,10 +6,11 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngfor="let item of itemList">
+    <div *ngFor="let item of cafeList " (click)="addServices(item)">
+      
       {{item.name}}
 
-    </ion-item>
+    </div>
   </ion-list>
 
 </ion-content>

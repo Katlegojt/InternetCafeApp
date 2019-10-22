@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { InternetCafe } from 'src/app/modules/internetCafe';
 
 @Component({
   selector: 'app-service-list',
@@ -10,23 +12,31 @@ import { DataService } from 'src/app/services/data.service';
 export class ServiceListPage implements OnInit {
   uid
   itemList
-  constructor(private afAuth:AngularFireAuth, private dataService: DataService) { 
+  cafeList: any;
+  cafes: any;
+  InternetCafe : InternetCafe
 
-    this.uid = this.afAuth.auth.currentUser.uid;
-    this.dataService.getCafeList(this.uid).subscribe(data => {
+  constructor( private afAuth : AngularFireAuth, private router:Router,public firestore: AngularFirestore) { 
 
-      this.itemList = data.map ( e => {
+    this.uid=this.afAuth.auth.currentUser.uid;
+    this.cafes = this.firestore.collection('localCafe', ref => ref.where("uid", "==" , this.uid)).snapshotChanges().subscribe(data =>{
+      this.cafeList = data.map( e =>{
         return{
+
           key: e.payload.doc.id,
           ...e.payload.doc.data()
-        } as InternetCafe;
+        } as InternetCafe
+
       });
-      console.log(this.itemList);
- 
-     });
+    })
+   
   }
 
   ngOnInit() {
+  }
+
+  addServices(InternetCafe){
+    this.router.navigate(['/service-form'], { queryParams: {key:InternetCafe.key }});
   }
 
 }
