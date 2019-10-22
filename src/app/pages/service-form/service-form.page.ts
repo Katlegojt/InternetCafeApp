@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { NavController, AlertController } from '@ionic/angular';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GeoService } from 'src/app/services/geo.service';
+
 
 @Component({
   selector: 'app-service-form',
@@ -14,7 +15,7 @@ export class ServiceFormPage implements OnInit {
   Ihours: "";
   Iprice: 0;
   arraylist: Array <{Ihours :string , Iprice: number}>=[];
-  // constructor() { }
+  
   constructor(private navCtrl: NavController,
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
@@ -25,142 +26,105 @@ export class ServiceFormPage implements OnInit {
   successMessage: string = '';
  
   validation_messages = {
-    'InternetHours15': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
+    'Ihours': [
+      { type: 'required', message: 'Internet time is required.' }
+     
     ],
-    'InternetHours30': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
+    'Iprice': [
+      { type: 'required', message: 'Internet price is required.' }
     ],
-    'InternetHours1h': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
+   
+    'Printingprice': [
+      { type: 'required', message: 'Printing price is required.' }
     ],
-    'Printing1': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
+    'Pagesize': [
+      { type: 'required', message: 'Page size is required.' }
     ],
-    'Printing2': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
+    'Color': [
+      { type: 'required', message: 'Choose a color.' }
     ],
-    'Printing3': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
+    'Scannerpage': [
+      { type: 'required', message: 'Page numbers is required.' }
     ],
-    'Printing4': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
+    'Scannerprice': [
+      { type: 'required', message: 'Scanning price is required.' }
     ],
-    'PrintingA': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
-    ],
-    'PrintingB': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
-    ],
-    'PrintingC': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
-    ],
-    'PrintingD': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
-    ],
-    'Scanner1': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
-    ],
-    'Scanner2': [
-      { type: 'required', message: 'Price is required.' },
-      { type: 'pattern', message: 'Price must be a number.' }
-    ],
-   'Fax': [
-     { type: 'required', message: 'Price is required.' },
-     { type: 'pattern', message: 'Price must be a number.' }
+   'Faxpage': [
+     { type: 'required', message: 'Page number is required.' }
    ],
-   'Email': [
-    { type: 'required', message: 'Price is required.' },
-    { type: 'pattern', message: 'Price must be a number.' }
+   'Faxprice': [
+    { type: 'required', message: 'Fax price is required.' }
   ],
-  'Binding': [
-    { type: 'required', message: 'Price is required.' },
-    { type: 'pattern', message: 'Price must be a number.' }
+   'Emailpage': [
+    { type: 'required', message: 'Page number is required.' }
   ],
- 
+  'Emailprice': [
+    { type: 'required', message: 'Price is required.' }
+  ],
+  'Bindingpage': [
+    { type: 'required', message: 'Page number is required.' }
+  ],
+  'Bindingprice': [
+    { type: 'required', message: 'Price is required.' }
+  ],
  };
  
 
   ngOnInit() {
     this.validations_form = this.formBuilder.group({
-      InternetHours15: new FormControl('', Validators.compose([
+      Ihours: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      InternetHours30: new FormControl('', Validators.compose([
+      Iprice: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      InternetHours1h: new FormControl('', Validators.compose([
+      Printingprice: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      Printing1: new FormControl('', Validators.compose([
+      Pagesize: new FormControl('', Validators.compose([
+        Validators.required,
+        // Validators.pattern('^[0-9]+$')
+      ])),
+      Color: new FormControl('', Validators.compose([
+        Validators.required,
+        // Validators.pattern('^[0-9]+$')
+      ])),
+      Scannerpage: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      Printing2: new FormControl('', Validators.compose([
+      Scannerprice: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      Printing3: new FormControl('', Validators.compose([
+      Faxpage: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      Printing4: new FormControl('', Validators.compose([
+      Faxprice: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      PrintingA: new FormControl('', Validators.compose([
+      Emailpage: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      PrintingB: new FormControl('', Validators.compose([
+      Emailprice: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      PrintingC: new FormControl('', Validators.compose([
+      Bindingpage: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      PrintingD: new FormControl('', Validators.compose([
+      Bindingprice: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      Scanner1: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
-      Scanner2: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
-      Fax: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
-      Email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
-      Binding: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
-   
-      
+
     });
   }
   submit(){

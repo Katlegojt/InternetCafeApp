@@ -9,6 +9,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,15 +23,16 @@ export class GeoService {
   hits = new BehaviorSubject([]);
   txt;
   payl: any;
-  items =[];
+  items = [];
   point;
   cities;
   write: any;
+  docId: string;
 
   item: Observable<InternetCafe>;
 
-  constructor(private db: AngularFireDatabase, private http: HttpClient, private firestore: AngularFirestore, private afAuth : AngularFireAuth) {
-   // reference a database location for Geofire
+  constructor(private http: HttpClient, private firestore: AngularFirestore, private afAuth: AngularFireAuth) {
+    // reference a database location for Geofire
 
     // var firebaseRef = firebase.database().ref('list')
     // this.geoFire = new GeoFire(firebaseRef);
@@ -47,25 +49,29 @@ export class GeoService {
     //       returnArray.push(item)
     //     });
     //     return returnArray;
-        
+
     //   }
-    
+
     //this.showConfig();
   }
 
   //set point to a firestore collection
-  setALocation(lat , lng, name,address, phone,email,url,from,to,img )
-  {
+  setALocation(lat, lng, address, name, phone, email, url, from, to, img) {
+    return new Promise((resolve, reject) => {
     this.point = this.geo.point(lat, lng);
-    this.cities = this.firestore.collection('localCafe')
-    this.cities.add({URL:url, address:address, from:from,to:to, email: email, name: name, phone: phone, position: this.point.data, img:img }).then(()=> {
-     console.log('successful')
-    }).catch(err =>{
-    console.log(err.message);
+      this.cities = this.firestore.collection('localCafe').add({ URL: url, address: address, from: from, to: to, email: email, name: name, phone: phone, position: this.point.data, img: img })
+        .then(docRef => {
+          console.log("Document written with ID: ", docRef.id);
+          this.docId = docRef.id;
+          () => {
+            // completion...
+            resolve(this.docId = docRef.id);
+          }
+        });
+    }).catch(err => {
+      console.log(err.message);
     })
   }
-
-
 
   // // set points to geoFire database
   setLocation(key: string, coords: Array<number>) {
@@ -73,36 +79,32 @@ export class GeoService {
       .then(_ => console.log('location updated'))
       .catch(err => console.log(err))
 
-      
+
   }
 
   //Query nearby locations, then maps to BehaviorSubject
 
   getLocations(radius: number, coords: Array<number>) {
-    this.geoFire.query({ center: coords, 
-      radius: radius })
-      .on('key_entered', (key, location, distance) => {
-      let hit = {
-        location: location, 
-        distance: distance
-      }
-      let currentHits = this.hits.value
-      currentHits.push(hit)
-      this.hits.next(currentHits)
+    this.geoFire.query({
+      center: coords,
+      radius: radius
     })
-  
+      .on('key_entered', (key, location, distance) => {
+        let hit = {
+          location: location,
+          distance: distance
+        }
+        let currentHits = this.hits.value
+        currentHits.push(hit)
+        this.hits.next(currentHits)
+      })
+
   }
 
 
-  getAGeopoints(address){
-   return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+ address+'&key=AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY')
+  getAGeopoints(address) {
+    return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY')
   }
 
-  // showConfig() {
-  //   this. getGeopoints()
-  //     .subscribe((data) => {
-  //       console.log(data);
-  //     });
-  // }
-  
+
 }
