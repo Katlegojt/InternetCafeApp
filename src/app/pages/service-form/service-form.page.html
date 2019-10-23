@@ -1,5 +1,5 @@
+
 <ion-header>
-    
       <ion-toolbar color="primary">
           <ion-grid class="head_ion-grid">
               <ion-row justify-content-center>
@@ -53,47 +53,48 @@
      
         <ion-card>
       <ion-list lines="none">
-        <!-- radios for color type -->
-          <ion-radio-group>
-              <ion-label position="floating" > Printing and Copying</ion-label>
-            <ion-item lines="none">
-              <ion-label>Black and White</ion-label>
-              <ion-radio slot="start" value="black" checked></ion-radio>
-            </ion-item>
+      
         
-            <ion-item lines="none">
-              <ion-label>colour</ion-label>
-              <ion-radio slot="start" value="color"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
+         <!-- radios for color type -->
+         <ion-label position="floating" > Printing and Copying</ion-label>
+        
+         
         </ion-list>
         <ion-row>
-          <!-- Printing hours -->
+          <!-- Printing in color -->
             <ion-col>
-                  <ion-input placeholder="page size" type="number" formControlName="Pagesize"[(ngModel)] ="Pagesize" ></ion-input>
-                  <div class="validation-errors">
-                      <ng-container *ngFor="let validation of validation_messages.Pagesize">
-                        <div class="error-message"  *ngIf="validations_form.get('Pagesize').hasError(validation.type) && (validations_form.get('Pagesize').dirty || validations_form.get('Pagesize').touched)">
-                          <p class="error">{{ validation.message }}</p>
-                        </div>
-                      </ng-container>
-                    </div>
+              <ion-label position="floating" > Color</ion-label>
               </ion-col>
-              <!-- Printing prices -->
+              <!-- Printing prices in color -->
               <ion-col>
-                  <ion-input placeholder="00.00" type="number" formControlName="Printingprice"[(ngModel)] ="Printingprice" >R</ion-input>
+                  <ion-input placeholder="00.00" type="number" formControlName="Printingcolor"[(ngModel)] ="Printingcolor" >R</ion-input>
                   <div class="validation-errors">
-                      <ng-container *ngFor="let validation of validation_messages.Printingprice">
-                        <div class="error-message"  *ngIf="validations_form.get('Printingprice').hasError(validation.type) && (validations_form.get('Printingprice').dirty || validations_form.get('Printingprice').touched)">
+                      <ng-container *ngFor="let validation of validation_messages.Printingcolor">
+                        <div class="error-message"  *ngIf="validations_form.get('Printingcolor').hasError(validation.type) && (validations_form.get('Printingcolor').dirty || validations_form.get('Printingcolor').touched)">
                           <p class="error">{{ validation.message }}</p>
                         </div>
                       </ng-container>
                     </div>
               </ion-col>
             </ion-row>
-            <div class="th">
-              <ion-icon (click)="add1()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
-            </div>
+            <ion-row>
+              <!-- Printing in black -->
+                <ion-col>
+                  <ion-label position="floating" >Black and white</ion-label>
+                  </ion-col>
+                  <!-- Printing prices in black -->
+                  <ion-col>
+                      <ion-input placeholder="00.00" type="number" formControlName="Printingblack"[(ngModel)] ="Printingblack" >R</ion-input>
+                      <div class="validation-errors">
+                          <ng-container *ngFor="let validation of validation_messages.Printingblack">
+                            <div class="error-message"  *ngIf="validations_form.get('Printingblack').hasError(validation.type) && (validations_form.get('Printingblack').dirty || validations_form.get('Printingblack').touched)">
+                              <p class="error">{{ validation.message }}</p>
+                            </div>
+                          </ng-container>
+                        </div>
+                  </ion-col>
+                </ion-row>
+           
           </ion-card>
   </ion-grid>
   
@@ -106,14 +107,7 @@
       <ion-row>
         <!-- Scanning number of pages -->
       <ion-col>
-            <ion-input placeholder="pages" type="number" formControlName="Scannerpage"[(ngModel)] ="Scannerpage" ></ion-input>
-            <div class="validation-errors">
-                <ng-container *ngFor="let validation of validation_messages.Scannerpage">
-                  <div class="error-message"  *ngIf="validations_form.get('Scannerpage').hasError(validation.type) && (validations_form.get('Scannerpage').dirty || validations_form.get('Scannerpage').touched)">
-                    <p class="error">{{ validation.message }}</p>
-                  </div>
-                </ng-container>
-              </div>
+        <ion-label position="floating" > Price per page</ion-label>
         </ion-col>
         <!-- scanning prices per page -->
         <ion-col>
@@ -127,9 +121,7 @@
               </div>
         </ion-col>
       </ion-row>
-      <div class="th">
-        <ion-icon (click)="add2()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
-      </div>
+      
     </ion-card>  
     
   <ion-card>
@@ -141,14 +133,7 @@
         <ion-row>
           <!-- fax pages -->
         <ion-col>
-              <ion-input placeholder="pages" type="number" formControlName="Faxpage"[(ngModel)] ="Faxpage" ></ion-input>
-              <div class="validation-errors">
-                  <ng-container *ngFor="let validation of validation_messages.Faxpage">
-                    <div class="error-message"  *ngIf="validations_form.get('Faxpage').hasError(validation.type) && (validations_form.get('Faxpage').dirty || validations_form.get('Faxpage').touched)">
-                      <p class="error">{{ validation.message }}</p>
-                    </div>
-                  </ng-container>
-                </div>
+          <ion-label position="floating" > Price per page</ion-label>
           </ion-col>
           <!-- fax prices -->
           <ion-col>
@@ -162,48 +147,60 @@
                 </div>
           </ion-col>
         </ion-row>
-        <div class="th">
-          <ion-icon (click)="add3()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
-        </div>
+        
       </ion-card>
       
-    <!-- <ion-card>
+    <ion-card>
         <ion-row>
             <ion-col>
                 <ion-label  position="floating" >Email</ion-label>
             </ion-col>
           </ion-row>
           <ion-row>
+            <!-- email pages -->
           <ion-col>
-                <ion-input placeholder="pages" type="number" formControlName="Ihours"[(ngModel)] ="Emailhours" ></ion-input>
+            <ion-label position="floating" > Price per page</ion-label>
             </ion-col>
+            <!-- email price -->
             <ion-col>
-                <ion-input placeholder="00.00" type="number" formControlName="Ihours"[(ngModel)] ="Emailprice" >R</ion-input>
+                <ion-input placeholder="00.00" type="number" formControlName="Emailprice"[(ngModel)] ="Emailprice" >R</ion-input>
+                <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.Emailprice">
+                      <div class="error-message"  *ngIf="validations_form.get('Emailprice').hasError(validation.type) && (validations_form.get('Emailprice').dirty || validations_form.get('Emailprice').touched)">
+                        <p class="error">{{ validation.message }}</p>
+                      </div>
+                    </ng-container>
+                  </div>
             </ion-col>
           </ion-row>
-          <div class="th">
-            <ion-icon (click)="add4()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
-          </div>
+        
         </ion-card> 
         
-      <ion-card>
+       <ion-card>
           <ion-row>
               <ion-col>
                   <ion-label  position="floating" >Binding</ion-label>
               </ion-col>
             </ion-row>
             <ion-row>
+              <!-- binging pages -->
             <ion-col>
-                  <ion-input placeholder="pages" type="number" formControlName="Ihours"[(ngModel)] ="Bindinghours" ></ion-input>
+              <ion-label position="floating" > Price per page</ion-label>
               </ion-col>
+              <!-- binding price -->
               <ion-col>
-                  <ion-input placeholder="00.00" type="number" formControlName="Ihours"[(ngModel)] ="Bindingprice">R</ion-input>
+                  <ion-input placeholder="00.00" type="number" formControlName="Bindingprice"[(ngModel)] ="Bindingprice">R</ion-input>
+                  <div class="validation-errors">
+                      <ng-container *ngFor="let validation of validation_messages.Bindingprice">
+                        <div class="error-message"  *ngIf="validations_form.get('Bindingprice').hasError(validation.type) && (validations_form.get('Bindingprice').dirty || validations_form.get('Bindingprice').touched)">
+                          <p class="error">{{ validation.message }}</p>
+                        </div>
+                      </ng-container>
+                    </div>
               </ion-col>
             </ion-row>
-            <div class="th">
-              <ion-icon (click)="add5()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
-            </div>
-          </ion-card> -->
+            
+          </ion-card> 
        
         <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid"(click)="add()">Save</ion-button>
       </form>
