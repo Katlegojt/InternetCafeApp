@@ -32,7 +32,7 @@ export class GeoService {
 
   item: Observable<InternetCafe>;
 
-  constructor(private http: HttpClient, private firestore: AngularFirestore, private afAuth: AngularFireAuth, private storage: Storage) {
+  constructor(private http: HttpClient, private firestore: AngularFirestore, private afAuth: AngularFireAuth) {
     // reference a database location for Geofire
 
     // var firebaseRef = firebase.database().ref('list')

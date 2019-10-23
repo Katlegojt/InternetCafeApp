@@ -22,7 +22,7 @@ export class DataService {
 
   getItemSnapChanges() {
     return this.db.collection('localCafe').snapshotChanges();
-    //,ref => ref.where()
+    
   }
 
 

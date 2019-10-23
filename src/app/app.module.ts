@@ -15,11 +15,14 @@ import {  AngularFireDatabaseModule} from 'angularfire2/database'
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthenticationService } from './services/authentication.service';
+import { AdmobfreeService } from './services/admobfree.service';
+// C:\Users\codetribe\Desktop\Project\InternetCafeApp\src\app\services\admobfree.service.ts
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IonicStorageModule } from '@ionic/storage';
+
+
 
 
 // import { IonicRatingModule } from 'ionic-rating';
@@ -32,18 +35,19 @@ const firebaseConfig = {
   storageBucket: "internetcafe-8ab2b.appspot.com",
   messagingSenderId: "194688123148",
   appId: "1:194688123148:web:0329ce7412e2b9ad2d4929"
-};
+}; 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AngularFirestoreModule, AngularFireModule.initializeApp(firebaseConfig), 
-     AngularFireDatabaseModule, AppRoutingModule, ReactiveFormsModule,FormsModule,IonicStorageModule.forRoot(),
+     AngularFireDatabaseModule, AppRoutingModule, ReactiveFormsModule,FormsModule,
     AgmCoreModule.forRoot({
     apiKey: ''           
   }),MatGoogleMapsAutocompleteModule, BrowserAnimationsModule, HttpClientModule],
   providers: [
+    AdmobfreeService,
     StatusBar,AngularFireAuth,
     SplashScreen,AuthenticationService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

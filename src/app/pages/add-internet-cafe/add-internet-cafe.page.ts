@@ -77,7 +77,6 @@ export class AddInternetCafePage implements OnInit {
     this.latitude=0;
     this.longitude=0;
   }
-  
 
 
   ngOnInit(){
@@ -110,6 +109,9 @@ export class AddInternetCafePage implements OnInit {
       ])),
       
     });
+    // this.admobFreeService.BannerAd();
+    // this.showInterstitial();
+    // this.showRewardVideo();
   }
   onUpload(event) {
     this.selectedFile = <File>event.target.files[0];
@@ -153,7 +155,6 @@ export class AddInternetCafePage implements OnInit {
       );
     });
   }
-
   tryRegister(){
     //this.navCtrl.navigateForward('/service-form');
   }
