@@ -91,6 +91,7 @@ export class SuggestedListPage implements OnInit {
 
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
+    
   }
   toggle() {
     this.visible = !this.visible;
