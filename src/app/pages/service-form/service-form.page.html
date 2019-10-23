@@ -14,7 +14,7 @@
   </ion-header>
   
   <ion-content> 
-    <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
+    <form class="form" [formGroup]="validations_form"  (ngSubmit)="addService(validations_form.value)">
      <ion-grid>      
         <ion-card> 
           <ion-row>
@@ -47,7 +47,7 @@
             </ion-col>
           </ion-row>
           <div class="th">
-          <ion-icon (click)="add0()" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
+          <ion-icon (click)="add(Ihours,Iprice)" ios="ios-add-circle" md="md-add-circle" color="primary" horizontal="end" vertical="bottom" slot="fixed"></ion-icon>
         </div>
         </ion-card> 
      
@@ -202,7 +202,9 @@
             
           </ion-card> 
        
-        <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid"(click)="add()">Save</ion-button>
+        <!-- <ion-button  class="submit-btn" type="submit" (click)="addService()">Save</ion-button> -->
+        <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Save</ion-button>
+     
       </form>
   </ion-content>
   

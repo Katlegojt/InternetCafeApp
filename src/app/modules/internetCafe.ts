@@ -1,4 +1,4 @@
-class InternetCafe{
+export interface InternetCafe{
     key?
     name;
     address;

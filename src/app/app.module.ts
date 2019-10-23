@@ -21,7 +21,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AdMobFree } from '@ionic-native/admob-free/ngx';
+
 
 
 
@@ -35,7 +35,7 @@ const firebaseConfig = {
   storageBucket: "internetcafe-8ab2b.appspot.com",
   messagingSenderId: "194688123148",
   appId: "1:194688123148:web:0329ce7412e2b9ad2d4929"
-};
+}; 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 @NgModule({
@@ -47,7 +47,6 @@ firebase.initializeApp(firebaseConfig);
     apiKey: ''           
   }),MatGoogleMapsAutocompleteModule, BrowserAnimationsModule, HttpClientModule],
   providers: [
-    AdMobFree,
     AdmobfreeService,
     StatusBar,AngularFireAuth,
     SplashScreen,AuthenticationService,

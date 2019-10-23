@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { NavController, AlertController } from '@ionic/angular';
 import { GeoService } from 'src/app/services/geo.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-service-form',
@@ -12,15 +13,18 @@ import { GeoService } from 'src/app/services/geo.service';
 
 export class ServiceFormPage implements OnInit {
 
-  Ihours: "";
+  Ihours: string = "0 min"
   Iprice: 0;
   arraylist: Array <{Ihours :string , Iprice: number}>=[];
+  key: any;
   
   
   constructor(private navCtrl: NavController,
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
     private alert:AlertController,
+    private route: ActivatedRoute,
+    
     
     ) {
       
@@ -108,31 +112,33 @@ export class ServiceFormPage implements OnInit {
       ])),
 
     });
+
+    this.route.queryParams
+    .subscribe(params => {
+       
+      this.key = params.key;
+      console.log(this.key); // popular
+    });
   }
   submit(){
     
   }
-  tryRegister(){
-    this.navCtrl.navigateForward('/suggested-list');
-  }
-
-//getting selected color
-color:string='';
-colorChangeHandler(event: any){
-  this.color=event.target.value;
-  console.log(this.color);
-}
-
-  add(){
-    this.arraylist.push({Ihours: this.Ihours, Iprice: this.Iprice});
-
+ 
+  add(value1, value2){
+    this.arraylist.push({Ihours: value1, Iprice: value2});
+    this.Ihours="0 min";
+    this.Iprice=0;
     console.log(this.arraylist)
-    this.Ihours="";
-    this.Iprice= 0;
+
   }
+
+  
   x
   save(){
      this.x = document.getElementById("Color");
     document.getElementById("demo").innerHTML = this.x;
+  }
+  addService(){
+    this.navCtrl.navigateForward('/display');
   }
 }
