@@ -3,28 +3,40 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { NavController, AlertController } from '@ionic/angular';
 import { GeoService } from 'src/app/services/geo.service';
-
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-service-form',
   templateUrl: './service-form.page.html',
   styleUrls: ['./service-form.page.scss'],
 })
+
 export class ServiceFormPage implements OnInit {
 
-  Ihours: "";
+  Ihours: string = "0 min"
   Iprice: 0;
   arraylist: Array <{Ihours :string , Iprice: number}>=[];
+  key: any;
+  
   
   constructor(private navCtrl: NavController,
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private alert:AlertController
-    ) { }
+    private alert:AlertController,
+    private route: ActivatedRoute,
+    
+    
+    ) {
+      
+     }
+    
+
   validations_form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
- 
+  name:string;
+  value:string;
+  
   validation_messages = {
     'Ihours': [
       { type: 'required', message: 'Internet time is required.' }
@@ -34,36 +46,25 @@ export class ServiceFormPage implements OnInit {
       { type: 'required', message: 'Internet price is required.' }
     ],
    
-    'Printingprice': [
+    'Printingblack': [
       { type: 'required', message: 'Printing price is required.' }
     ],
-    'Pagesize': [
-      { type: 'required', message: 'Page size is required.' }
+    'Printingcolor': [
+      { type: 'required', message: 'Printing price is required.' }
     ],
-    'Color': [
-      { type: 'required', message: 'Choose a color.' }
-    ],
-    'Scannerpage': [
-      { type: 'required', message: 'Page numbers is required.' }
-    ],
+  
     'Scannerprice': [
       { type: 'required', message: 'Scanning price is required.' }
     ],
-   'Faxpage': [
-     { type: 'required', message: 'Page number is required.' }
-   ],
+  
    'Faxprice': [
     { type: 'required', message: 'Fax price is required.' }
   ],
-   'Emailpage': [
-    { type: 'required', message: 'Page number is required.' }
-  ],
+  
   'Emailprice': [
     { type: 'required', message: 'Price is required.' }
   ],
-  'Bindingpage': [
-    { type: 'required', message: 'Page number is required.' }
-  ],
+ 
   'Bindingprice': [
     { type: 'required', message: 'Price is required.' }
   ],
@@ -71,6 +72,7 @@ export class ServiceFormPage implements OnInit {
  
 
   ngOnInit() {
+    
     this.validations_form = this.formBuilder.group({
       Ihours: new FormControl('', Validators.compose([
         Validators.required,
@@ -80,67 +82,63 @@ export class ServiceFormPage implements OnInit {
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      Printingprice: new FormControl('', Validators.compose([
+      Printingblack: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      Pagesize: new FormControl('', Validators.compose([
-        Validators.required,
-        // Validators.pattern('^[0-9]+$')
-      ])),
-      Color: new FormControl('', Validators.compose([
-        Validators.required,
-        // Validators.pattern('^[0-9]+$')
-      ])),
-      Scannerpage: new FormControl('', Validators.compose([
+      Printingcolor: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
+     
       Scannerprice: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      Faxpage: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
+     
       Faxprice: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      Emailpage: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
+      
       Emailprice: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      Bindingpage: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[0-9]+$')
-      ])),
+     
       Bindingprice: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
 
     });
+
+    this.route.queryParams
+    .subscribe(params => {
+       
+      this.key = params.key;
+      console.log(this.key); // popular
+    });
   }
   submit(){
     
   }
-  tryRegister(){
-    this.navCtrl.navigateForward('/suggested-list');
+ 
+  add(value1, value2){
+    this.arraylist.push({Ihours: value1, Iprice: value2});
+    this.Ihours="0 min";
+    this.Iprice=0;
+    console.log(this.arraylist)
+
   }
 
-
-
-  add(){
-    this.arraylist.push({Ihours: this.Ihours, Iprice: this.Iprice});
-
-    console.log(this.arraylist)
-    this.Ihours="";
-    this.Iprice= 0;
+  
+  x
+  save(){
+     this.x = document.getElementById("Color");
+    document.getElementById("demo").innerHTML = this.x;
+  }
+  addService(){
+    this.navCtrl.navigateForward('/display');
   }
 }

@@ -16,7 +16,9 @@ export class DisplayServiceService {
    }
   
 
-
+   getService(){
+     
+   }
 
 
 

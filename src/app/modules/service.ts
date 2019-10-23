@@ -1,4 +1,4 @@
-class service{
+export interface service{
 
     key?: string;
     hours:number;

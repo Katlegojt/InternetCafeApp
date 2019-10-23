@@ -5,6 +5,7 @@ import { debounceTime } from "rxjs/operators";
 import { NavController, MenuController,AlertController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { InternetCafe } from 'src/app/modules/internetCafe';
 
 @Component({
   selector: 'app-suggested-list',
