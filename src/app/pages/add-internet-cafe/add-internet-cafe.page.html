@@ -26,12 +26,9 @@
     </label>
     <input id="file-input" type="file"/> -->
     <ion-icon (click)="input.click()" name="camera" fill="clear"></ion-icon>
-    <input style="display: none" type="file" (change)="onUpload($event)" #input>
+    <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+    <!-- <input style="display: none" type="file" (change)="onUpload($event)" #input> -->
 </div>
-
-
-
-
 
               <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
                 <!-- name -->

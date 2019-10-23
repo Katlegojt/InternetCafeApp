@@ -123,24 +123,24 @@ export class AddInternetCafePage implements OnInit {
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
   }
-  getGeopoints(address,name,phone,email,url,from,to){   
+  // getGeopoints(address,name,phone,email,url,from,to){   
    
-    this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
-       this.latitude = data.results[0].geometry.location.lat,
-       this.longitude = data.results[0].geometry.location.lng,
-       this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl).then((data)=>{
-          console.log('id :', data)
-       })
+  //   this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
+  //      this.latitude = data.results[0].geometry.location.lat,
+  //      this.longitude = data.results[0].geometry.location.lng,
+  //      this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl).then((data)=>{
+  //         console.log('id :', data)
+  //      })
 
    
       
-      },
+  //     },
     
-      );
+      // );
     
 
       }
 
       
     
-}
+

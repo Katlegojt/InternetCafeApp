@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
-// import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage';
 
 
 @Injectable({
