@@ -24,6 +24,7 @@ export class SuggestedListPage implements OnInit {
     email:'',
     from:'',
     to:'',
+    img:'',
    
   }
 
@@ -75,7 +76,8 @@ export class SuggestedListPage implements OnInit {
           phone:item.phone,
           email:item.email,
           from:item.from,
-          to: item.to
+          to: item.to,
+          img: item.img
           }})
        
         console.log(this.afAuth.auth.currentUser.uid)

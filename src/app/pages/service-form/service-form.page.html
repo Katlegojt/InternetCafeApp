@@ -12,7 +12,7 @@
   </ion-toolbar>
     
   </ion-header>
-  
+
   <ion-content> 
     <form class="form" [formGroup]="validations_form"  (ngSubmit)="addService(validations_form.value)">
      <ion-grid>      
@@ -203,7 +203,7 @@
           </ion-card> 
        
         <!-- <ion-button  class="submit-btn" type="submit" (click)="addService()">Save</ion-button> -->
-        <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Save</ion-button>
+        <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="addService()">Save</ion-button>
      
       </form>
   </ion-content>
