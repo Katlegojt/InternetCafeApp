@@ -26,7 +26,7 @@ const routes: Routes = [
     IonicModule,AgmDirectionModule,
     RouterModule.forChild(routes),
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
+      apiKey: "AIzaSyCd0QW8pbjAyI48NtgodmHK7qeilaUquXA",
     }),
     MatGoogleMapsAutocompleteModule.forRoot(),
   ],

@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Storage } from '@ionic/storage';
+import { InternetCafe } from '../modules/internetCafe';
 
 
 @Injectable({
@@ -31,7 +32,7 @@ export class GeoService {
 
   item: Observable<InternetCafe>;
 
-  constructor(private http: HttpClient, private firestore: AngularFirestore, private afAuth: AngularFireAuth, private storage: Storage) {
+  constructor(private http: HttpClient, private firestore: AngularFirestore, private afAuth: AngularFireAuth) {
     // reference a database location for Geofire
 
     // var firebaseRef = firebase.database().ref('list')
@@ -56,19 +57,16 @@ export class GeoService {
   }
 
   //set point to a firestore collection
-  setALocation(lat, lng, address, name, phone, email, url, from, to, img) {
-    return new Promise((resolve, reject) => {
+  setALocation(lat, lng, address, name, phone, email, url, from, to, img, service) {
+   
     this.point = this.geo.point(lat, lng);
-      this.cities = this.firestore.collection('localCafe').add({ URL: url, address: address, from: from, to: to, email: email, name: name, phone: phone, position: this.point.data, img: img })
+      this.cities = this.firestore.collection('localCafe').add({ URL: url, address: address, from: from, to: to, email: email, name: name, phone: phone
+        ,position: this.point.data, img: img, uid:this.afAuth.auth.currentUser.uid, service:service})
         .then(docRef => {
           console.log("Document written with ID: ", docRef.id);
           this.docId = docRef.id;
-          () => {
-            // completion...
-            resolve(this.docId = docRef.id);
-          }
-        });
-    }).catch(err => {
+       
+        }).catch(err => {
       console.log(err.message);
     })
   }

@@ -8,9 +8,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class DataService {
 
   public items: any = [];
-  uid
+  uid1
 
-  constructor(private db: AngularFirestore,  ) {
+  constructor(private db: AngularFirestore, private afAuth: AngularFireAuth) {
    
   }
 
@@ -22,23 +22,12 @@ export class DataService {
 
   getItemSnapChanges() {
     return this.db.collection('localCafe').snapshotChanges();
-    //,ref => ref.where()
-  }
-
-  addComments()
-  {
-    this.db.collection('users').add({
     
-    });
-
-
   }
 
-  getCafeList(uid)
-  {
-    
-    return this.db.collection('localCafe/'+ uid).snapshotChanges();
-   
 
-  }
+
+  
+
+  
 }
