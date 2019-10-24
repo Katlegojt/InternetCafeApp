@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { snapshotChanges } from 'angularfire2/database';
 import { ActivatedRoute } from '@angular/router';
-import { database } from 'firebase';
 import { DataService } from 'src/app/services/data.service';
 import { InternetCafe } from 'src/app/modules/internetCafe';
 
@@ -12,10 +10,12 @@ import { InternetCafe } from 'src/app/modules/internetCafe';
   styleUrls: ['./services.page.scss'],
 })
 export class ServicesPage implements OnInit {
-  cafes: any;
+ 
   key: string;
   itemList;
-  private userDoc: AngularFirestoreDocument<InternetCafe>;
+  private cafes: AngularFirestoreDocument<InternetCafe>;
+  internetCafe : InternetCafe
+  name= '';
 
   constructor(private db:AngularFirestore, private route:ActivatedRoute,private dataService:DataService) { 
 
@@ -24,17 +24,30 @@ export class ServicesPage implements OnInit {
     });
   });
 
-  this.cafes = this.db.doc<InternetCafe>('localCafe/'+this.key).valueChanges().subscribe();
-  
+   
+  console.log(this.name);
 }
 
   ngOnInit() {
-
     this.route.queryParams
     .subscribe(params => {
        
       this.key = params.key;
       console.log(this.key); // popular
+    });
+
+
+    this.db.collection("localCafe").doc(this.key)
+    .get().subscribe((doc)  =>{
+      if (doc.exists) {
+        console.log("Document data:", doc.data());
+        this.name =doc.data().service.Printing[0].Pagesize;
+        console.log("Document service:",name );
+        
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
     });
   }
 
