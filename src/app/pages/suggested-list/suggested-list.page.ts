@@ -66,8 +66,7 @@ export class SuggestedListPage implements OnInit {
 
   goToSeeMorePage(item){
    
-    this.afAuth.user.subscribe((user) => {
-      if (user) {
+    
        
         this.route.navigate(['/see-more'],{queryParams:{
           name:item.name,
@@ -75,15 +74,12 @@ export class SuggestedListPage implements OnInit {
           phone:item.phone,
           email:item.email,
           from:item.from,
-          to: item.to
+          to: item.to,
+          img:item.img
+
           }})
        
-        console.log(this.afAuth.auth.currentUser.uid)
-      } else {
-         
-        this.presentPrompt();
-      }
-    })
+     
 
   }
 
