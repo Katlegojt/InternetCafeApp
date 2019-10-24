@@ -18,7 +18,8 @@
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
               <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
               
-<img class="img-circle"src="{{imageUrl}}"><br>
+<img class="img-circle"src="{{imageUrl}}">
+<br>
 
 <div class="image-upload">
     <!-- <label for="file-input">
@@ -29,10 +30,6 @@
     <input type="file" (change)="upload($event)" accept=".png,.jpg" />
     <!-- <input style="display: none" type="file" (change)="onUpload($event)" #input> -->
 </div>
-
-
-
-
 
               <form class="form" [formGroup]="validations_form"  (ngSubmit)="getGeopoints(address,name,phone,email,website,openTime,closeTime)">
                 <!-- name -->
