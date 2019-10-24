@@ -174,7 +174,6 @@ export class AddInternetCafePage implements OnInit {
        this.longitude = data.results[0].geometry.location.lng,
        this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)
       },
-    
       );
     
       this.navCtrl.navigateForward('/service-list');

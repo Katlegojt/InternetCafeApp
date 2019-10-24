@@ -15,7 +15,13 @@ export class ServicesPage implements OnInit {
   itemList;
   private cafes: AngularFirestoreDocument<InternetCafe>;
   internetCafe : InternetCafe
-  name= '';
+  internetTime:any;
+  blkNWhite: any;
+  color: any;
+  scanner: any;
+  fax: any;
+  email: any;
+  binding: any;
 
   constructor(private db:AngularFirestore, private route:ActivatedRoute,private dataService:DataService) { 
 
@@ -25,7 +31,7 @@ export class ServicesPage implements OnInit {
   // });
 
    
-  console.log(this.name);
+  console.log(this.internetTime);
 }
 
   ngOnInit() {
@@ -41,9 +47,13 @@ export class ServicesPage implements OnInit {
     .get().subscribe((doc)  =>{
       if (doc.exists) {
         console.log("Document data:", doc.data());
-        this.name =doc.data().service.Printing[0].Pagesize;
-        console.log("Document service:",name );
-        
+        this.internetTime = doc.data().service.Time;
+        this.blkNWhite = doc.data().service.Printingblk;
+        this.color = doc.data().service.Printingcolor;
+        this.scanner =doc.data().service.Scannerprice;
+        this.fax =doc.data().service.Faxprice;
+        this.email =doc.data().service.Emailprice;
+        this.binding =doc.data().service.Bindingprice;
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");

@@ -4,6 +4,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { NavController, AlertController } from '@ionic/angular';
 import { GeoService } from 'src/app/services/geo.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-service-form',
@@ -17,6 +18,12 @@ export class ServiceFormPage implements OnInit {
   Iprice: 0;
   arraylist: Array <{Ihours :string , Iprice: number}>=[];
   key: any;
+  Printingblack: any;
+  Printingcolor: any;
+  Scannerprice: any;
+  Faxprice: any;
+  Emailprice: any;
+  Bindingprice: any;
   
   
   constructor(private navCtrl: NavController,
@@ -24,6 +31,8 @@ export class ServiceFormPage implements OnInit {
     private formBuilder: FormBuilder,
     private alert:AlertController,
     private route: ActivatedRoute,
+    private router : Router,
+    private db : AngularFirestore
     
     
     ) {
@@ -64,7 +73,6 @@ export class ServiceFormPage implements OnInit {
   'Emailprice': [
     { type: 'required', message: 'Price is required.' }
   ],
- 
   'Bindingprice': [
     { type: 'required', message: 'Price is required.' }
   ],
@@ -132,13 +140,18 @@ export class ServiceFormPage implements OnInit {
 
   }
 
-  
-  x
-  save(){
-     this.x = document.getElementById("Color");
-    document.getElementById("demo").innerHTML = this.x;
-  }
-  addService(){
-    this.navCtrl.navigateForward('/display');
+  // // x
+  // // save(){
+  // //    this.x = document.getElementById("Color");
+  // //   document.getElementById("demo").innerHTML = this.x;
+  // }
+ 
+  addService() {
+    let service = {Time:this.arraylist, Printingblk:this.Printingblack,Printingcolor:this.Printingcolor,Scannerprice:this.Scannerprice,
+                 Faxprice:this.Faxprice,Emailprice:this.Emailprice,Bindingprice:this.Bindingprice}
+    this.db.doc('localCafe/'+ this.key).update({
+     service:service
+    })
+    this.router.navigate(['/services'], { queryParams: { key: this.key, } });
   }
 }
