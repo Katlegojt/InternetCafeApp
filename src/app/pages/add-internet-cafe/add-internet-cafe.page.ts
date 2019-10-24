@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { GeoService } from 'src/app/services/geo.service';
@@ -68,6 +68,7 @@ export class AddInternetCafePage implements OnInit {
     private formBuilder: FormBuilder,
     private geoService : GeoService,
     public afAuth: AngularFireAuth,
+    public loadingCtrl: LoadingController
     
   ) {
     //this.getGeopoints('540 Paul kruger street, pretoria')
@@ -117,6 +118,7 @@ export class AddInternetCafePage implements OnInit {
   }
   
   uploadViaFileChooser(_image) {
+    this.openLoader();
     console.log('uploadToFirebase');
     return new Promise((resolve, reject) => {
       const fileRef = firebase.storage().ref('images/' + this.selectedFile.name);
@@ -161,16 +163,26 @@ export class AddInternetCafePage implements OnInit {
     this.navCtrl.navigateForward('/login');
   }
   getGeopoints(address,name,phone,email,url,from,to){   
-   let service = {} as service
-    this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
-       this.latitude = data.results[0].geometry.location.lat,
-       this.longitude = data.results[0].geometry.location.lng,
-       this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)
-      },
-      );
+  //  let service = {} as service
+  //   this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
+  //      this.latitude = data.results[0].geometry.location.lat,
+  //      this.longitude = data.results[0].geometry.location.lng,
+  //      this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)
+  //     },
+  //     );
     
       this.navCtrl.navigateForward('/service-list');
       }
-      
+     
+   async openLoader() {
+        const loading = await this.loadingCtrl.create({
+          message: 'Picture loading ...',
+          duration: 3000
+        });
+        await loading.present();
+      }
+      async closeLoading() {
+        return await this.loadingCtrl.dismiss();
+      }
     
 }

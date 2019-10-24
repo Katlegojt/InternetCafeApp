@@ -84,7 +84,7 @@ export class ServiceFormPage implements OnInit {
     this.validations_form = this.formBuilder.group({
       Ihours: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern('^[0-9]+$')
+        Validators.pattern('^[a-zA-Z0-9_.+-]+$')
       ])),
       Iprice: new FormControl('', Validators.compose([
         Validators.required,

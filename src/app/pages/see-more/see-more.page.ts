@@ -48,7 +48,7 @@ objectA={
       this.objectA.email=data.email;
       this.objectA.from=data.from;
       this.objectA.to=data.to;
-      this.objectA.img=data.img;
+      this.objectA.img=data.URL;
       
     })
   }
