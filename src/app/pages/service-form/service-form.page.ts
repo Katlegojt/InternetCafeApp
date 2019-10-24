@@ -140,11 +140,7 @@ export class ServiceFormPage implements OnInit {
 
   }
 
-  // // x
-  // // save(){
-  // //    this.x = document.getElementById("Color");
-  // //   document.getElementById("demo").innerHTML = this.x;
-  // }
+ 
  
   addService() {
     let service = {Time:this.arraylist, Printingblk:this.Printingblack,Printingcolor:this.Printingcolor,Scannerprice:this.Scannerprice,
