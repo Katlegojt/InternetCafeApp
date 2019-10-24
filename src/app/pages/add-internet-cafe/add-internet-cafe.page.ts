@@ -172,10 +172,8 @@ export class AddInternetCafePage implements OnInit {
     this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
        this.latitude = data.results[0].geometry.location.lat,
        this.longitude = data.results[0].geometry.location.lng,
-       this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)
-      },
+       this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service) },
       );
-    
       this.navCtrl.navigateForward('/service-list');
       }
       

@@ -98,7 +98,7 @@ export class SuggestedListPage implements OnInit {
    }
    async presentPrompt() {
     const alert = await this.alertCtrl.create({
-      header: 'Comment here',
+      header: 'Access denied',
       message: 'To access more information, you have to log in first',
      
       buttons: [
