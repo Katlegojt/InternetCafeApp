@@ -41,7 +41,7 @@ export class ServicesPage implements OnInit {
     .get().subscribe((doc)  =>{
       if (doc.exists) {
         console.log("Document data:", doc.data());
-        this.name =doc.data().service.Printing[0].Pagesize;
+        this.name =doc.data().service.Time;
         console.log("Document service:",name );
         
       } else {

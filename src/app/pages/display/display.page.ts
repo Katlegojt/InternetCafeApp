@@ -11,6 +11,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class DisplayPage implements OnInit {
   key: any;
   interTime: any;
+  blkNWhite: any;
+  color: any;
+  scanner: any;
+  fax: any;
+  email: any;
+  binding: any;
 
 
   constructor(private router: ActivatedRoute,
@@ -37,7 +43,12 @@ export class DisplayPage implements OnInit {
       if (doc.exists) {
         console.log("Document data:", doc.data());
         this.interTime =doc.data().service.Time;
-        
+        this.blkNWhite = doc.data().service.Printingblk;
+        this.color = doc.data().service.Printingcolor;
+        this.scanner =doc.data().service.Scannerprice;
+        this.fax =doc.data().service.Faxprice;
+        this.email =doc.data().service.Emailprice;
+        this.binding =doc.data().service.Bindingprice;
         
       } else {
         // doc.data() will be undefined in this case
@@ -45,6 +56,17 @@ export class DisplayPage implements OnInit {
       }
     });
 
-}
+  }
+
+  updateService(){
+    let service = {Time:this.interTime, Printingblk:this.blkNWhite,
+                   Printingcolor:this.color,Scannerprice:this.scanner,
+                   Faxprice:this.fax,Emailprice:this.email,
+                   Bindingprice:this.binding}
+    this.db.doc('localCafe/'+ this.key).update({
+    service:service
+   })
+   this.route.navigate(['/services'], { queryParams: { key: this.key, } });
+  }
 }
 
