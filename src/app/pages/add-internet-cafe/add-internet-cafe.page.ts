@@ -138,7 +138,6 @@ name;
               
             });
              
-          
           }
         },
         _error => {
@@ -148,7 +147,7 @@ name;
         () => {
           // completion...
           resolve(uploadTask.snapshot);
-        }
+        }  
       );
     });
   }

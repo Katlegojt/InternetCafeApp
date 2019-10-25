@@ -57,7 +57,7 @@ objectA={
     })
   }
   goToMapPage(){
-    this.navCtrl.navigateForward('/map2');
+    this.navCtrl.navigateForward('/map2', { queryParams: {key:this.objectA.key}});
   }
   goToPostsPage(){
     this.navCtrl.navigateForward('/posts');
