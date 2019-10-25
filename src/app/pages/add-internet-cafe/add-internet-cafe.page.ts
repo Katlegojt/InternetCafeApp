@@ -25,6 +25,8 @@ name;
   selectedFile;
   imageUrl: string;
   promise;
+
+  info =[];
  
   validation_messages = {
     'name': [
@@ -71,7 +73,7 @@ name;
     public loadingCtrl: LoadingController
     
   ) {
-    //this.getGeopoints('540 Paul kruger street, pretoria')
+    //this.getGeopoints('540 Paul kruger street, pretoria','name','phone','email','url','from','to');
     this.latitude=0;
     this.longitude=0;
   }
@@ -155,23 +157,60 @@ name;
   tryRegister(){
     //this.navCtrl.navigateForward('/service-form');
   }
+
+
+
   goLoginPage(){
     this.navCtrl.navigateForward('/login');
   }
+
+
+
   logOut(){
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
   }
+
+
+
+
   getGeopoints(address,name,phone,email,url,from,to){   
    let service = {} as service
-    this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
-       this.latitude = data.results[0].geometry.location.lat,
-       this.longitude = data.results[0].geometry.location.lng,
-       this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)},
-      );
-      this.navCtrl.navigateForward('/service-list');
-      } 
+    this.geoService.getAGeopoints(address).subscribe(data => {
+
+
+      console.log(data);
+      if(data){
+
+        try{
+
+       
+
+          this.info = data.results;
+          this.latitude = this.info[0].geometry.location.lat;
+          this.longitude =this.info[0].geometry.location.lng;
+          this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service);
+          this.navCtrl.navigateForward('/service-list');
+
+        }catch(err){
+
+
+          console.log(err.message);
+
+        }
+
+      }
       
+      
+      
+      // console.log(data.results[0].geometry.location),
+      //  this.latitude = data.results[0].geometry.location.lat,
+      //  this.longitude = data.results[0].geometry.location.lng,
+      //  this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)}
+    });
+     this.navCtrl.navigateForward('/service-list');
+      } 
+
       
    async openLoader() {
         const loading = await this.loadingCtrl.create({

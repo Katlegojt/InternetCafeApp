@@ -121,10 +121,13 @@ export class Map2Page implements OnInit {
   }
   
   public getDirection(lati,longi) {
-    this.dir = {
-      origin: { lat: this.latitude , lng: this.longitude},
-      destination: { lat: lati, lng: longi}
-    }
+    navigator.geolocation.getCurrentPosition(position => {
+      this.dir = {
+        origin: { lat: position.coords.latitude , lng: position.coords.longitude},
+        destination: { lat: lati, lng: longi}
+      }
+    })
+    
   }
 
   seeMore(point){

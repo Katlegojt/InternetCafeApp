@@ -6,6 +6,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth'
 import * as firebase from 'firebase';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 
@@ -28,6 +29,9 @@ objectA={
   img:'',
 }
   itemList;
+  text: string;
+  uid: string;
+  chatRef: any;
   constructor(
     private navCtrl: NavController,
     private dataService: DataService,
@@ -36,7 +40,9 @@ objectA={
     private formBuilder: FormBuilder,
     public alertCtrl:AlertController,
     public afAuth: AngularFireAuth,
+    public firestore: AngularFirestore
   ) {
+   
 
    }
 
@@ -52,7 +58,8 @@ objectA={
       this.objectA.img=data.img;
       this.objectA.key=data.key;
 
-
+      this.uid = this.afAuth.auth.currentUser.uid;
+      this.chatRef = this.firestore.collection('comments', ref => ref.orderBy('Timestamp').where('key', '==', this.objectA.key )).valueChanges()
       
     })
   }
@@ -88,7 +95,9 @@ objectA={
         }, {
           text: 'Post',
           handler: (data) => {
-            console.log(data.name);
+            this.text = data.comment;
+            this.send();
+            console.log(data.comment);
           }
         }
       ]
@@ -100,4 +109,19 @@ objectA={
 
     this.navCtrl.navigateForward('/suggested-list');
   }
+  send() {
+
+    if (this.text !== '') {
+      this.firestore.collection('comments').add({
+        Name : this.afAuth.auth.currentUser.displayName,
+        Message : this.text,
+        UserID : this.afAuth.auth.currentUser.uid,
+        Timestamp : Date.now(),
+        key: this.objectA.key,
+    
+      });
+      this.text = '';
+    }
+    
+    }
 }
