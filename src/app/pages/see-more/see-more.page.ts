@@ -26,6 +26,7 @@ objectA={
   from:'',
   to:'',
   img:'',
+  URL:'', 
 }
   itemList;
   constructor(
@@ -51,9 +52,8 @@ objectA={
       this.objectA.to=data.to;
       this.objectA.img=data.img;
       this.objectA.key=data.key;
+      this.objectA.URL=data.URL;
 
-
-      
     })
   }
   goToMapPage(){

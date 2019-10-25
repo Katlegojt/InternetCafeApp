@@ -25,6 +25,7 @@ export class SuggestedListPage implements OnInit {
     from:'',
     to:'',
     img:'',
+    url:'',
    
   }
 
@@ -77,7 +78,8 @@ export class SuggestedListPage implements OnInit {
           email:item.email,
           from:item.from,
           to: item.to,
-          img :item.img
+          img :item.img,
+          URL:item.URL
 
           }})
        
