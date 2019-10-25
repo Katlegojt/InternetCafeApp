@@ -12,10 +12,10 @@
   </ion-toolbar>
   </ion-header>
 
-  <ion-content> 
+  <ion-content color="primary"> 
     <form class="form" [formGroup]="validations_form"  (ngSubmit)="addService(validations_form.value)">
      <ion-grid>      
-        <ion-card> 
+        <ion-card class="theCard"> 
           <ion-row>
             <ion-col>
                 <ion-label class="labels" position="floating" >Internet Hours</ion-label>
@@ -50,7 +50,7 @@
         </div>
         </ion-card> 
      
-        <ion-card>
+        <ion-card class="theCard">
       <ion-list lines="none">
       
         
@@ -95,9 +95,9 @@
                 </ion-row>
            
           </ion-card>
-  </ion-grid>
+
   
-<ion-card>
+<ion-card class="theCard">
     <ion-row>
         <ion-col>
             <ion-label class="labels"  position="floating" >Scanner</ion-label>
@@ -123,7 +123,7 @@
       
     </ion-card>  
     
-  <ion-card>
+  <ion-card class="theCard">
       <ion-row>
           <ion-col>
               <ion-label class="labels" position="floating" >Fax</ion-label>
@@ -149,7 +149,7 @@
         
       </ion-card>
       
-    <ion-card>
+    <ion-card class="theCard">
         <ion-row>
             <ion-col>
                 <ion-label class="labels" position="floating" >Email</ion-label>
@@ -175,7 +175,7 @@
         
         </ion-card> 
         
-       <ion-card>
+       <ion-card class="theCard">
           <ion-row>
               <ion-col>
                   <ion-label class="labels" position="floating" >Binding</ion-label>
@@ -200,6 +200,7 @@
             </ion-row>
             
           </ion-card> 
+        </ion-grid>
        
         <!-- <ion-button  class="submit-btn" type="submit" (click)="addService()">Save</ion-button> -->
         <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="addService()">Save</ion-button>

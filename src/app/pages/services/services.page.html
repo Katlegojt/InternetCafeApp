@@ -1,137 +1,21 @@
 <ion-header>
   <ion-toolbar color="primary">
-<<<<<<< HEAD
-        <ion-menu-button autoHide="false"slot="start"></ion-menu-button>
-        <img class="img" src="assets/logo.png"/>        
-  </ion-toolbar>
-</ion-header>
-
-  <ion-content >
-            <!-- <<ion-card class="card">
-         
-                <div lines="none" class="heading"> OUR SERVICES</div>
-                <ion-grid>
-                  
-                    <ion-row class="row">
-                      <ion-col class="coll"> 
-                         Internet Hours
-                         <br>
-                      </ion-col>
-                      <ion-col class="coll">
-                        Time
-                        <br>
-                          <ion-row> 15 minutes</ion-row>
-                          <ion-row>30 minutes</ion-row>
-                          <ion-row>1 Hour</ion-row>
-                      </ion-col>
-                      <ion-col class="coll">
-                        Price
-                        <br>
-                          <ion-row> R10</ion-row>
-                          <ion-row>R30 </ion-row>
-                       
-                      </ion-col>
-                    </ion-row>
-                 
-                        <br>
-
-                        <ion-row class="row">
-                        <ion-col class="coll">
-                           Printing And Copying
-                          <br>
-                        </ion-col>
-                        <ion-col class="coll">
-                            page Color
-                            <br>
-                              <ion-row>Black and White</ion-row>   
-                              <ion-row>Colour</ion-row>                
-                          </ion-col>
-                      
-                        <ion-col class="coll">
-                          page size
-                          <br>
-                            <ion-row>A4</ion-row>   
-                            <ion-row>A3</ion-row>                
-                        </ion-col>
-                        <ion-col class="coll">
-                         Price
-                          <br>
-                        
-                            <ion-row>R30 </ion-row>
-                            <ion-row>R30</ion-row>
-                            <ion-row>R30 </ion-row>
-                        </ion-col>
-                     
-                   </ion-row>
-
-                      <br>
-
-                      <ion-row class="row">
-                          <ion-col class="coll">
-                             Scanner
-                             <br>
-                          </ion-col>
-                          <ion-col class="coll">
-                            Price
-                            <br>
-                              <ion-row>R100 </ion-row>                  
-                          </ion-col>
-                        
-                     </ion-row>
-
-                        <br>
-                        <ion-row class="row">
-                            <ion-col class="coll">
-                             fax
-                             <br>
-                            </ion-col>
-                            <ion-col class="coll">
-                              Price
-                                <br>
-                                <ion-row>R100 </ion-row>
-                            </ion-col>
-                       </ion-row>
-
-                       <br>
-                       <ion-row class="row">
-                          <ion-col class="coll">
-                            email
-                            <br>
-                          </ion-col>
-                          <ion-col class="coll">
-                          Price
-                           <br>
-                              <ion-row>R100 </ion-row>
-                          </ion-col>
-                     </ion-row>
-                          <br> 
-                          <ion-row class="row">
-                          <ion-col class="coll">
-                           Binding
-                          </ion-col>
-                          <ion-col class="coll">
-                            Price
-                              <ion-row>R100</ion-row>
-                          </ion-col>
-                     </ion-row>
-                
-             </ion-grid>
-=======
     <ion-menu-button autoHide="false" slot="start"></ion-menu-button>
     <img class="img" src="assets/logo.png" />
 
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="primary">
 
-    <ion-grid>      
-        <ion-card> 
+    <ion-grid >      
+        <ion-card class="thecard"> 
           <ion-row>
             <ion-col>
-                <ion-label  position="floating" >Internet Hours</ion-label>
+                <ion-label class="theLabel" position="floating" >Internet Hours</ion-label>
             </ion-col>
           </ion-row>
+          <br>
           <ion-row >
          
           <ion-col>
@@ -158,14 +42,14 @@
           </ion-row>
         </ion-card> 
      
-        <ion-card>
+        <ion-card class="thecard">
       <ion-list lines="none">
       
         
          <!-- radios for color type -->
-         <ion-label position="floating" > Printing and Copying</ion-label>
+         <ion-label position="floating" class="theLabel"> Printing and Copying</ion-label>
         
-         
+         <br>
         </ion-list>
         <ion-row>
           <!-- Printing in color -->
@@ -187,17 +71,17 @@
                       R {{blkNWhite}}
                   </ion-col>
                 </ion-row>
->>>>>>> a30f855e6d8550b28e0c3585825287ce5949bfb5
            
           </ion-card>
-  </ion-grid>
+ 
   
-<ion-card>
+<ion-card class="thecard">
     <ion-row>
         <ion-col>
-            <ion-label  position="floating" >Scanner</ion-label>
+            <ion-label  position="floating" class="theLabel">Scanner</ion-label>
         </ion-col>
       </ion-row>
+      <br>
       <ion-row>
         <!-- Scanning number of pages -->
       <ion-col>
@@ -211,12 +95,13 @@
       
     </ion-card>  
     
-  <ion-card>
+  <ion-card class="thecard">
       <ion-row>
           <ion-col>
-              <ion-label  position="floating" >Fax</ion-label>
+              <ion-label  position="floating" class="theLabel" >Fax</ion-label>
           </ion-col>
         </ion-row>
+        <br>
         <ion-row>
           <!-- fax pages -->
         <ion-col>
@@ -230,12 +115,13 @@
         
       </ion-card>
       
-    <ion-card>
+    <ion-card class="thecard">
         <ion-row>
             <ion-col>
-                <ion-label  position="floating" >Email</ion-label>
+                <ion-label  position="floating" class="theLabel" >Email</ion-label>
             </ion-col>
           </ion-row>
+          <br>
           <ion-row>
             <!-- email pages -->
           <ion-col>
@@ -249,12 +135,13 @@
         
         </ion-card> 
         
-       <ion-card>
+       <ion-card class="thecard">
           <ion-row>
               <ion-col>
-                  <ion-label  position="floating" >Binding</ion-label>
+                  <ion-label  position="floating" class="theLabel">Binding</ion-label>
               </ion-col>
             </ion-row>
+            <br>
             <ion-row>
               <!-- binging pages -->
             <ion-col>
@@ -267,6 +154,7 @@
             </ion-row>
             
           </ion-card>
+        </ion-grid>
  
 
 </ion-content>
