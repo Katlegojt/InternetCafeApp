@@ -17,7 +17,6 @@
         <ion-row justify-content-center>
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
               <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-              
 <img class="img-circle"src="{{imageUrl}}">
 <br>
 
@@ -26,11 +25,10 @@
         <ion-icon class="upload"name="camera" (click)="upload()"></ion-icon>
     </label>
     <input id="file-input" type="file"/> -->
-    <ion-icon (click)="input.click()" name="camera" fill="clear"></ion-icon>
+    <ion-icon (click)="input.click()" name="camera" fill="clear" ></ion-icon>
     <input type="file" (change)="upload($event)" accept=".png,.jpg" />
     <!-- <input style="display: none" type="file" (change)="onUpload($event)" #input> -->
 </div>
-
               <form class="form" [formGroup]="validations_form"  (ngSubmit)="getGeopoints(address,name,phone,email,website,openTime,closeTime)">
                 <!-- name -->
                   <ion-item>

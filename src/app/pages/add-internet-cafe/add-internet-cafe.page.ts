@@ -167,11 +167,7 @@ export class AddInternetCafePage implements OnInit {
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
   }
-<<<<<<< HEAD
-  // getGeopoints(address,name,phone,email,url,from,to){   
-=======
   getGeopoints(address,name,phone,email,url,from,to){   
->>>>>>> f6842276b9d026ccce68c15d2b9bf44036d0c374
   //  let service = {} as service
   //   this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
   //      this.latitude = data.results[0].geometry.location.lat,
@@ -179,14 +175,10 @@ export class AddInternetCafePage implements OnInit {
   //      this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)
   //     },
     
-<<<<<<< HEAD
-  //      );
-=======
   //     );
->>>>>>> f6842276b9d026ccce68c15d2b9bf44036d0c374
     
-      // this.navCtrl.navigateForward('/service-list');
-      // }
+      this.navCtrl.navigateForward('/service-list');
+      }
       
     
 }
