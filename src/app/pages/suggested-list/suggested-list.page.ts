@@ -67,25 +67,21 @@ export class SuggestedListPage implements OnInit {
 
   goToSeeMorePage(item){
    
-    this.afAuth.user.subscribe((user) => {
-      if (user) {
+    
        
         this.route.navigate(['/see-more'],{queryParams:{
+          key : item.key,
           name:item.name,
           address:item.address,
           phone:item.phone,
           email:item.email,
           from:item.from,
           to: item.to,
-          img: item.img
+          img :item.img
+
           }})
        
-        console.log(this.afAuth.auth.currentUser.uid)
-      } else {
-         
-        this.presentPrompt();
-      }
-    })
+     
 
   }
 
@@ -101,7 +97,7 @@ export class SuggestedListPage implements OnInit {
    }
    async presentPrompt() {
     const alert = await this.alertCtrl.create({
-      header: 'Comment here',
+      header: 'Access denied',
       message: 'To access more information, you have to log in first',
      
       buttons: [

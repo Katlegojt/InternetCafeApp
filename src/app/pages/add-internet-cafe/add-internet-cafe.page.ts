@@ -12,10 +12,10 @@ import * as firebase from 'firebase';
   styleUrls: ['./add-internet-cafe.page.scss'],
 })
 export class AddInternetCafePage implements OnInit {
-  validations_form: FormGroup;
-  errorMessage: string = '';
-  successMessage: string = '';
-  name;
+ validations_form: FormGroup;
+ errorMessage: string = '';
+ successMessage: string = '';
+name;
  address;
   phone;
   email;
@@ -163,17 +163,16 @@ export class AddInternetCafePage implements OnInit {
     this.navCtrl.navigateForward('/login');
   }
   getGeopoints(address,name,phone,email,url,from,to){   
-  //  let service = {} as service
-  //   this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
-  //      this.latitude = data.results[0].geometry.location.lat,
-  //      this.longitude = data.results[0].geometry.location.lng,
-  //      this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)
-  //     },
-  //     );
-    
+   let service = {} as service
+    this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
+       this.latitude = data.results[0].geometry.location.lat,
+       this.longitude = data.results[0].geometry.location.lng,
+       this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)},
+      );
       this.navCtrl.navigateForward('/service-list');
-      }
-     
+      } 
+      
+      
    async openLoader() {
         const loading = await this.loadingCtrl.create({
           message: 'Picture loading ...',

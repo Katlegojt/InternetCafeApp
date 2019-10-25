@@ -23,7 +23,7 @@ export class ServicesPage implements OnInit {
   email: any;
   binding: any;
 
-  constructor(private db:AngularFirestore, private route:ActivatedRoute,private dataService:DataService) { 
+  constructor(private db:AngularFirestore, private route:ActivatedRoute) { 
 
   //   this.db.collection('localCafe').snapshotChanges().subscribe(data =>{
   //     data.forEach(item=>{ 

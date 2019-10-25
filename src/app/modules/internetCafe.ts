@@ -4,6 +4,6 @@ export interface InternetCafe{
     address;
     phone;
     email;
-    url;
+    img;
     
 }

@@ -20,15 +20,13 @@ export class ServiceListPage implements OnInit {
 
   constructor( private afAuth : AngularFireAuth, private navCtrl: NavController, private router:Router,public firestore: AngularFirestore,private route:ActivatedRoute) { 
 
-    //this.uid=this.afAuth.auth.currentUser.uid;
-    this.cafes = this.firestore.collection('localCafe', ref => ref.where("uid", "==" , "0HEwbk4ynnf9p2RrjwGNySe9MdC2")).snapshotChanges().subscribe(data =>{
+    this.uid=this.afAuth.auth.currentUser.uid;
+    this.cafes = this.firestore.collection('localCafe', ref => ref.where("uid", "==" , this.uid)).snapshotChanges().subscribe(data =>{
       this.cafeList = data.map( e =>{
         return{
-
           key: e.payload.doc.id,
           ...e.payload.doc.data()
         } as InternetCafe
-
       });
     })
    
