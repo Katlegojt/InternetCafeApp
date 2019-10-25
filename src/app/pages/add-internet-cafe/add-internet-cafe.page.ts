@@ -6,19 +6,16 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { GeoService } from 'src/app/services/geo.service';
 import { service } from 'src/app/modules/service';
 import * as firebase from 'firebase';
-
-
 @Component({
   selector: 'app-add-internet-cafe',
   templateUrl: './add-internet-cafe.page.html',
   styleUrls: ['./add-internet-cafe.page.scss'],
 })
 export class AddInternetCafePage implements OnInit {
-
-  validations_form: FormGroup;
-  errorMessage: string = '';
-  successMessage: string = '';
-  name;
+ validations_form: FormGroup;
+ errorMessage: string = '';
+ successMessage: string = '';
+name;
  address;
   phone;
   email;
@@ -78,8 +75,6 @@ export class AddInternetCafePage implements OnInit {
     this.latitude=0;
     this.longitude=0;
   }
-
-
   ngOnInit(){
     
     this.validations_form = this.formBuilder.group({
@@ -143,12 +138,12 @@ export class AddInternetCafePage implements OnInit {
               
             });
             
-            
+          
           }
         },
         _error => {
           console.log(_error);
-          reject(_error);
+          reject(_error); 
         },
         () => {
           // completion...
@@ -163,9 +158,7 @@ export class AddInternetCafePage implements OnInit {
   goLoginPage(){
     this.navCtrl.navigateForward('/login');
   }
-
   logOut(){
-
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
   }

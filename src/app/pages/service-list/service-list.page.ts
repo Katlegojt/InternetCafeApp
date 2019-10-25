@@ -24,11 +24,9 @@ export class ServiceListPage implements OnInit {
     this.cafes = this.firestore.collection('localCafe', ref => ref.where("uid", "==" , this.uid)).snapshotChanges().subscribe(data =>{
       this.cafeList = data.map( e =>{
         return{
-
           key: e.payload.doc.id,
           ...e.payload.doc.data()
         } as InternetCafe
-
       });
     })
    

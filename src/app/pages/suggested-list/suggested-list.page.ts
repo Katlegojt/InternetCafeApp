@@ -24,6 +24,7 @@ export class SuggestedListPage implements OnInit {
     email:'',
     from:'',
     to:'',
+    img:'',
    
   }
 
@@ -69,13 +70,14 @@ export class SuggestedListPage implements OnInit {
     
        
         this.route.navigate(['/see-more'],{queryParams:{
+          key : item.key,
           name:item.name,
           address:item.address,
           phone:item.phone,
           email:item.email,
           from:item.from,
           to: item.to,
-          img:item.img
+          img :item.img
 
           }})
        
@@ -88,6 +90,7 @@ export class SuggestedListPage implements OnInit {
 
     this.afAuth.auth.signOut();
     this.navCtrl.navigateForward('/login');
+    
   }
   toggle() {
     this.visible = !this.visible;
