@@ -139,8 +139,7 @@ name;
               console.log('downloadurl', uri);
               
             });
-            
-          
+             
           }
         },
         _error => {
@@ -150,7 +149,7 @@ name;
         () => {
           // completion...
           resolve(uploadTask.snapshot);
-        }
+        }  
       );
     });
   }

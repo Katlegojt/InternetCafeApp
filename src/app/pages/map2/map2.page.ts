@@ -10,7 +10,8 @@ import { AlertController, NavController } from '@ionic/angular';
 import { GeoService } from 'src/app/services/geo.service';
 import { GeoPoint } from '@firebase/firestore-types';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 @Component({
@@ -39,12 +40,14 @@ export class Map2Page implements OnInit {
   point2: -0.127758;
   lati: any;
   longi: any;
+  key: any;
 
   constructor(public alertController: AlertController,
      private geoservice : GeoService,
      private navCtrl: NavController,
-     public afAuth: AngularFireAuth,private route: Router
-    
+     public afAuth: AngularFireAuth,private route: Router,
+     private router: ActivatedRoute,
+     private db: AngularFirestore
     )  { 
 
     //  const point = this.geo.point(-25.782823,28.2749065);
@@ -70,10 +73,38 @@ export class Map2Page implements OnInit {
  
 
   ngOnInit() {
-    navigator.geolocation.getCurrentPosition(position => {
-      this.latitude = position.coords.latitude;
-      this.longitude = position.coords.longitude;
-    })
+
+    this.router.queryParams
+    .subscribe(params => {
+       
+      this.key = params.key;
+      console.log(this.key); // popular
+    });
+
+   
+
+    if(this.key == null) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+      })
+
+    }
+    else{
+
+      this.db.collection("localCafe").doc(this.key)
+      .get().subscribe((doc)  =>{
+       
+          console.log("Document data:", doc.data());
+          this.latitude= doc.data().position.geopoint.latitude;
+          this.longitude = doc.data().position.geopoint.longitude;
+      });
+
+    }
+    // navigator.geolocation.getCurrentPosition(position => {
+    //   this.latitude = position.coords.latitude;
+    //   this.longitude = position.coords.longitude;
+    // })
    
 
     this.geo.collection('localCafe').snapshot().subscribe(data =>{

@@ -13,7 +13,7 @@
   </ion-toolbar>
  </ion-header>
 <ion-content color="secondary">
- 
+  
       <ion-grid>
           <ion-row justify-content-center>
             <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -23,9 +23,10 @@
                   <ion-grid>
                       <ion-row>
                         <ion-col>
+                          <a href="http://{{objectA.URL}}">
                             <ion-icon name="globe"  color="primary"></ion-icon><br>
                             <ion-label >Website</ion-label>
-    
+                          </a>
                         </ion-col>
                         <ion-col (click)="goToMapPage()">
                            <ion-icon name="compass" ></ion-icon><br> 
@@ -35,7 +36,7 @@
                            
                             <ion-icon name="book"></ion-icon><br>
                             <ion-label >Services</ion-label> 
-                        </ion-col>
+                        </ion-col>  
                         
                       </ion-row>
                       <ion-row justify-content-center>

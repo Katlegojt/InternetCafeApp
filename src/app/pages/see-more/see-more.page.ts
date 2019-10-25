@@ -27,6 +27,7 @@ objectA={
   from:'',
   to:'',
   img:'',
+  URL:'', 
 }
   itemList;
   text: string;
@@ -57,6 +58,7 @@ objectA={
       this.objectA.to=data.to;
       this.objectA.img=data.img;
       this.objectA.key=data.key;
+      this.objectA.URL=data.URL;
 
       this.uid = this.afAuth.auth.currentUser.uid;
       this.chatRef = this.firestore.collection('comments', ref => ref.orderBy('Timestamp').where('key', '==', this.objectA.key )).valueChanges()
@@ -64,7 +66,7 @@ objectA={
     })
   }
   goToMapPage(){
-    this.navCtrl.navigateForward('/map2');
+    this.navCtrl.navigateForward('/map2', { queryParams: {key:this.objectA.key}});
   }
   goToPostsPage(){
     this.navCtrl.navigateForward('/posts');
