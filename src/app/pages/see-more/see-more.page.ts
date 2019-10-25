@@ -18,12 +18,14 @@ import * as firebase from 'firebase';
 })
 export class SeeMorePage implements OnInit {
 objectA={
+  key:'',
   name:'',
   address:'',
   phone:'',
   email:'',
   from:'',
   to:'',
+  img:'',
 }
   itemList;
   constructor(
@@ -47,6 +49,10 @@ objectA={
       this.objectA.email=data.email;
       this.objectA.from=data.from;
       this.objectA.to=data.to;
+      this.objectA.img=data.img;
+      this.objectA.key=data.key;
+
+
       
     })
   }
@@ -57,7 +63,7 @@ objectA={
     this.navCtrl.navigateForward('/posts');
   }
   goToServicesPage(){
-    this.navCtrl.navigateForward('/services');
+    this.navCtrl.navigateForward('/services', { queryParams: {key:this.objectA.key}});
   }
    async presentPrompt() {
     const alert = await this.alertCtrl.create({

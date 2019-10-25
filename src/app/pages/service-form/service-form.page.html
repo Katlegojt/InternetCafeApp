@@ -11,20 +11,20 @@
         <ion-back-button default-href="home" slot="start"></ion-back-button>
   </ion-toolbar>
   </ion-header>
-  
+
   <ion-content> 
     <form class="form" [formGroup]="validations_form"  (ngSubmit)="addService(validations_form.value)">
      <ion-grid>      
         <ion-card> 
           <ion-row>
             <ion-col>
-                <ion-label  position="floating" >Internet Hours</ion-label>
+                <ion-label class="labels" position="floating" >Internet Hours</ion-label>
             </ion-col>
           </ion-row>
           <ion-row>
             <!-- internet hours -->
           <ion-col>
-                <ion-input placeholder="time" type="number" formControlName="Ihours"[(ngModel)]="Ihours" ></ion-input>
+                <ion-input placeholder="time" type="text" formControlName="Ihours"[(ngModel)]="Ihours" ></ion-input>
                  <div class="validation-errors">
                     <ng-container *ngFor="let validation of validation_messages.Ihours">
                       <div class="error-message"  *ngIf="validations_form.get('Ihours').hasError(validation.type) && (validations_form.get('Ihours').dirty || validations_form.get('Ihours').touched)">
@@ -55,14 +55,14 @@
       
         
          <!-- radios for color type -->
-         <ion-label position="floating" > Printing and Copying</ion-label>
+         <ion-label class="labels" position="floating" > Printing and Copying</ion-label>
         
          
         </ion-list>
         <ion-row>
           <!-- Printing in color -->
             <ion-col>
-              <ion-label position="floating" > Color</ion-label>
+              <ion-label position="floating"  > Color</ion-label>
               </ion-col>
               <!-- Printing prices in color -->
               <ion-col>
@@ -79,7 +79,7 @@
             <ion-row>
               <!-- Printing in black -->
                 <ion-col>
-                  <ion-label position="floating" >Black and white</ion-label>
+                  <ion-label  position="floating" >Black and white</ion-label>
                   </ion-col>
                   <!-- Printing prices in black -->
                   <ion-col>
@@ -100,7 +100,7 @@
 <ion-card>
     <ion-row>
         <ion-col>
-            <ion-label  position="floating" >Scanner</ion-label>
+            <ion-label class="labels"  position="floating" >Scanner</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -126,7 +126,7 @@
   <ion-card>
       <ion-row>
           <ion-col>
-              <ion-label  position="floating" >Fax</ion-label>
+              <ion-label class="labels" position="floating" >Fax</ion-label>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -152,7 +152,7 @@
     <ion-card>
         <ion-row>
             <ion-col>
-                <ion-label  position="floating" >Email</ion-label>
+                <ion-label class="labels" position="floating" >Email</ion-label>
             </ion-col>
           </ion-row>
           <ion-row>
@@ -178,13 +178,13 @@
        <ion-card>
           <ion-row>
               <ion-col>
-                  <ion-label  position="floating" >Binding</ion-label>
+                  <ion-label class="labels" position="floating" >Binding</ion-label>
               </ion-col>
             </ion-row>
             <ion-row>
               <!-- binging pages -->
             <ion-col>
-              <ion-label position="floating" > Price per page</ion-label>
+              <ion-label  position="floating" > Price per page</ion-label>
               </ion-col>
               <!-- binding price -->
               <ion-col>
@@ -202,7 +202,7 @@
           </ion-card> 
        
         <!-- <ion-button  class="submit-btn" type="submit" (click)="addService()">Save</ion-button> -->
-        <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Save</ion-button>
+        <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="addService()">Save</ion-button>
      
       </form>
   </ion-content>

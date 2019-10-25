@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { InternetCafe } from 'src/app/modules/internetCafe';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-service-list',
@@ -17,17 +18,15 @@ export class ServiceListPage implements OnInit {
   InternetCafe : InternetCafe
   key: any;
 
-  constructor( private afAuth : AngularFireAuth, private router:Router,public firestore: AngularFirestore,private route:ActivatedRoute) { 
+  constructor( private afAuth : AngularFireAuth, private navCtrl: NavController, private router:Router,public firestore: AngularFirestore,private route:ActivatedRoute) { 
 
-    //this.uid=this.afAuth.auth.currentUser.uid;
-    this.cafes = this.firestore.collection('localCafe', ref => ref.where("uid", "==" , "0HEwbk4ynnf9p2RrjwGNySe9MdC2")).snapshotChanges().subscribe(data =>{
+    this.uid=this.afAuth.auth.currentUser.uid;
+    this.cafes = this.firestore.collection('localCafe', ref => ref.where("uid", "==" , this.uid)).snapshotChanges().subscribe(data =>{
       this.cafeList = data.map( e =>{
         return{
-
           key: e.payload.doc.id,
           ...e.payload.doc.data()
         } as InternetCafe
-
       });
     })
    
@@ -45,5 +44,7 @@ export class ServiceListPage implements OnInit {
   addServices(InternetCafe){
     this.router.navigate(['/service-form'], { queryParams: {key:InternetCafe.key}});
   }
-
+  goToInternetCafePage(){
+    this.navCtrl.navigateForward('/internetCafe');
+  }
 }

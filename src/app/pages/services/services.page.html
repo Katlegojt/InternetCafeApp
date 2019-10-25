@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
+<<<<<<< HEAD
         <ion-menu-button autoHide="false"slot="start"></ion-menu-button>
         <img class="img" src="assets/logo.png"/>        
   </ion-toolbar>
@@ -115,18 +116,157 @@
                      </ion-row>
                 
              </ion-grid>
+=======
+    <ion-menu-button autoHide="false" slot="start"></ion-menu-button>
+    <img class="img" src="assets/logo.png" />
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>      
+        <ion-card> 
+          <ion-row>
+            <ion-col>
+                <ion-label  position="floating" >Internet Hours</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row >
+         
+          <ion-col>
+          Time in minutes
+              
+            </ion-col>
+            
+              <ion-col>
+                Price
+               
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of internetTime" >
+            <!-- internet hours -->
+          <ion-col>
+              {{item.Ihours}}
+              
+            </ion-col>
+            <!-- Internet prices -->
+              <ion-col>
+                  R {{item.Iprice}}
+               
+            </ion-col>
+          </ion-row>
+        </ion-card> 
+     
+        <ion-card>
+      <ion-list lines="none">
+      
+        
+         <!-- radios for color type -->
+         <ion-label position="floating" > Printing and Copying</ion-label>
+        
+         
+        </ion-list>
+        <ion-row>
+          <!-- Printing in color -->
+            <ion-col>
+              <ion-label position="floating" > Color</ion-label>
+              </ion-col>
+              <!-- Printing prices in color -->
+              <ion-col>
+                  R {{color}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <!-- Printing in black -->
+                <ion-col>
+                  <ion-label position="floating" >Black and white</ion-label>
+                  </ion-col>
+                  <!-- Printing prices in black -->
+                  <ion-col>
+                      R {{blkNWhite}}
+                  </ion-col>
+                </ion-row>
+>>>>>>> a30f855e6d8550b28e0c3585825287ce5949bfb5
            
-            </ion-card> -->
+          </ion-card>
+  </ion-grid>
+  
+<ion-card>
+    <ion-row>
+        <ion-col>
+            <ion-label  position="floating" >Scanner</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <!-- Scanning number of pages -->
+      <ion-col>
+        <ion-label position="floating" > Price per page</ion-label>
+        </ion-col>
+        <!-- scanning prices per page -->
+        <ion-col>
+            R {{scanner}}
+        </ion-col>
+      </ion-row>
+      
+    </ion-card>  
+    
+  <ion-card>
+      <ion-row>
+          <ion-col>
+              <ion-label  position="floating" >Fax</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <!-- fax pages -->
+        <ion-col>
+          <ion-label position="floating" > Price per page</ion-label>
+          </ion-col>
+          <!-- fax prices -->
+          <ion-col>
+              R {{fax}}
+          </ion-col>
+        </ion-row>
+        
+      </ion-card>
+      
+    <ion-card>
+        <ion-row>
+            <ion-col>
+                <ion-label  position="floating" >Email</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <!-- email pages -->
+          <ion-col>
+            <ion-label position="floating" > Price per page</ion-label>
+            </ion-col>
+            <!-- email price -->
+            <ion-col>
+                R {{email}}
+            </ion-col>
+          </ion-row>
+        
+        </ion-card> 
+        
+       <ion-card>
+          <ion-row>
+              <ion-col>
+                  <ion-label  position="floating" >Binding</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <!-- binging pages -->
+            <ion-col>
+              <ion-label position="floating" > Price per page</ion-label>
+              </ion-col>
+              <!-- binding price -->
+              <ion-col>
+                  R {{binding}}
+              </ion-col>
+            </ion-row>
+            
+          </ion-card>
+ 
 
-
-              <div >
-            <p>{{name}}</p>
-                </div>
-
-                
-  </ion-content>
-
-
-
-
-
+</ion-content>

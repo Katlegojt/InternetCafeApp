@@ -14,11 +14,16 @@
 <ion-content color="primary">
 <ion-card>
 <ion-list>
-  <div *ngFor="let item of cafeList " (click)="addServices(item)">
+  <div *ngFor="let item of cafeList ">
       <ion-item>
     {{item.name}}
+    <ion-button slot="end" size="small" fill="outline" (click)="addServices(item)">Add service</ion-button>
+    <ion-button slot="end" size="small" fill="outline" (click)="updateService(item)">Edit service</ion-button>
   </ion-item>
   </div>
 </ion-list>
+<ion-item lines="none"class="go-to-internetCafe">
+    Don't have internet cafe? <a (click)="goToInternetCafePage()">Add internet cafe.</a>
+  </ion-item>
 </ion-card>
 </ion-content>
