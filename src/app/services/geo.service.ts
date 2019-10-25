@@ -103,6 +103,6 @@ export class GeoService {
   getAGeopoints(address) {
     return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY')
   }
-
+  //'https://maps.googleapis.com/maps/api/geocode/json?address=JorissenSt,Sunnyside,Pretoria,0002&key=AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY'
 
 }
