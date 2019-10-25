@@ -171,8 +171,7 @@ name;
       );
       this.navCtrl.navigateForward('/service-list');
       } 
-      
-      
+  
    async openLoader() {
         const loading = await this.loadingCtrl.create({
           message: 'Picture loading ...',
