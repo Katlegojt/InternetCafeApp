@@ -21,6 +21,14 @@ export class RegisterPage implements OnInit {
       { type: 'required', message: 'Username is required.' },
       { type: 'pattern', message: 'Enter a valid username.' }
     ],
+    'Race': [
+      { type: 'required', message: 'ethnicity is required.' },
+      { type: 'pattern', message: 'Select a valid Race.' }
+    ],
+    'gender': [
+      { type: 'required', message: 'gender is required.' },
+      { type: 'pattern', message: 'Select a valid gender.' }
+    ],
    'email': [
      { type: 'required', message: 'Email is required.' },
      { type: 'pattern', message: 'Enter a valid email.' }
@@ -47,6 +55,14 @@ export class RegisterPage implements OnInit {
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
+      Race: new FormControl('', Validators.compose([
+        Validators.required,
+       
+      ])),
+      gender: new FormControl('', Validators.compose([
+        Validators.required,
+       
+      ])),
       password: new FormControl('', Validators.compose([
         Validators.minLength(5),
         Validators.required
@@ -63,6 +79,13 @@ export class RegisterPage implements OnInit {
     this.navCtrl.navigateForward('/login');
   }
 
-
+racee:string='';
+raceeChangeHandler(event: any){
+  this.racee=event.target.value;
+}
+gend:string='';
+gendChangeHandler(event: any){
+  this.gend=event.target.value;
+}
 
 }

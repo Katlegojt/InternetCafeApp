@@ -7,9 +7,10 @@
             <img src="assets/Background.png">
             <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
                 <ion-item>
-                    <ion-label  position="floating" color="primary">Username</ion-label>
+                    <ion-label  position="floating" color="primary">Full Name</ion-label>
                     <ion-input type="text" formControlName="username"></ion-input>
                   </ion-item>
+
                   <div class="validation-errors">
                     <ng-container *ngFor="let validation of validation_messages.username">
                       <div class="error-message" *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)">
@@ -17,6 +18,50 @@
                       </div>
                     </ng-container>
                   </div>
+
+
+                  ===========================
+                  <ion-item>
+                    <ion-label  position="floating" color="primary">Race</ion-label>
+                    <ion-input type="text" formControlName="Race"></ion-input>
+
+                    <ion-select>                    
+                      <ion-select-option id="black"  value="black"  (change)="raceeChangeHandler($event)">Black/African</ion-select-option>
+                      <ion-select-option id="White"  value="White"  (change)="raceeChangeHandler($event)">White</ion-select-option>
+                      <ion-select-option id="Coloured"  value="Coloured"  (change)="raceeChangeHandler($event)">Coloured</ion-select-option>
+                      <ion-select-option id="Indian"  value="Indian"  (change)="raceeChangeHandler($event)">Indian</ion-select-option>
+                      <ion-select-option id="blotherack"  value="other"  (change)="raceeChangeHandler($event)">other</ion-select-option>
+                  </ion-select>
+                  </ion-item>
+
+                  <!-- <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.Race">
+                      <div class="error-message" *ngIf="validations_form.get('Race').hasError(validation.type) && (validations_form.get('Race').dirty || validations_form.get('Race').touched)">
+                        {{ validation.message }}
+                      </div>
+                    </ng-container>
+                  </div> -->
+
+
+                  <ion-item>
+                    <ion-label  position="floating" color="primary">Gender</ion-label>
+                    <ion-input type="text" formControlName="gender"></ion-input>
+                    <ion-select>
+                      <ion-select-option id="female"  value="female" (change)="gendChangeHandler($event)">Female</ion-select-option>
+                      <ion-select-option id="male"  value="male" (change)="gendChangeHandler($event)">Male</ion-select-option>
+                      <ion-select-option  id="disclose"  value="disclose" (change)="gendChangeHandler($event)">Prefer not to answer</ion-select-option>
+                  </ion-select>
+                  </ion-item>
+                  <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.gender">
+                      <div class="error-message" *ngIf="validations_form.get('gender').hasError(validation.type) && (validations_form.get('gender').dirty || validations_form.get('gender').touched)">
+                        {{ validation.message }}
+                      </div>
+                    </ng-container>
+                  </div>
+
+
+
     
                 <ion-item>
                   <ion-label  position="floating" color="primary">Email</ion-label>
