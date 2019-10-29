@@ -111,6 +111,12 @@ objectA={
 
     this.navCtrl.navigateForward('/suggested-list');
   }
+<<<<<<< HEAD
+//   goToWebsite(){
+
+//      this.navCtrl.navigateForward("https://www.w3schools.com/html/")
+// }
+=======
   send() {
 
     if (this.text !== '') {
@@ -126,4 +132,5 @@ objectA={
     }
     
     }
+>>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
 }

@@ -27,7 +27,7 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
-    "@ionic-native/admob-free": "^5.15.1",
+    "@ionic-native/admob-free": "^4.20.0",
     "@ionic-native/camera": "^5.15.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/file-transfer": "^5.15.0",

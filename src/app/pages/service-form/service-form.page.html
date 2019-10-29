@@ -10,9 +10,14 @@
                 </ion-grid>
         <ion-back-button default-href="home" slot="start"></ion-back-button>
   </ion-toolbar>
-    
   </ion-header>
 
+<<<<<<< HEAD
+  <ion-content color="primary"> 
+    <form class="form" [formGroup]="validations_form"  (ngSubmit)="addService(validations_form.value)">
+     <ion-grid>      
+        <ion-card class="theCard"> 
+=======
   <ion-content> 
       <ion-grid>
           <ion-row justify-content-center>
@@ -20,6 +25,7 @@
     <form class="form" [formGroup]="validations_form"  (ngSubmit)="addService(validations_form.value)">
         
         <ion-card> 
+>>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
           <ion-row>
             <ion-col>
                 <ion-label class="labels" position="floating" >Internet Hours</ion-label>
@@ -54,7 +60,7 @@
         </div>
         </ion-card> 
      
-        <ion-card>
+        <ion-card class="theCard" >
           <ion-row>
           <ion-col>
          <ion-label class="labels" position="floating" > Printing and Copying</ion-label>
@@ -97,9 +103,13 @@
                 </ion-row>
            
           </ion-card>
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
   
-<ion-card>
+<ion-card class="theCard">
     <ion-row>
         <ion-col>
             <ion-label class="labels"  position="floating" >Scanner</ion-label>
@@ -125,7 +135,7 @@
       
     </ion-card>  
     
-  <ion-card>
+  <ion-card class="theCard">
       <ion-row>
           <ion-col>
               <ion-label class="labels" position="floating" >Fax</ion-label>
@@ -151,7 +161,7 @@
         
       </ion-card>
       
-    <ion-card>
+    <ion-card class="theCard">
         <ion-row>
             <ion-col>
                 <ion-label class="labels" position="floating" >Email</ion-label>
@@ -177,7 +187,7 @@
         
         </ion-card> 
         
-       <ion-card>
+       <ion-card class="theCard">
           <ion-row>
               <ion-col>
                   <ion-label class="labels" position="floating" >Binding</ion-label>
@@ -202,7 +212,12 @@
             </ion-row>
             
           </ion-card> 
+<<<<<<< HEAD
+        </ion-grid>
+       
+=======
                
+>>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
         <!-- <ion-button  class="submit-btn" type="submit" (click)="addService()">Save</ion-button> -->
         <ion-button expand="block" fill="outline" class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="addService()">Save</ion-button>
   
@@ -211,4 +226,4 @@
   </ion-row>
 </ion-grid>
   </ion-content>
-  
+      
