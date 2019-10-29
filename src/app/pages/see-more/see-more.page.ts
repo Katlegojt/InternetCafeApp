@@ -6,6 +6,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth'
 import * as firebase from 'firebase';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 
@@ -29,6 +30,9 @@ objectA={
   URL:'', 
 }
   itemList;
+  text: string;
+  uid: string;
+  chatRef: any;
   constructor(
     private navCtrl: NavController,
     private dataService: DataService,
@@ -37,7 +41,9 @@ objectA={
     private formBuilder: FormBuilder,
     public alertCtrl:AlertController,
     public afAuth: AngularFireAuth,
+    public firestore: AngularFirestore
   ) {
+   
 
    }
 
@@ -54,10 +60,13 @@ objectA={
       this.objectA.key=data.key;
       this.objectA.URL=data.URL;
 
+      this.uid = this.afAuth.auth.currentUser.uid;
+      this.chatRef = this.firestore.collection('comments', ref => ref.orderBy('Timestamp').where('key', '==', this.objectA.key )).valueChanges()
+      
     })
   }
   goToMapPage(){
-    this.navCtrl.navigateForward('/map2');
+    this.navCtrl.navigateForward('/map2', { queryParams: {key:this.objectA.key}});
   }
   goToPostsPage(){
     this.navCtrl.navigateForward('/posts');
@@ -88,7 +97,9 @@ objectA={
         }, {
           text: 'Post',
           handler: (data) => {
-            console.log(data.name);
+            this.text = data.comment;
+            this.send();
+            console.log(data.comment);
           }
         }
       ]
@@ -100,8 +111,26 @@ objectA={
 
     this.navCtrl.navigateForward('/suggested-list');
   }
+<<<<<<< HEAD
 //   goToWebsite(){
 
 //      this.navCtrl.navigateForward("https://www.w3schools.com/html/")
 // }
+=======
+  send() {
+
+    if (this.text !== '') {
+      this.firestore.collection('comments').add({
+        Name : this.afAuth.auth.currentUser.displayName,
+        Message : this.text,
+        UserID : this.afAuth.auth.currentUser.uid,
+        Timestamp : Date.now(),
+        key: this.objectA.key,
+    
+      });
+      this.text = '';
+    }
+    
+    }
+>>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
 }

@@ -12,10 +12,20 @@
   </ion-toolbar>
   </ion-header>
 
+<<<<<<< HEAD
   <ion-content color="primary"> 
     <form class="form" [formGroup]="validations_form"  (ngSubmit)="addService(validations_form.value)">
      <ion-grid>      
         <ion-card class="theCard"> 
+=======
+  <ion-content> 
+      <ion-grid>
+          <ion-row justify-content-center>
+              <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">  
+    <form class="form" [formGroup]="validations_form"  (ngSubmit)="addService(validations_form.value)">
+        
+        <ion-card> 
+>>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
           <ion-row>
             <ion-col>
                 <ion-label class="labels" position="floating" >Internet Hours</ion-label>
@@ -93,7 +103,11 @@
                 </ion-row>
            
           </ion-card>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
   
 <ion-card class="theCard">
     <ion-row>
@@ -198,11 +212,18 @@
             </ion-row>
             
           </ion-card> 
+<<<<<<< HEAD
         </ion-grid>
        
+=======
+               
+>>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
         <!-- <ion-button  class="submit-btn" type="submit" (click)="addService()">Save</ion-button> -->
-        <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="addService()">Save</ion-button>
-     
+        <ion-button expand="block" fill="outline" class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="addService()">Save</ion-button>
+  
       </form>
+    </ion-col>
+  </ion-row>
+</ion-grid>
   </ion-content>
       

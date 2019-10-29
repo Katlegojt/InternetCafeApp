@@ -43,10 +43,13 @@ export class ServiceListPage implements OnInit {
 
   addServices(InternetCafe){
     this.router.navigate(['/service-form'], { queryParams: {key:InternetCafe.key}});
+
   }
+
   updateService(InternetCafe){
     this.router.navigate(['/display'], { queryParams: {key:InternetCafe.key}});
   }
+ 
   goToInternetCafePage(){
     this.navCtrl.navigateForward('/internetCafe');
   }

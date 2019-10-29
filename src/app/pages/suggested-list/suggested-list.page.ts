@@ -66,6 +66,12 @@ export class SuggestedListPage implements OnInit {
     this.items = this.dataService.filterItems(searchTerm);
   }
 
+  pinLocation(item){
+    this.route.navigate(['/map2'],{queryParams:{
+      key : item.key
+      }})
+  }
+
   goToSeeMorePage(item){
    
     
