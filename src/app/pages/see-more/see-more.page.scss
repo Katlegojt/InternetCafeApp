@@ -78,8 +78,29 @@ color: #689ACA;
    
   }
 }
-.name{
+.name, .com{
   color: #689ACA;
+
+}
+.com{
+
+  text-align: start;
+  margin-left: 2%;
+}
+.comment{
+  background-color: #fff;
+ 
+}
+a{
+  text-decoration: none;
+}
+.theComment{
+  color: #689ACA;
+  margin-left: 2%;
+  text-align: start;
+ 
+  
+
 }
 // ------------------------------------------------------------------------------------------------------------------
 

@@ -25,6 +25,7 @@ export class SuggestedListPage implements OnInit {
     from:'',
     to:'',
     img:'',
+    url:'',
    
   }
 
@@ -65,6 +66,12 @@ export class SuggestedListPage implements OnInit {
     this.items = this.dataService.filterItems(searchTerm);
   }
 
+  pinLocation(item){
+    this.route.navigate(['/map2'],{queryParams:{
+      key : item.key
+      }})
+  }
+
   goToSeeMorePage(item){
    
     
@@ -77,7 +84,8 @@ export class SuggestedListPage implements OnInit {
           email:item.email,
           from:item.from,
           to: item.to,
-          img :item.img
+          img :item.img,
+          URL:item.URL
 
           }})
        

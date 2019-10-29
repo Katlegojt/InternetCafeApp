@@ -11,7 +11,7 @@
             <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
   </ion-toolbar>
  </ion-header>
-
+ 
 <ion-content color="primary" >
     <!-- <ion-row justify-content-center> -->
         <!-- <ion-col align-self-center size-md="6" size-lg="5" size-xs="12"> -->
@@ -21,7 +21,7 @@
                           <ion-col  *ngFor="let item of itemList" align-self-center size-md="6" size-lg="4" size-xs="12">
                             <ion-card class="ion-text-wrap">
                                   <ion-item lines="none">
-                                    <ion-icon name="pin" slot="start" routerLink="/map2"></ion-icon>
+                                    <ion-icon name="pin" slot="start" (click)="pinLocation(item)"></ion-icon>
                                     <ion-label>{{item.name}}</ion-label>
                                   </ion-item>
                                   <ion-card-content>

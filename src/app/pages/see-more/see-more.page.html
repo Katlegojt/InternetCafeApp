@@ -13,7 +13,7 @@
   </ion-toolbar>
  </ion-header>
 <ion-content color="secondary">
- 
+  
       <ion-grid>
           <ion-row justify-content-center>
             <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -23,9 +23,10 @@
                   <ion-grid>
                       <ion-row>
                         <ion-col>
+                          <a href="http://{{objectA.URL}}">
                             <ion-icon name="globe"  color="primary"></ion-icon><br>
                             <ion-label >Website</ion-label>
-    
+                          </a>
                         </ion-col>
                         <ion-col (click)="goToMapPage()">
                            <ion-icon name="compass" ></ion-icon><br> 
@@ -35,7 +36,7 @@
                            
                             <ion-icon name="book"></ion-icon><br>
                             <ion-label >Services</ion-label> 
-                        </ion-col>
+                        </ion-col>  
                         
                       </ion-row>
                       <ion-row justify-content-center>
@@ -73,113 +74,27 @@
                       </ion-row>
                     </ion-grid>
                    
-                    <!-- <br>
+                     <br>
                     
                           <ion-button  (click)="presentPrompt()"> Comments</ion-button>
-                          <p class="error">{{msg}}</p>
-                    <br> -->
-               
-              </ion-card-content>
-             
-                <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-                <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-                <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-               
-                <!-- <div class="container">
-                        <div id="carousel">
-                      <figure><img src="assets/cafe1.jpg" alt=""></figure>
-                      <figure><img src="assets/cafe2.jpg" alt=""></figure>
-                      <figure><img src="assets/cafe3.jpg" alt=""></figure>
-                      <figure><img src="assets/cafe4.jpeg" alt=""></figure>
-                      <figure><img src="assets/cafe1.jpg" alt=""></figure>
-                      <figure><img src="assets/cafe2.jpg" alt=""></figure>
-                      <figure><img src="assets/cafe3.jpg" alt=""></figure>
-                      <figure><img src="assets/cafe4.jpeg" alt=""></figure>
-                      <figure><img src="assets/cafe1.jpg" alt=""></figure>
+                          <!-- <div *ngFor="let chat of chatRef | async">
+                          <p class="error"> {{chat.Message}}</p></div> -->
+                    <br>
+                    <div class="comment"style="height:100px;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+                      <div *ngFor="let chat of chatRef | async">
+                         
+                      <p class="com"> <strong>{{chat.Name}} :</strong></p>
+                      <p class="theComment">  {{chat.Message}}</p>
+                  
+                  </div>
                     </div>
-                   
-                  </div> -->
-                  <ul class="slides">
-                      <input type="radio" name="radio-btn" id="img-1" checked />
-                      <li class="slide-container">
-                      <div class="slide">
-                        <img src= "{{objectA.img}}"/>
-                          </div>
-                      <div class="nav">
-                        <label for="img-6" class="prev"></label>
-                        <label for="img-2" class="next"></label>
-                      </div>
-                      </li>
-                  
-                      <!-- <input type="radio" name="radio-btn" id="img-2" />
-                      <li class="slide-container">
-                          <div class="slide">
-                            <img src="http://farm9.staticflickr.com/8504/8365873811_d32571df3d_z.jpg" />
-                          </div>
-                      <div class="nav">
-                        <label for="img-1" class="prev">&#x2039;</label>
-                        <label for="img-3" class="next">&#x203a;</label>
-                      </div>
-                      </li>
-                  
-                      <input type="radio" name="radio-btn" id="img-3" />
-                      <li class="slide-container">
-                          <div class="slide">
-                            <img src="http://farm9.staticflickr.com/8068/8250438572_d1a5917072_z.jpg" />
-                          </div>
-                      <div class="nav">
-                        <label for="img-2" class="prev">&#x2039;</label>
-                        <label for="img-4" class="next">&#x203a;</label>
-                      </div>
-                      </li>
-                  
-                      <input type="radio" name="radio-btn" id="img-4" />
-                      <li class="slide-container">
-                          <div class="slide">
-                            <img src="http://farm9.staticflickr.com/8061/8237246833_54d8fa37f0_z.jpg" />
-                          </div>
-                      <div class="nav">
-                        <label for="img-3" class="prev">&#x2039;</label>
-                        <label for="img-5" class="next">&#x203a;</label>
-                      </div>
-                      </li>
-                  
-                      <input type="radio" name="radio-btn" id="img-5" />
-                      <li class="slide-container">
-                          <div class="slide">
-                            <img src="http://farm9.staticflickr.com/8055/8098750623_66292a35c0_z.jpg" />
-                          </div>
-                      <div class="nav">
-                        <label for="img-4" class="prev">&#x2039;</label>
-                        <label for="img-6" class="next">&#x203a;</label>
-                      </div>
-                      </li>
-                  
-                      <input type="radio" name="radio-btn" id="img-6" />
-                      <li class="slide-container">
-                          <div class="slide">
-                            <img src="http://farm9.staticflickr.com/8195/8098750703_797e102da2_z.jpg" />
-                          </div>
-                      <div class="nav">
-                        <label for="img-5" class="prev">&#x2039;</label>
-                        <label for="img-1" class="next">&#x203a;</label>
-                      </div>
-                      </li>
-                  
-                      <li class="nav-dots">
-                        <label for="img-1" class="nav-dot" id="img-dot-1"></label>
-                        <label for="img-2" class="nav-dot" id="img-dot-2"></label>
-                        <label for="img-3" class="nav-dot" id="img-dot-3"></label>
-                        <label for="img-4" class="nav-dot" id="img-dot-4"></label>
-                        <label for="img-5" class="nav-dot" id="img-dot-5"></label>
-                        <label for="img-6" class="nav-dot" id="img-dot-6"></label>
-                      </li> -->
-                  </ul>
-                  <br><br>
+              </ion-card-content>
+            
             </ion-col>
           </ion-row>
           <br>
         </ion-grid>
+
  
 </ion-content>
 

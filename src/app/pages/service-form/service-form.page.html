@@ -14,8 +14,11 @@
   </ion-header>
 
   <ion-content> 
+      <ion-grid>
+          <ion-row justify-content-center>
+              <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">  
     <form class="form" [formGroup]="validations_form"  (ngSubmit)="addService(validations_form.value)">
-     <ion-grid>      
+        
         <ion-card> 
           <ion-row>
             <ion-col>
@@ -52,12 +55,12 @@
         </ion-card> 
      
         <ion-card>
-      <ion-row>
-        <ion-col>
+          <ion-row>
+          <ion-col>
          <ion-label class="labels" position="floating" > Printing and Copying</ion-label>
         </ion-col>
         </ion-row>
-       
+        
         <ion-row>
           <!-- Printing in color -->
             <ion-col>
@@ -94,7 +97,7 @@
                 </ion-row>
            
           </ion-card>
-  </ion-grid>
+  
   
 <ion-card>
     <ion-row>
@@ -199,10 +202,13 @@
             </ion-row>
             
           </ion-card> 
-       
+               
         <!-- <ion-button  class="submit-btn" type="submit" (click)="addService()">Save</ion-button> -->
-        <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="addService()">Save</ion-button>
-     
+        <ion-button expand="block" fill="outline" class="submit-btn" type="submit"  [disabled]="!validations_form.valid" (click)="addService()">Save</ion-button>
+  
       </form>
+    </ion-col>
+  </ion-row>
+</ion-grid>
   </ion-content>
   

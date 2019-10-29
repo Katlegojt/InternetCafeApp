@@ -6,6 +6,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth'
 import * as firebase from 'firebase';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 
@@ -26,8 +27,12 @@ objectA={
   from:'',
   to:'',
   img:'',
+  URL:'', 
 }
   itemList;
+  text: string;
+  uid: string;
+  chatRef: any;
   constructor(
     private navCtrl: NavController,
     private dataService: DataService,
@@ -36,7 +41,9 @@ objectA={
     private formBuilder: FormBuilder,
     public alertCtrl:AlertController,
     public afAuth: AngularFireAuth,
+    public firestore: AngularFirestore
   ) {
+   
 
    }
 
@@ -51,13 +58,15 @@ objectA={
       this.objectA.to=data.to;
       this.objectA.img=data.img;
       this.objectA.key=data.key;
+      this.objectA.URL=data.URL;
 
-
+      this.uid = this.afAuth.auth.currentUser.uid;
+      this.chatRef = this.firestore.collection('comments', ref => ref.orderBy('Timestamp').where('key', '==', this.objectA.key )).valueChanges()
       
     })
   }
   goToMapPage(){
-    this.navCtrl.navigateForward('/map2');
+    this.navCtrl.navigateForward('/map2', { queryParams: {key:this.objectA.key}});
   }
   goToPostsPage(){
     this.navCtrl.navigateForward('/posts');
@@ -68,7 +77,6 @@ objectA={
    async presentPrompt() {
     const alert = await this.alertCtrl.create({
       header: 'Comment here',
-      message: 'Message <strong>text</strong>!!!',
       inputs: [
                 {
                   type:'text',
@@ -88,7 +96,9 @@ objectA={
         }, {
           text: 'Post',
           handler: (data) => {
-            console.log(data.name);
+            this.text = data.comment;
+            this.send();
+            console.log(data.comment);
           }
         }
       ]
@@ -100,4 +110,25 @@ objectA={
 
     this.navCtrl.navigateForward('/suggested-list');
   }
+  send() {
+
+    if (this.text !== '') {
+      this.firestore.collection('comments').add({
+        Name : this.afAuth.auth.currentUser.displayName,
+        Message : this.text,
+        UserID : this.afAuth.auth.currentUser.uid,
+        Timestamp : firebase.firestore.FieldValue.serverTimestamp(),
+        key: this.objectA.key,
+    
+      });
+      this.text = '';
+    }
+    
+    }
+    logOut(){
+
+      this.afAuth.auth.signOut();
+      this.navCtrl.navigateForward('/login');
+      
+    }
 }
