@@ -15,11 +15,7 @@ import {  AngularFireDatabaseModule} from 'angularfire2/database'
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthenticationService } from './services/authentication.service';
-<<<<<<< HEAD
-// import { AdmobfreeService } from './services/admobfree.service';
-=======
 //import { AdmobfreeService } from './services/admobfree.service';
->>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
 // C:\Users\codetribe\Desktop\Project\InternetCafeApp\src\app\services\admobfree.service.ts
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -51,11 +47,7 @@ firebase.initializeApp(firebaseConfig);
     apiKey: ''           
   }),MatGoogleMapsAutocompleteModule, BrowserAnimationsModule, HttpClientModule],
   providers: [
-<<<<<<< HEAD
     // AdmobfreeService,
-=======
-    
->>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
     StatusBar,AngularFireAuth,
     SplashScreen,AuthenticationService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
