@@ -6,6 +6,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { GeoService } from 'src/app/services/geo.service';
 import { service } from 'src/app/modules/service';
 import * as firebase from 'firebase';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from 'src/app/modules/User';
 @Component({
   selector: 'app-add-internet-cafe',
   templateUrl: './add-internet-cafe.page.html',
@@ -62,7 +64,8 @@ name;
   longitude: any;
   id;
   id1;
-  
+  uid: string;
+  user={}as User;
  
   constructor(
     private navCtrl: NavController,
@@ -70,10 +73,22 @@ name;
     private formBuilder: FormBuilder,
     private geoService : GeoService,
     public afAuth: AngularFireAuth,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    private db:AngularFirestore
     
   ) {
-    //this.getGeopoints('540 Paul kruger street, pretoria','name','phone','email','url','from','to');
+    this.db.collection("users").doc(this.afAuth.auth.currentUser.uid)
+    .get().subscribe((doc)  =>{
+      if (doc.exists) {
+        console.log("Document data:", doc.data());
+       this.user.ethnicity = doc.data().ethnicity;
+       this.user.gender = doc.data().gender;
+       this.user.username = doc.data().username;
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    });
     this.latitude=0;
     this.longitude=0;
   }
@@ -175,6 +190,7 @@ name;
 
   getGeopoints(address,name,phone,email,url,from,to){   
    let service = {} as service
+   
     this.geoService.getAGeopoints(address).subscribe(data => {
 
 
@@ -188,7 +204,7 @@ name;
           this.info = data.results;
           this.latitude = this.info[0].geometry.location.lat;
           this.longitude =this.info[0].geometry.location.lng;
-          this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service);
+          this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service,this.user);
           this.navCtrl.navigateForward('/service-list');
 
         }catch(err){
@@ -200,12 +216,6 @@ name;
 
       }
       
-      
-      
-      // console.log(data.results[0].geometry.location),
-      //  this.latitude = data.results[0].geometry.location.lat,
-      //  this.longitude = data.results[0].geometry.location.lng,
-      //  this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)}
     });
      this.navCtrl.navigateForward('/service-list');
       } 
