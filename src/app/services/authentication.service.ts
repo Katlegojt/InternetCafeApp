@@ -122,7 +122,8 @@ get windowRef() {
                 username : user.username,
                 email : user.email,
                 UserID: firebase.auth().currentUser.uid,
-                profilepic: "",
+                ethnicity : user.ethnicity ,
+                gender:user.gender ,
               });
   
               localStorage.setItem('userid', firebase.auth().currentUser.uid);

@@ -14,7 +14,7 @@ export class RegisterPage implements OnInit {
   validations_form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
-  user = {} as User
+
  
   validation_messages = {
     'username': [
@@ -44,7 +44,9 @@ export class RegisterPage implements OnInit {
     private navCtrl: NavController,
     private authService: AuthenticationService,
     private formBuilder: FormBuilder
-  ) {}
+  ) {
+   
+  }
 
   ngOnInit(){
     this.validations_form = this.formBuilder.group({
