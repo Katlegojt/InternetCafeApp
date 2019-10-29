@@ -174,16 +174,6 @@ name;
 
 
   getGeopoints(address,name,phone,email,url,from,to){   
-<<<<<<< HEAD
-  //  let service = {} as service
-  //   this.geoService.getAGeopoints(address).subscribe(data => {console.log(data.results[0].geometry.location),
-  //      this.latitude = data.results[0].geometry.location.lat,
-  //      this.longitude = data.results[0].geometry.location.lng,
-  //      this.id = this.geoService.setALocation(this.latitude,this.longitude,address,name,phone,email,url,from,to,this.imageUrl,service)},
-  //     );
-      this.navCtrl.navigateForward('/service-list');
-      } 
-=======
    let service = {} as service
     this.geoService.getAGeopoints(address).subscribe(data => {
 
@@ -209,7 +199,6 @@ name;
         }
 
       }
->>>>>>> 195e45135303b3ec56dcd6057d4dac4b55a4f73e
       
       
       
