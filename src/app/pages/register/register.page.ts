@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/modules/User';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ export class RegisterPage implements OnInit {
   validations_form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
+  selectedFile: File;
 
  
   validation_messages = {
@@ -21,13 +23,14 @@ export class RegisterPage implements OnInit {
       { type: 'required', message: 'Username is required.' },
       { type: 'pattern', message: 'Enter a valid username.' }
     ],
-    'Race': [
-      { type: 'required', message: 'ethnicity is required.' },
-      { type: 'pattern', message: 'Select a valid Race.' }
-    ],
+    
     'gender': [
       { type: 'required', message: 'gender is required.' },
       { type: 'pattern', message: 'Select a valid gender.' }
+    ],
+    'race': [
+      { type: 'required', message: 'race is required.' },
+      { type: 'pattern', message: 'Enter a valid race .' }
     ],
    'email': [
      { type: 'required', message: 'Email is required.' },
@@ -38,6 +41,8 @@ export class RegisterPage implements OnInit {
      { type: 'minlength', message: 'Password must be at least 5 characters long.' }
    ]
  };
+  imageUrl: any;
+  
  
   constructor(
     private navCtrl: NavController,
@@ -57,13 +62,15 @@ export class RegisterPage implements OnInit {
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
-      Race: new FormControl('', Validators.compose([
-        Validators.required,
-       
-      ])),
+      
+     
       gender: new FormControl('', Validators.compose([
         Validators.required,
        
+      ])),
+      race: new FormControl('', Validators.compose([
+
+        Validators.required
       ])),
       password: new FormControl('', Validators.compose([
         Validators.minLength(5),
@@ -81,13 +88,16 @@ export class RegisterPage implements OnInit {
     this.navCtrl.navigateForward('/login');
   }
 
-racee:string='';
-raceeChangeHandler(event: any){
-  this.racee=event.target.value;
-}
-gend:string='';
-gendChangeHandler(event: any){
-  this.gend=event.target.value;
+  //getting selected type of gender
+gender:string='';
+genderChangeHandler(event: any){
+  this.gender=event.target.value;
 }
 
+//getting selected type of race
+      race:string='';
+      raceChangeHandler(event: any){
+        this.race=event.target.value;
+      }
+  
 }

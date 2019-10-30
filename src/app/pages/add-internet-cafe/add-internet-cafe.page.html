@@ -27,7 +27,7 @@
     </label>
     <input id="file-input" type="file"/> -->
     <ion-icon (click)="input.click()" name="camera" fill="clear" ></ion-icon>
-    <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+    <input type="file" (change)="onUpload($event)" #input />
     <!-- <input style="display: none" type="file" (change)="onUpload($event)" #input> -->
 </div>
 
