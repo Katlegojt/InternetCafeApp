@@ -5,6 +5,8 @@
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
             <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
             <img src="assets/Background.png">
+
+            
             <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
                 <ion-item>
                     <ion-label  position="floating" color="primary">Full Name</ion-label>
@@ -18,30 +20,15 @@
                     </ng-container>
                   </div>
 
-
-                
-                  <!-- <ion-item>
-                    <ion-label  position="floating" color="primary">Race</ion-label>
-                    <ion-input type="text" formControlName="Race"></ion-input>
-
-                    <ion-select id="Race">                    
-                      <ion-select-option id="black"  value="black"  name="race" (change)="raceChangeHandler($event)"formControlName="race">Black/African</ion-select-option>
-                      <ion-select-option id="White"  value="White"  name="race" (change)="raceChangeHandler($event)"formControlName="race">White</ion-select-option>
-                      <ion-select-option id="Coloured"  value="Coloured"  name="race" (change)="raceChangeHandler($event)"formControlName="race">Coloured</ion-select-option>
-                      <ion-select-option id="Indian"  value="Indian"  name="race" (change)="raceChangeHandler($event)"formControlName="race">Indian</ion-select-option>
-                      <ion-select-option id="blotherack"  value="other"  name="race" (change)="raceChangeHandler($event)"formControlName="race">other</ion-select-option>
-                  </ion-select>
-                  </ion-item> -->
-                  
                  <!-- race -->
                   <ion-item>
                     <ion-label color="primary">Race:  </ion-label><br>
-                      <input type="radio" id="Black"value="Black" name="race" (change)="raceChangeHandler($event)"formControlName="race">
+                      <input type="radio" id="Black"value="Black" name="race" (change)="raceChangeHandler($event)"formControlName="race" checked>
                       Black
                     <br>
-                      <input type="radio" id="White" value="White" name="race" (change)="raceChangeHandler($event)"formControlName="race">
+                      <input type="radio" id="White" value="White" name="race" (change)="raceChangeHandler($event)"formControlName="race" checked>
                       White
-                      
+                      <br>
                       <input type="radio" id="Coloured" value="Coloured" name="race" (change)="raceChangeHandler($event)"formControlName="race">
                       Coloured
                    
@@ -49,47 +36,17 @@
                 </ion-item>
                 <!-- gender -->
                 <ion-item>
-                    <ion-label color="primary">Gender:  </ion-label><br>
-                      
+                    <ion-label color="primary">Gender:  </ion-label><br>                     
                       <input type="radio" id="male" value="male" name="gender" (change)="genderChangeHandler($event)"formControlName="gender">
-                      Male
+                      Male<br>
                       
                       <input type="radio" id="female" value="female" name="gender" (change)="genderChangeHandler($event)"formControlName="gender">
-                     Female
-                   
-                  
+                     Female                   
                 </ion-item>
-                  <!-- <div class="validation-errors">
-                    <ng-container *ngFor="let validation of validation_messages.Race">
-                      <div class="error-message" *ngIf="validations_form.get('Race').hasError(validation.type) && (validations_form.get('Race').dirty || validations_form.get('Race').touched)">
-                        {{ validation.message }}
-                      </div>
-                    </ng-container>
-                  </div> -->
+              
 
-<!-- 
-                  <ion-item>
-                    <ion-label  position="floating" color="primary">Gender</ion-label>
-                    <ion-input type="text" formControlName="gender"></ion-input>
-                    <ion-select id="gender">
-                      <ion-select-option id="female"  value="female" (change)="gendChangeHandler($event)">Female</ion-select-option>
-                      <ion-select-option id="male"  value="male" (change)="gendChangeHandler($event)">Male</ion-select-option>
-                      <ion-select-option  id="disclose"  value="disclose" (change)="gendChangeHandler($event)">Prefer not to answer</ion-select-option>
-                  </ion-select>
-                  </ion-item> -->
+            
 
-
-                  <!-- <div class="validation-errors">
-                    <ng-container *ngFor="let validation of validation_messages.gender">
-                      <div class="error-message" *ngIf="validations_form.get('gender').hasError(validation.type) && (validations_form.get('gender').dirty || validations_form.get('gender').touched)">
-                        {{ validation.message }}
-                      </div>
-                    </ng-container>
-                  </div> -->
-
-
-
-    
                 <ion-item>
                   <ion-label  position="floating" color="primary">Email</ion-label>
                   <ion-input type="text" formControlName="email"></ion-input>
