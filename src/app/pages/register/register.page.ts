@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/modules/User';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ export class RegisterPage implements OnInit {
   validations_form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
+  selectedFile: File;
 
  
   validation_messages = {
@@ -39,6 +41,8 @@ export class RegisterPage implements OnInit {
      { type: 'minlength', message: 'Password must be at least 5 characters long.' }
    ]
  };
+  imageUrl: any;
+  
  
   constructor(
     private navCtrl: NavController,
@@ -95,5 +99,7 @@ genderChangeHandler(event: any){
       raceChangeHandler(event: any){
         this.race=event.target.value;
       }
-
+  
 }
+
+

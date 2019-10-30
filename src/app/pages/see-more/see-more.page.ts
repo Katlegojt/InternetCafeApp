@@ -110,6 +110,10 @@ objectA={
 
     this.navCtrl.navigateForward('/suggested-list');
   }
+//   goToWebsite(){
+
+//      this.navCtrl.navigateForward("https://www.w3schools.com/html/")
+// }
   send() {
 
     if (this.text !== '') {

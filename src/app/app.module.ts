@@ -47,7 +47,7 @@ firebase.initializeApp(firebaseConfig);
     apiKey: ''           
   }),MatGoogleMapsAutocompleteModule, BrowserAnimationsModule, HttpClientModule],
   providers: [
-    
+    // AdmobfreeService,
     StatusBar,AngularFireAuth,
     SplashScreen,AuthenticationService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
