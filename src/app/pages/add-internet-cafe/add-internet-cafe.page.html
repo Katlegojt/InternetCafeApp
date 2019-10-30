@@ -7,7 +7,7 @@
         </ion-col>
         </ion-row>
         </ion-grid>
-        <ion-back-button default-href="" slot="start"></ion-back-button>
+        <ion-back-button default-href="/suggested-list" slot="start"></ion-back-button>
             <ion-icon slot="end" name="log-out"(click)="logOut()"></ion-icon>
   </ion-toolbar>
 </ion-header>
@@ -19,19 +19,17 @@
               <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
               
 <img class="img-circle"src="{{imageUrl}}">
-`<br>
+<br>
  
 <div class="image-upload">
     <!-- <label for="file-input">
         <ion-icon class="upload"name="camera" (click)="upload()"></ion-icon>
     </label>
     <input id="file-input" type="file"/> -->
-    <ion-icon (click)="input.click()" name="camera" fill="clear"></ion-icon>
-    <input style="display: none" type="file" (change)="onUpload($event)" #input>
+    <ion-icon (click)="input.click()" name="camera" fill="clear" ></ion-icon>
+    <input type="file" (change)="upload($event)" #input/>
+    <!-- <input style="display: none" type="file" (change)="onUpload($event)" #input> -->
 </div>
-
-
-
 
 
               <form class="form" [formGroup]="validations_form" >

@@ -25,10 +25,10 @@ export class ServicesPage implements OnInit {
 
   constructor(private db:AngularFirestore, private route:ActivatedRoute) { 
 
-  //   this.db.collection('localCafe').snapshotChanges().subscribe(data =>{
-  //     data.forEach(item=>{ 
-  //   });
-  // });
+    this.db.collection('localCafe').snapshotChanges().subscribe(data =>{
+      data.forEach(item=>{ 
+    });
+  });
 
    
   console.log(this.internetTime);

@@ -57,11 +57,11 @@ export class GeoService {
   }
 
   //set point to a firestore collection
-  setALocation(lat, lng, address, name, phone, email, url, from, to, img, service) {
+  setALocation(lat, lng, address, name, phone, email, url, from, to, img, service, user) {
    
     this.point = this.geo.point(lat, lng);
       this.cities = this.firestore.collection('localCafe').add({ URL: url, address: address, from: from, to: to, email: email, name: name, phone: phone
-        ,position: this.point.data, img: img, uid:this.afAuth.auth.currentUser.uid, service:service})
+        ,position: this.point.data, img: img, uid:this.afAuth.auth.currentUser.uid, service:service, user:user})
         .then(docRef => {
           console.log("Document written with ID: ", docRef.id);
           this.docId = docRef.id;
