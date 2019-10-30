@@ -79,8 +79,8 @@ export class RegisterPage implements OnInit {
     });
   }
  
-  tryRegister(value){
-    this.authService.signup(value)
+  tryRegister(name,email,password,gender,race){
+    this.authService.signup(name,gender,email,password,race)
      
   }
  
