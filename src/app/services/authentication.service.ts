@@ -3,6 +3,7 @@ import { AlertController, NavController } from '@ionic/angular';
 import * as firebase from "firebase"
 import { User } from '../modules/User';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 interface user {
 	username: string,
@@ -22,7 +23,7 @@ export class AuthenticationService {
   applicationVerifier:any;
   provider:any;
   private user: user
-  constructor(public alertCtrl:AlertController,  private db: AngularFirestore,public navCtrl: NavController) { }
+  constructor(public alertCtrl:AlertController,  private db: AngularFirestore,public navCtrl: NavController,private afAuth: AngularFireAuth ) { }
   // registerUser(value){
   //   return new Promise<any>((resolve, reject) => {
   //     firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
@@ -124,9 +125,12 @@ get windowRef() {
                 UserID: firebase.auth().currentUser.uid,
                 ethnicity : ethnicity ,
                 gender:gender ,
+                
               }).then(() => {
                 this.navCtrl.navigateRoot('/login');
-  
+                this.afAuth.auth.currentUser.updateProfile({
+                  displayName : name,
+                })
               }).catch(err => {
                 alert(err.message);
               });

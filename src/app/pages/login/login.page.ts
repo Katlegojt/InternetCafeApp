@@ -78,7 +78,7 @@ export class LoginPage implements OnInit {
       }
     )
   }
-  facebookLogin(value){
+  facebookLogin(){
     this.authService.facebookLogin()
     .then(
       res=>{
