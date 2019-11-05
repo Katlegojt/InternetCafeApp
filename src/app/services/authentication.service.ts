@@ -116,21 +116,14 @@ get windowRef() {
     return firebase.auth().currentUser;
   }
           // sign up
-  signup(user: User) {
-            firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then((credential) => {
+  signup(name, gender, email, password, ethnicity ){
+            firebase.auth().createUserWithEmailAndPassword(email,password).then((credential) => {
               this.db.collection('users').doc(credential.user.uid).set({
-                username : user.username,
-                email : user.email,
+                username : name,
+                email : email,
                 UserID: firebase.auth().currentUser.uid,
-                ethnicity : user.ethnicity ,
-                gender:user.gender ,
-              });
-  
-              localStorage.setItem('userid', firebase.auth().currentUser.uid);
-              firebase.auth().currentUser.updateProfile({
-                displayName : user.username,
-                photoURL: '',
-  
+                ethnicity : ethnicity ,
+                gender:gender ,
               }).then(() => {
                 this.navCtrl.navigateRoot('/login');
   

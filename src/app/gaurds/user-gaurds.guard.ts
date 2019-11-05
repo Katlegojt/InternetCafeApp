@@ -25,8 +25,8 @@ export class UserGaurdsGuard implements  CanActivate {
   }
   async presentPrompt() {
     const alert = await this.alertCtrl.create({
-      header: 'Access denied',
-      message: 'To access more information, you have to log in first',
+      header: '',
+      message: 'To access more information, you have to be logged in',
      
       buttons: [
         {

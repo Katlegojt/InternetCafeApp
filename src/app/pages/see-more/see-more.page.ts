@@ -132,7 +132,7 @@ objectA={
     logOut(){
 
       this.afAuth.auth.signOut();
-      this.navCtrl.navigateForward('/login');
+      // this.navCtrl.navigateForward('/login');
       
     }
 }

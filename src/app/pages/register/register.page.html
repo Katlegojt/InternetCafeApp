@@ -7,7 +7,7 @@
             <img src="assets/Background.png">
 
             
-            <form class="form" [formGroup]="validations_form"  (ngSubmit)="tryRegister(validations_form.value)">
+            <form class="form" [formGroup]="validations_form"  >
                 <ion-item>
                     <ion-label  position="floating" color="primary">Full Name</ion-label>
                     <ion-input type="text" formControlName="username"></ion-input>
@@ -23,7 +23,7 @@
                  <!-- race -->
                   <ion-item class="radio">
                     <ion-label color="primary">Race:  </ion-label><br>
-                      <input type="radio" id="Black"value="Black" name="race" (change)="raceChangeHandler($event)"formControlName="race" checked>
+                      <input type="radio" id="Black"value="Black" name="race" (change)="raceChangeHandler($event)"formControlName="race" >
                       Black
                     <br>
                       <input  type="radio" id="White" value="White" name="race" (change)="raceChangeHandler($event)"formControlName="race">
@@ -73,7 +73,7 @@
                 </div>
              
                 
-                <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Register</ion-button>
+                <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid"(click)="tryRegister(validations_form.value.username, validations_form.value.email,validations_form.value.password,validations_form.value.gender,validations_form.value.race)" >Register</ion-button>
                 <label class="error-message">{{errorMessage}}</label>
                 <label class="success-message">{{successMessage}}</label>
             
